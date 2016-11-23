@@ -83,9 +83,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " colorschemes
-Plug 'flazz/vim-colorschemes'
 Plug 'rakr/vim-one'
-Plug 'trevordmiller/nova-vim'
 Plug 'reedes/vim-colors-pencil', { 'for': ['markdown', 'mkd', 'md', 'tex'] }
 
 " syntastic
