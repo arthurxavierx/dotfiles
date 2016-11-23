@@ -50,7 +50,7 @@ set hidden
 " VIM-PLUG SETUP {{{
 
 " Automatic installation {{{
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.vim/autoload/plug.vim')) && empty(glob('~/vimfiles/autoload/plug.vim'))
     silent !mkdir -p ~/.vim/autoload
     silent !curl -fLo ~/.vim/autoload/plug.vim
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -146,8 +146,10 @@ endif
 
 let g:one_allow_italics = 1
 set background=dark
-colorscheme one
-let g:airline_theme='one'
+if (has("nvim")) || has("termguicolors") || has("gui_macvim")
+  colorscheme one
+  let g:airline_theme='one'
+endif
 " }}}
 
 " filetype Setup {{{
@@ -235,9 +237,11 @@ nnoremap <silent> <S-right>  :vertical resize +10<CR>
 nnoremap <silent> <S-left>   :vertical resize -10<CR>
 
 " Terminal mode
-tnoremap <Esc>         <C-\><C-n>
-tnoremap <C-h>         <C-\><C-n>:bprevious<CR>
-tnoremap <C-l>         <C-\><C-n>:bnext<CR>
+if (has("nvim"))
+  tnoremap <Esc>         <C-\><C-n>
+  tnoremap <C-h>         <C-\><C-n>:bprevious<CR>
+  tnoremap <C-l>         <C-\><C-n>:bnext<CR>
+endif
 " }}}
 
 " vim-airline Setup {{{
