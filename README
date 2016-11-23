@@ -1,0 +1,10 @@
+   _       _    ___  _  _
+ _| | ___ | |_ |  _||_|| | ___  ___
+| . || . ||  _||  _|| || || -_||_ -|
+|___||___||_|  |_|  |_||_||___||___|
+
+git clone https://github.com/arthur-xavier/dotfiles.git
+cd dotfiles
+sh -C install.sh
+
+Inspired by https://github.com/skwp/dotfiles
