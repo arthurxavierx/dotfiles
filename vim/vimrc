@@ -1,0 +1,54 @@
+set nocompatible
+
+syntax enable
+filetype on
+filetype plugin indent on
+set showcmd
+
+set number
+set showmatch
+set title
+set visualbell
+set noerrorbells
+set nobackup
+set noswapfile
+set list lcs=trail:·,tab:»»
+set foldmethod=marker
+
+set conceallevel=0
+
+set mouse=
+if has("termguicolors") && has("nvim")
+  set t_8f=u;%lu;%lum
+  set t_8b=u;%lu;%lum
+  set termguicolors
+endif
+
+" spacing
+set nowrap
+set tabstop=2 shiftwidth=2
+set expandtab
+set backspace=indent,eol,start
+set eol
+set autoindent
+set copyindent
+set smarttab
+
+" casing
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" hidden buffers
+set hidden
+
+"
+source ~/Workspace/dotfiles/vim/plugins.vim
+source ~/Workspace/dotfiles/vim/keys.vim
+source ~/Workspace/dotfiles/vim/colors.vim
+source ~/Workspace/dotfiles/vim/filetypes.vim
+source ~/Workspace/dotfiles/vim/complete.vim
+source ~/Workspace/dotfiles/vim/purescript.vim
+source ~/Workspace/dotfiles/vim/writing.vim
+source ~/Workspace/dotfiles/vim/visual-at.vim
