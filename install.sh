@@ -99,6 +99,7 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 symlink "atom/keymap.cson" ".atom/keymap.cson"
 symlink "vim/vimrc" ".vimrc"
 symlink "vim/vimrc" ".config/nvim/init.vim"
+symlink "editorconfig" ".editorconfig"
 
 echo ""
 print_success "Done."
