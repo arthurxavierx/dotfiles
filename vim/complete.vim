@@ -7,6 +7,7 @@ endif
 
 augroup omnicomplete
   autocmd!
+  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
@@ -22,15 +23,19 @@ if (has("nvim"))
   let g:deoplete#delimiters = ['/', '.', '::', ':', '#', '->']
   let g:deoplete#sources = {}
   let g:deoplete#sources._ = ['omni', 'buffer', 'member', 'tag', 'file']
-  if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-  endif
+
+  let g:deoplete#omni#input_patterns = {}
   let g:deoplete#omni#input_patterns.purescript = 'import\s+\w*|[^. *\t]'
-  let g:deoplete#omni_patterns = {}
+  let g:deoplete#omni#input_patterns.cs = 'using\s+\w*|\.*[^=\);]|\w*'
+  let g:deoplete#omni#rank = 500
+
+  let g:deoplete#omni#min_pattern_length = {}
+  let g:deoplete#omni#min_pattern_length.cs = 0
+
   " set completeopt=longest,menuone
   set completeopt=menuone
-  set pumheight=5
-  let g:deoplete#max_menu_width = 60
+  set pumheight=10
+  let g:deoplete#max_menu_width = 120
 endif
 " }}}
 

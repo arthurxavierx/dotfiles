@@ -8,4 +8,5 @@ augroup PureScript
   au FileType purescript nmap <leader>pi :PSCIDEimportIdentifier<CR>
   au FileType purescript nmap <leader>pc :PSCIDEcaseSplit<CR>
   au FileType purescript nmap <leader>pp :PSCIDEpursuit<CR>
+  au FileType purescript nmap <leader>pg :PSCIDEgoToDefinition<CR>
 augroup END

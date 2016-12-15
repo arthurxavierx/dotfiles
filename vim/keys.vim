@@ -24,6 +24,7 @@ nnoremap <C-l>        :bnext<CR>
 
 " CtrlP
 nnoremap <leader>t    :CtrlP<CR>
+nnoremap <leader>r    :CtrlPBufTag<CR>
 nnoremap <leader>b    :CtrlPBuffer<CR>
 
 " NERDTree

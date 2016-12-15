@@ -11,13 +11,16 @@ call plug#begin()
 
 Plug 'ddollar/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ervandew/supertab'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'Shougo/vimproc.vim'
+Plug 'tpope/vim-dispatch'
+
+" UltiSnips
+Plug 'SirVer/ultisnips'
 
 " tagbar
 Plug 'majutsushi/tagbar'
@@ -28,7 +31,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " vim-airline
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " colorschemes
 Plug 'rakr/vim-one'
@@ -59,13 +61,12 @@ Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
 Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
 Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
 
-" Haskell
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+" C#
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
+Plug 'OrangeT/vim-csharp', { 'for': 'cs' }
 
-" Elixir
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+" Shaders
+Plug 'vim-scripts/ShaderHighLight'
 
 " Writing
 Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'mkd', 'md', 'tex'] }
@@ -96,7 +97,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_java_javac_config_file_enabled = 1
 let g:syntastic_java_checkers = ['javac']
 let g:syntastic_javascript_checkers = ['eslint', './node_modules/.bin/eslint']
@@ -122,6 +122,7 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Clean"     : "✔︎",
   \ "Unknown"   : "?"
   \ }
+let g:NERDTreeQuitOnOpen = 1
 " }}}
 
 " indentLine Setup {{{
@@ -141,4 +142,11 @@ let g:ctrlp_working_path_mode = 0
 
 " Supertab Setup {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
+" }}}
+
+" UltiSnips Setup {{{
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsEditSplit="vertical"
 " }}}

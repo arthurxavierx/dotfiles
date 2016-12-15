@@ -34,7 +34,7 @@ set autoindent
 set copyindent
 set smarttab
 
-" casing
+" search
 set hlsearch
 set incsearch
 set ignorecase
@@ -49,6 +49,8 @@ source ~/Workspace/dotfiles/vim/keys.vim
 source ~/Workspace/dotfiles/vim/colors.vim
 source ~/Workspace/dotfiles/vim/filetypes.vim
 source ~/Workspace/dotfiles/vim/complete.vim
+
+source ~/Workspace/dotfiles/vim/csharp.vim
 source ~/Workspace/dotfiles/vim/purescript.vim
 source ~/Workspace/dotfiles/vim/writing.vim
 source ~/Workspace/dotfiles/vim/visual-at.vim
