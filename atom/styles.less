@@ -1,0 +1,43 @@
+atom-text-editor {
+  text-rendering: optimizeLegibility;
+}
+
+@normal-color: rgb(105, 238, 103);
+@insert-color: rgb(7, 193, 242);
+@visual-color: rgb(255, 206, 98);
+@operator-pending-color: rgb(224, 108, 117);
+
+.status-bar-vim-mode-plus-normal,
+.status-bar-vim-mode-plus-insert,
+.status-bar-vim-mode-plus-visual,
+.status-bar-vim-mode-plus-operator-pending {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0.5rem;
+  min-width: 9rem;
+}
+
+.status-bar-vim-mode-plus-normal {
+  background: @normal-color;
+  color: darken(@normal-color, 36%);
+}
+
+.status-bar-vim-mode-plus-insert {
+  background: @insert-color;
+  color: darken(@insert-color, 22%);
+}
+
+.status-bar-vim-mode-plus-visual {
+  background: @visual-color;
+  color: darken(@visual-color, 36%);
+}
+
+.status-bar-vim-mode-plus-operator-pending {
+  background: @operator-pending-color;
+  color: darken(@operator-pending-color, 25%);
+}
+
+linter-panel linter-multiline-message linter-message-line:not(:first-child) {
+  display: block;
+}

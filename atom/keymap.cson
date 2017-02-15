@@ -17,35 +17,67 @@
 #
 # vim-mode-plus
 #
+## *-mode
+'atom-text-editor.vim-mode-plus':
+  'ctrl-c': 'core:copy'
+
 ## normal-mode, visual-mode
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'space w': 'core:save'
   'space \\': 'tree-view:toggle'
   'space t': 'fuzzy-finder:toggle-file-finder'
   'space r': 'symbols-view:toggle-file-symbols'
-  'space p': 'command-palette:toggle'
 
-  'space c space': 'editor:toggle-line-comments'
+  'space ;': 'editor:toggle-line-comments'
 
   '\\': 'vim-mode-plus:search'
-  ';': 'vim-mode-plus-ex-mode:open'
-  ':': 'vim-mode-plus-ex-mode:open'
+  ';': 'command-palette:toggle'
+  ':': 'command-palette:toggle'
   'ç': 'vim-mode-plus:repeat-find'
 
   'ctrl-f': 'find-and-replace:show'
 
-  # Tab navigation
-  'ctrl-h': 'pane:show-previous-item'
-  'ctrl-l': 'pane:show-next-item'
-
-  # Window navigation
+  # Pane navigation
   'space h': 'window:focus-pane-on-left'
   'space l': 'window:focus-pane-on-right'
   'space k': 'window:focus-pane-above'
   'space j': 'window:focus-pane-below'
 
-  # Split window
+  # Split pane
   'space s h': 'pane:split-left-and-copy-active-item'
   'space s l': 'pane:split-right-and-copy-active-item'
   'space s k': 'pane:split-up-and-copy-active-item'
   'space s j': 'pane:split-down-and-copy-active-item'
+
+  # Move panes
+  'space s m h': 'move-panes:move-left'
+  'space s m l': 'move-panes:move-right'
+  'space s m k': 'move-panes:move-up'
+  'space s m j': 'move-panes:move-down'
+
+  ## PSCIDE
+  'space p t':  'ide-purescript:show-tooltip'
+  'space p i':  'ide-purescript:add-module-import'
+  'space p /':  'ide-purescript:search'
+  'space p \\': 'ide-purescript:search'
+  'space p g':  'ide-purescript:goto-definition'
+  'space p s':  'ide-purescript:show-quick-fixes'
+
+## OMNISHARP
+'atom-text-editor.vim-mode-plus.omnisharp-editor:not(.insert-mode)':
+  'esc': 'omnisharp-atom:hide'
+  'space p t': 'omnisharp-atom:type-lookup'
+  'space p g': 'omnisharp-atom:go-to-definition'
+  'space p r': 'omnisharp-atom:rename'
+  'space p /': 'omnisharp-atom:find-symbols'
+  'space p \\': 'omnisharp-atom:find-symbols'
+
+'atom-text-editor[data-grammar="text html basic"]:not([mini]), atom-text-editor[data-grammar~="erb"]:not([mini]), atom-text-editor[data-grammar~="jade"]:not([mini]), atom-text-editor[data-grammar~="css"]:not([mini]), atom-text-editor[data-grammar~="stylus"]:not([mini]), atom-text-editor[data-grammar~="sass"]:not([mini]), atom-text-editor[data-grammar~="scss"]:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'
+
+'atom-pane':
+  'ctrl-q': 'core:close'
+
+  # Tab navigation
+  'ctrl-h': 'pane:show-previous-item'
+  'ctrl-l': 'pane:show-next-item'
