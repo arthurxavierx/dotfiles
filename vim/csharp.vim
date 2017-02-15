@@ -4,6 +4,7 @@ augroup CSharp
   au FileType cs nmap <leader>pt :OmniSharpTypeLookup<CR>
   au FileType cs nmap <leader>ps :OmniSharpFixIssues<CR>
   au FileType cs nmap <leader>pr :OmniSharpRename<CR>
+  au FileType cs nmap <leader>pd :OmniSharpDocumentation<CR>
 
   au FileType cs nmap <leader>pfi :OmniSharpFindImplementations<CR>
   au FileType cs nmap <leader>pfm :OmniSharpFindMembers<CR>

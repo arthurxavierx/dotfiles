@@ -123,6 +123,7 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Unknown"   : "?"
   \ }
 let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeIgnore = ['\.meta$', '\.DS_Store$']
 " }}}
 
 " indentLine Setup {{{
@@ -135,9 +136,9 @@ let g:indentLine_conceallevel = 1
 " }}}
 
 " CtrlP Setup {{{
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:ctrlp_working_path_mode = 0
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.meta
 " }}}
 
 " Supertab Setup {{{

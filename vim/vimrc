@@ -13,7 +13,7 @@ set noerrorbells
 set nobackup
 set noswapfile
 set list lcs=trail:·,tab:»»
-set foldmethod=marker
+set foldmethod=syntax
 
 set conceallevel=0
 
@@ -23,6 +23,8 @@ if has("termguicolors") && has("nvim")
   set t_8b=u;%lu;%lum
   set termguicolors
 endif
+
+set colorcolumn=81
 
 " spacing
 set nowrap
@@ -45,6 +47,7 @@ set hidden
 
 "
 source ~/Workspace/dotfiles/vim/plugins.vim
+source ~/Workspace/dotfiles/vim/functions.vim
 source ~/Workspace/dotfiles/vim/keys.vim
 source ~/Workspace/dotfiles/vim/colors.vim
 source ~/Workspace/dotfiles/vim/filetypes.vim

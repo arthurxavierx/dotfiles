@@ -1,10 +1,12 @@
 let mapleader = "\<SPACE>"
 
-nnoremap ; :
-nnoremap ç ;
-nnoremap \ /
-nnoremap <leader>w :w<CR>
-nnoremap <C-w>     :bd<CR>
+noremap ; :
+noremap ç ;
+noremap \ /
+noremap <leader>w :w<CR>
+noremap <C-Q>     :Kwbd<CR>
+
+noremap <F5>      :CtrlPClearCache<CR>
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
@@ -66,6 +68,8 @@ nnoremap <silent> <S-up>     :resize +10<CR>
 nnoremap <silent> <S-down>   :resize -10<CR>
 nnoremap <silent> <S-right>  :vertical resize +10<CR>
 nnoremap <silent> <S-left>   :vertical resize -10<CR>
+nnoremap <C-W>M              <C-W>\| <C-W>_
+nnoremap <C-W>m              <C-W>=
 
 " Terminal mode
 if (has("nvim"))

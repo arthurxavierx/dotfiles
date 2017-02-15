@@ -4,7 +4,7 @@ augroup PureScript
   au FileType qf setlocal wrap
   au FileType purescript nmap <leader>pt :PSCIDEtype<CR>
   au FileType purescript nmap <leader>ps :PSCIDEapplySuggestion<CR>
-  au FileType purescript nmap <leader>pa :PSCIDEaddClause<CR>
+  au FileType purescript nmap <leader>pa :PSCIDEaddTypeAnnotation<CR>
   au FileType purescript nmap <leader>pi :PSCIDEimportIdentifier<CR>
   au FileType purescript nmap <leader>pc :PSCIDEcaseSplit<CR>
   au FileType purescript nmap <leader>pp :PSCIDEpursuit<CR>
