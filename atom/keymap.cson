@@ -5,9 +5,6 @@
 '.platform-win32, .platform-linux':
   'ctrl-Á': 'editor:toggle-line-comments'
 
-'atom-workspace':
-  'ctrl-n': 'find-and-replace:select-next'
-
 #
 # tree-view
 #
@@ -18,8 +15,18 @@
 # vim-mode-plus
 #
 ## *-mode
+'body, atom-text-editor':
+  'ctrl-j': 'core:move-down'
+  'ctrl-k': 'core:move-up'
+  'ctrl-q': 'core:close'
+
+  # Tab navigation
+  'ctrl-h': 'pane:show-previous-item'
+  'ctrl-l': 'pane:show-next-item'
+
 'atom-text-editor.vim-mode-plus':
   'ctrl-c': 'core:copy'
+  'ctrl-n': 'find-and-replace:select-next'
 
 ## normal-mode, visual-mode
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
@@ -37,6 +44,25 @@
 
   'ctrl-f': 'find-and-replace:show'
 
+  # Subword motion
+  '-': 'vim-mode-plus:move-to-next-subword'
+  '_': 'vim-mode-plus:move-to-previous-subword'
+
+  # Surround
+  'S': 'vim-mode-plus:surround'
+  'S d': 'vim-mode-plus:delete-surround-any-pair'
+  'S D': 'vim-mode-plus:delete-surround-any-pair'
+  'S S d': 'vim-mode-plus:delete-surround'
+  'S S D': 'vim-mode-plus:delete-surround'
+  'S c': 'vim-mode-plus:change-surround-any-pair'
+  'S C': 'vim-mode-plus:change-surround-any-pair'
+  'S S c': 'vim-mode-plus:change-surround'
+  'S S C': 'vim-mode-plus:change-surround'
+
+  # Tab navigation
+  'g T': 'unset!'
+  'g t': 'unset!'
+
   # Pane navigation
   'space h': 'window:focus-pane-on-left'
   'space l': 'window:focus-pane-on-right'
@@ -50,18 +76,33 @@
   'space s j': 'pane:split-down-and-copy-active-item'
 
   # Move panes
-  'space s m h': 'move-panes:move-left'
-  'space s m l': 'move-panes:move-right'
-  'space s m k': 'move-panes:move-up'
-  'space s m j': 'move-panes:move-down'
+  'space s H': 'move-panes:move-left'
+  'space s L': 'move-panes:move-right'
+  'space s K': 'move-panes:move-up'
+  'space s J': 'move-panes:move-down'
 
-  ## PSCIDE
+## operator-pending, visual-mode
+'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode':
+  # Subword text object
+  'a -': 'vim-mode-plus:a-subword'
+  'i -': 'vim-mode-plus:inner-subword'
+
+## PSCIDE
+'atom-text-editor.vim-mode-plus[data-grammar~="purs"]:not(.insert-mode), atom-text-editor.vim-mode-plus[data-grammar~="purescript"]:not(.insert-mode)':
   'space p t':  'ide-purescript:show-tooltip'
   'space p i':  'ide-purescript:add-module-import'
-  'space p /':  'ide-purescript:search'
   'space p \\': 'ide-purescript:search'
   'space p g':  'ide-purescript:goto-definition'
-  'space p s':  'ide-purescript:show-quick-fixes'
+  'space p f':  'ide-purescript:show-quick-fixes'
+
+'atom-text-editor.vim-mode-plus[data-grammar~="js"]:not(.insert-mode), atom-text-editor.vim-mode-plus[data-grammar~="javascript"]:not(.insert-mode)':
+  'space p r':  'atom-ternjs:rename'
+  'space p \\': 'atom-ternjs:references'
+  'space p d':  'atom-ternjs:documentation'
+  'space p g':  'atom-ternjs:definition'
+  'space p c':  'atom-ternjs:startCompletion'
+  'space p p':  'atom-ternjs:navigateBack'
+  'space p n':  'atom-ternjs:navigateForward'
 
 ## OMNISHARP
 'atom-text-editor.vim-mode-plus.omnisharp-editor:not(.insert-mode)':
@@ -69,15 +110,7 @@
   'space p t': 'omnisharp-atom:type-lookup'
   'space p g': 'omnisharp-atom:go-to-definition'
   'space p r': 'omnisharp-atom:rename'
-  'space p /': 'omnisharp-atom:find-symbols'
   'space p \\': 'omnisharp-atom:find-symbols'
 
 'atom-text-editor[data-grammar="text html basic"]:not([mini]), atom-text-editor[data-grammar~="erb"]:not([mini]), atom-text-editor[data-grammar~="jade"]:not([mini]), atom-text-editor[data-grammar~="css"]:not([mini]), atom-text-editor[data-grammar~="stylus"]:not([mini]), atom-text-editor[data-grammar~="sass"]:not([mini]), atom-text-editor[data-grammar~="scss"]:not([mini])':
   'tab': 'emmet:expand-abbreviation-with-tab'
-
-'atom-pane':
-  'ctrl-q': 'core:close'
-
-  # Tab navigation
-  'ctrl-h': 'pane:show-previous-item'
-  'ctrl-l': 'pane:show-next-item'
