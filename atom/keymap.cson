@@ -76,10 +76,10 @@
   'space s j': 'pane:split-down-and-copy-active-item'
 
   # Move panes
-  'space s H': 'move-panes:move-left'
-  'space s L': 'move-panes:move-right'
-  'space s K': 'move-panes:move-up'
-  'space s J': 'move-panes:move-down'
+  'space s m h': 'move-panes:move-left'
+  'space s m l': 'move-panes:move-right'
+  'space s m k': 'move-panes:move-up'
+  'space s m j': 'move-panes:move-down'
 
 ## operator-pending, visual-mode
 'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode':
