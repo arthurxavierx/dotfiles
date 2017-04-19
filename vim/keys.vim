@@ -1,50 +1,38 @@
 let mapleader = "\<SPACE>"
 
+set pastetoggle=<F3>
+
 noremap ; :
 noremap ç ;
 noremap \ /
-noremap <leader>w :w<CR>
-noremap <C-Q>     :Kwbd<CR>
-
-noremap <F5>      :CtrlPClearCache<CR>
+noremap <leader>w     :w<CR>
+noremap <C-Q>         :Kwbd<CR>
 
 " Clear highlighting on escape in normal mode
-nnoremap <esc> :noh<return><esc>
-nnoremap <esc>^[ <esc>^[
+nnoremap <esc>        :noh<return><esc>
+nnoremap <esc>^[      <esc>^[
 
 map <down> gj
 map <up> gk
 
-" Open file
-nmap <leader>ew       :e<SPACE>
-nmap <leader>ee       :e<SPACE>
-
 " Buffers
-nmap <leader>en       :enew<CR>
-nnoremap <C-h>        :bprevious<CR>
+nnoremap <C-h>        :bprev<CR>
 nnoremap <C-l>        :bnext<CR>
 
 " CtrlP
 nnoremap <leader>t    :CtrlP<CR>
-nnoremap <leader>r    :CtrlPBufTag<CR>
-nnoremap <leader>b    :CtrlPBuffer<CR>
+nnoremap <leader>r    :CtrlPBuffer<CR>
+noremap  <F5>         :CtrlPClearCache<CR>
 
 " NERDTree
 noremap <leader>\     :NERDTreeToggle<CR>
 
-" Tagbar
-noremap <leader>]     :TagbarToggle<CR>
+" NERDCommenter
+map <leader>;         <Plug>NERDCommenterToggle
 
-" Open file in new window
-nmap <leader>eH       :topleft  vsp<SPACE>
-nmap <leader>eL       :botright vsp<SPACE>
-nmap <leader>eK       :topleft  sp<SPACE>
-nmap <leader>eJ       :botright sp<SPACE>
-
-nmap <leader>eh       :leftabove  vsp<SPACE>
-nmap <leader>el       :rightbelow vsp<SPACE>
-nmap <leader>ek       :leftabove  sp<SPACE>
-nmap <leader>ej       :rightbelow sp<SPACE>
+" vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
 
 " New split window
 nmap <leader>sH       :topleft  vsp<CR>
