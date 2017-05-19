@@ -1,6 +1,7 @@
 let g:psc_ide_syntastic_mode = 1
 augroup CSharp
   au!
+  au FileType cs setlocal omnifunc=OmniSharp#Complete
   au FileType cs nmap <leader>pt :OmniSharpTypeLookup<CR>
   au FileType cs nmap <leader>ps :OmniSharpFixIssues<CR>
   au FileType cs nmap <leader>pr :OmniSharpRename<CR>

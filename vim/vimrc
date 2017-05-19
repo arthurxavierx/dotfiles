@@ -1,9 +1,12 @@
 set nocompatible
 
-syntax enable
-filetype on
 filetype plugin indent on
+syntax on
+
+filetype on
 set showcmd
+
+runtime macros/matchit.vim
 
 set number
 set showmatch
@@ -14,6 +17,23 @@ set nobackup
 set noswapfile
 set list lcs=trail:·,tab:»»
 set foldmethod=syntax
+set foldlevelstart=999
+set complete+=d
+
+set wildmenu
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.meta
+set wildignore+=*.swp,*.bak
+set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
+set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
+set wildignore+=*/min/*
+set wildignore+=tags,cscope.*
+set wildignore+=*.tar.*
+set wildignore+=*/bower_components/**
+set wildignore+=*/node_modules/**
+set wildignore+=*/output/**
+set wildignorecase
+set wildmode=list:full
+set path& | let &path .= "**"
 
 set conceallevel=0
 
@@ -28,11 +48,15 @@ set colorcolumn=81
 
 " spacing
 set nowrap
-set tabstop=2 shiftwidth=2
-set expandtab
-set backspace=indent,eol,start
+
+set shiftround
+set shiftwidth=0
+" set tabstop=2 shiftwidth=2
+
 set eol
+set expandtab
 set autoindent
+set backspace=indent,eol,start
 set copyindent
 set smarttab
 
@@ -48,6 +72,7 @@ set hidden
 "
 source ~/Workspace/dotfiles/vim/plugins.vim
 source ~/Workspace/dotfiles/vim/functions.vim
+source ~/Workspace/dotfiles/vim/gitignore.vim
 source ~/Workspace/dotfiles/vim/keys.vim
 source ~/Workspace/dotfiles/vim/colors.vim
 source ~/Workspace/dotfiles/vim/filetypes.vim
@@ -55,5 +80,6 @@ source ~/Workspace/dotfiles/vim/complete.vim
 
 source ~/Workspace/dotfiles/vim/csharp.vim
 source ~/Workspace/dotfiles/vim/purescript.vim
+source ~/Workspace/dotfiles/vim/haskell.vim
 source ~/Workspace/dotfiles/vim/writing.vim
 source ~/Workspace/dotfiles/vim/visual-at.vim

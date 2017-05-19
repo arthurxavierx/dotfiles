@@ -2,56 +2,80 @@ let mapleader = "\<SPACE>"
 
 set pastetoggle=<F3>
 
+" Shortcut for commands
 noremap ; :
+" Use ç as next-find
 noremap ç ;
+" Shortcut for searching
 noremap \ /
-noremap <leader>w     :w<CR>
-noremap <C-Q>         :Kwbd<CR>
+
+" . repeat in visual mode
+vnoremap <silent> .   :norm.<CR>
 
 " Clear highlighting on escape in normal mode
-nnoremap <esc>        :noh<return><esc>
-nnoremap <esc>^[      <esc>^[
-
-map <down> gj
-map <up> gk
+nnoremap <silent> <esc> :noh<CR><esc>
 
 " Buffers
-nnoremap <C-h>        :bprev<CR>
-nnoremap <C-l>        :bnext<CR>
+noremap <C-h>         :bprev<CR>
+noremap <C-l>         :bnext<CR>
 
-" CtrlP
-nnoremap <leader>t    :CtrlP<CR>
-nnoremap <leader>r    :CtrlPBuffer<CR>
-noremap  <F5>         :CtrlPClearCache<CR>
+" Files
+noremap <leader>t     :find *
+noremap <leader>ff    :find *
+"" netrw
+noremap <leader>f\    :Vexplore<CR>
 
-" NERDTree
-noremap <leader>\     :NERDTreeToggle<CR>
+" Buffers
+noremap <leader>bb    :ls<CR>
+noremap <leader>r     :buffer *
+noremap <leader>bf    :buffer *
+noremap <leader>bs    :sbuffer *
+"" buffer saving
+noremap <leader>w     :w<CR>
+noremap <leader>bw    :w<CR>
+""  buffer closing
+noremap <leader>bc    :Kwbd<CR>
+noremap  <C-Q>        :Kwbd<CR>
 
-" NERDCommenter
+" Plugins {{{
+"" NERDCommenter
 map <leader>;         <Plug>NERDCommenterToggle
+"" vim-expand-region
+vmap v                <Plug>(expand_region_expand)
+vmap V                <Plug>(expand_region_shrink)
+" }}}
 
-" vim-expand-region
-vmap v <Plug>(expand_region_expand)
-vmap V <Plug>(expand_region_shrink)
+" Location list
+nnoremap <silent> <C-j> :lnext<CR>
+nnoremap <silent> <C-k> :lprev<CR>
 
-" New split window
+" Quickfix
+command! -nargs=+ -complete=file_in_path -bar Vim vim <args> | cw | cfirst
+nnoremap <leader>qf :Vim<space>
+nnoremap <leader>qq :cw<CR>
+nnoremap <leader>qo :copen<CR>
+nnoremap <leader>qc :cclose<CR>
+"" quickfix navigation
+nnoremap <silent> <C-S-j> :cnext<CR>
+nnoremap <silent> <C-S-k> :cprev<CR>
+
+" Windows
+"" split windows
 nmap <leader>sH       :topleft  vsp<CR>
 nmap <leader>sL       :botright vsp<CR>
 nmap <leader>sK       :topleft  sp<CR>
 nmap <leader>sJ       :botright sp<CR>
-
+"" small split
 nmap <leader>sh       :leftabove  vsp<CR>
 nmap <leader>sl       :rightbelow vsp<CR>
 nmap <leader>sk       :leftabove  sp<CR>
 nmap <leader>sj       :rightbelow sp<CR>
-
-" Window navigation
+"" window navigation
 nnoremap <leader>h     <C-w>h
 nnoremap <leader>l     <C-w>l
 nnoremap <leader>k     <C-w>k
 nnoremap <leader>j     <C-w>j
-
-" Window resize
+"" window resize
 nnoremap <silent> <S-up>     :resize +10<CR>
 nnoremap <silent> <S-down>   :resize -10<CR>
 nnoremap <silent> <S-right>  :vertical resize +10<CR>

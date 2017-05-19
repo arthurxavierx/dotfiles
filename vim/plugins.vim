@@ -1,7 +1,7 @@
 " Automatic installation {{{
 if empty(glob('~/.vim/autoload/plug.vim')) && empty(glob('~/vimfiles/autoload/plug.vim'))
-    silent !mkdir -p ~/.vim/autoload
-    silent !curl -fLo ~/.vim/autoload/plug.vim
+    !mkdir -p ~/.vim/autoload
+    !curl -fLo ~/.vim/autoload/plug.vim
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     au VimEnter * PlugInstall
 endif
@@ -20,18 +20,19 @@ Plug 'Yggdroot/indentLine'
 " Text edition
 Plug 'bkad/CamelCaseMotion'
 Plug 'terryma/vim-expand-region'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'ddollar/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'ervandew/supertab'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'haya14busa/incsearch.vim'
 
-" UltiSnips
+" Snippets
 Plug 'SirVer/ultisnips'
 
-" nerdtree
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+" Supertab
+Plug 'ervandew/supertab'
 
 " vim-airline
 Plug 'vim-airline/vim-airline'
@@ -42,26 +43,28 @@ Plug 'rakr/vim-one'
 " syntastic
 Plug 'scrooloose/syntastic'
 
-" CtrlP
-Plug 'ctrlpvim/ctrlp.vim'
-
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
 
 " PureScript
 Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
-Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
+" Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
+Plug 'arthur-xavier/psc-ide-vim', { 'branch': 'sync-purescript-0.11', 'for': 'purescript' }
 
 " Elm
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 
-" C#
-Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
-Plug 'OrangeT/vim-csharp', { 'for': 'cs' }
+" Haskell
+" Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+" Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+" Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+" Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 
-" Shaders
-Plug 'vim-scripts/ShaderHighLight'
+" Unity
+" Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
+" Plug 'OrangeT/vim-csharp', { 'for': 'cs' }
+" Plug 'vim-scripts/ShaderHighLight'
 
 " Writing
 Plug 'junegunn/goyo.vim'
@@ -101,23 +104,6 @@ let g:syntastic_purescript_checkers = ['pscide']
 let g:syntastic_tex_checkers = ['lacheck']
 " }}}
 
-" NERDTree Setup {{{
-let NERDTreeShowHidden = 1
-let g:NERDTreeIndicatorMapCustom = {
-  \ "Modified"  : "~",
-  \ "Staged"    : "+",
-  \ "Untracked" : "*",
-  \ "Renamed"   : "r",
-  \ "Unmerged"  : "^",
-  \ "Deleted"   : "-",
-  \ "Dirty"     : "~",
-  \ "Clean"     : "✔︎",
-  \ "Unknown"   : "?"
-  \ }
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeIgnore = ['\.meta$', '\.DS_Store$', '\.git$']
-" }}}
-
 " indentLine Setup {{{
 let g:indentLine_char = '│'
 let g:indentLine_concealcursor = 0
@@ -127,12 +113,6 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#3B4048'
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
-" }}}
-
-" CtrlP Setup {{{
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-let g:ctrlp_working_path_mode = 0
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.meta
 " }}}
 
 " Supertab Setup {{{
@@ -169,13 +149,6 @@ let g:expand_region_text_objects = {
   \ 'ip' : 0,
   \ 'ap' : 0,
   \ }
-" }}}
-
-" UltiSnips Setup {{{
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 " CamelCaseMotion Setup {{{
