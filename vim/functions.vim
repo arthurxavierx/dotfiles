@@ -12,13 +12,13 @@ function! QuickfixOrLocationExists(cmd)
 endfunction
 " Execute a quickfix list command if it exists and is visible, else execute a
 " location list command (preceded by 'l').
-function! QuickfixOrLocationOpen(cmd)
+function! QuickfixOrLocationIsOpen(cmd)
   silent! exec(exists("g:quickfixwin") > 0 ? 'c'.a:cmd : 'l'.a:cmd)
 endfunction
 " Execute a quickfix list command if it exists and is visible, or focus the
 " quickfix list if it has only one item. If the Quickfix List does not exist
 " or is not visible, execute a location list command or focus it.
-function! QuickfixOrLocationHasItems(cmd)
+function! QuickfixOrLocationMove(cmd)
   let qflist = getqflist()
   let loclist = getloclist(0)
 
@@ -30,10 +30,16 @@ function! QuickfixOrLocationHasItems(cmd)
 endfunction
 
 command! Lopen  call QuickfixOrLocationExists('open')
-command! Lclose call QuickfixOrLocationOpen('close')
-command! Lwin   call QuickfixOrLocationOpen('win')
-command! Lnext  call QuickfixOrLocationHasItems('next')
-command! Lprev  call QuickfixOrLocationHasItems('prev')
+command! Lclose call QuickfixOrLocationIsOpen('close')
+command! Lwin   call QuickfixOrLocationIsOpen('win')
+command! Lnext  call QuickfixOrLocationMove('next')
+command! Lprev  call QuickfixOrLocationMove('prev')
+
+" Perform a vimgrep search, open the quickfix list and jump to the first match.
+command! -nargs=+ -complete=file_in_path -bar Vim vim <args> | cw | cfirst
+" Perform a vimgrep search over files of same extension under the current
+" directory (recursively).
+command! -nargs=+ -complete=user -bar Vims execute "Vim /\\<<args>\\>/g **/*" . (expand("%:e") == "" ? "" : ".".expand("%:e")) | silent! g/<args>/
 " }}}
 
 " Buffers {{{
@@ -97,5 +103,4 @@ function! s:Kwbd(kwbdStage)
 endfunction
 
 command! Kwbd call s:Kwbd(1)
-nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
 " }}}

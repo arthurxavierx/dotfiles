@@ -53,9 +53,8 @@ noremap <leader>lw    :Lwin<CR>
 noremap <C-j>         :Lnext<CR>
 noremap <C-k>         :Lprev<CR>
 "" list search
-command! -nargs=+ -complete=file_in_path -bar Grep grep <args> | cw | cfirst
-command! -nargs=+ -complete=file_in_path -bar Vim  vim  <args> | cw | cfirst
-noremap <leader>lf :Vim<space>
+map <leader>lf :Vims<space>
+map <silent> <leader>lg :execute "Vims " . expand("<cword>")<CR>
 
 " Windows
 "" split windows
