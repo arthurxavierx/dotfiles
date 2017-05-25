@@ -22,6 +22,7 @@ noremap <C-l>         :bnext<CR>
 " Files
 noremap <leader>t     :find *
 noremap <leader>ff    :find *
+noremap <leader>fw    :w<CR>
 "" netrw
 noremap <leader>f\    :Vexplore<CR>
 
@@ -31,7 +32,6 @@ noremap <leader>r     :buffer *
 noremap <leader>bf    :buffer *
 noremap <leader>bs    :sbuffer *
 "" buffer saving
-noremap <leader>w     :w<CR>
 noremap <leader>bw    :w<CR>
 ""  buffer closing
 noremap <leader>bc    :Kwbd<CR>
@@ -45,43 +45,40 @@ vmap v                <Plug>(expand_region_expand)
 vmap V                <Plug>(expand_region_shrink)
 " }}}
 
-" Location list
-nnoremap <silent> <C-j> :lnext<CR>
-nnoremap <silent> <C-k> :lprev<CR>
-
-" Quickfix
-command! -nargs=+ -complete=file_in_path -bar Vim vim <args> | cw | cfirst
-nnoremap <leader>qf :Vim<space>
-nnoremap <leader>qq :cw<CR>
-nnoremap <leader>qo :copen<CR>
-nnoremap <leader>qc :cclose<CR>
-"" quickfix navigation
-nnoremap <silent> <C-S-j> :cnext<CR>
-nnoremap <silent> <C-S-k> :cprev<CR>
+" Quickfix and Location list
+noremap <leader>lo    :Lopen<CR>
+noremap <leader>lc    :Lclose<CR>
+noremap <leader>lw    :Lwin<CR>
+"" quickfix and location list navigation
+noremap <C-j>         :Lnext<CR>
+noremap <C-k>         :Lprev<CR>
+"" list search
+command! -nargs=+ -complete=file_in_path -bar Grep grep <args> | cw | cfirst
+command! -nargs=+ -complete=file_in_path -bar Vim  vim  <args> | cw | cfirst
+noremap <leader>lf :Vim<space>
 
 " Windows
 "" split windows
-nmap <leader>sH       :topleft  vsp<CR>
-nmap <leader>sL       :botright vsp<CR>
-nmap <leader>sK       :topleft  sp<CR>
-nmap <leader>sJ       :botright sp<CR>
+nmap <leader>wsH      :topleft  vsp<CR>
+nmap <leader>wsL      :botright vsp<CR>
+nmap <leader>wsK      :topleft  sp<CR>
+nmap <leader>wsJ      :botright sp<CR>
 "" small split
-nmap <leader>sh       :leftabove  vsp<CR>
-nmap <leader>sl       :rightbelow vsp<CR>
-nmap <leader>sk       :leftabove  sp<CR>
-nmap <leader>sj       :rightbelow sp<CR>
+nmap <leader>wsh      :leftabove  vsp<CR>
+nmap <leader>wsl      :rightbelow vsp<CR>
+nmap <leader>wsk      :leftabove  sp<CR>
+nmap <leader>wsj      :rightbelow sp<CR>
 "" window navigation
-nnoremap <leader>h     <C-w>h
-nnoremap <leader>l     <C-w>l
-nnoremap <leader>k     <C-w>k
-nnoremap <leader>j     <C-w>j
+nnoremap <leader>wh   <C-w>h
+nnoremap <leader>wl   <C-w>l
+nnoremap <leader>wk   <C-w>k
+nnoremap <leader>wj   <C-w>j
 "" window resize
 nnoremap <silent> <S-up>     :resize +10<CR>
 nnoremap <silent> <S-down>   :resize -10<CR>
 nnoremap <silent> <S-right>  :vertical resize +10<CR>
 nnoremap <silent> <S-left>   :vertical resize -10<CR>
 nnoremap <C-W>M              <C-W>\| <C-W>_
-nnoremap <C-W>m              <C-W>=
 
 " Terminal mode
 if (has("nvim"))

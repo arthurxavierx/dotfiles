@@ -1,3 +1,41 @@
+" Quickfix {{{
+augroup Quickfix
+ autocmd!
+ autocmd BufWinEnter quickfix let g:quickfixwin = bufnr("$")
+ autocmd BufWinLeave * if exists("g:quickfixwin") && expand("<abuf>") == g:quickfixwin | unlet! g:quickfixwin | endif
+augroup END
+
+" Execute a quickfix list command (preceded by 'c') if it exists (even if not
+" visible), else execute a location list command (preceded by 'l').
+function! QuickfixOrLocationExists(cmd)
+  silent! exec(len(getqflist()) > 0 ? 'c'.a:cmd : 'l'.a:cmd)
+endfunction
+" Execute a quickfix list command if it exists and is visible, else execute a
+" location list command (preceded by 'l').
+function! QuickfixOrLocationOpen(cmd)
+  silent! exec(exists("g:quickfixwin") > 0 ? 'c'.a:cmd : 'l'.a:cmd)
+endfunction
+" Execute a quickfix list command if it exists and is visible, or focus the
+" quickfix list if it has only one item. If the Quickfix List does not exist
+" or is not visible, execute a location list command or focus it.
+function! QuickfixOrLocationHasItems(cmd)
+  let qflist = getqflist()
+  let loclist = getloclist(0)
+
+  if (exists("g:quickfixwin") && len(qflist) > 0)
+    silent! exec(len(qflist) > 1 ? 'c'.a:cmd : 'cc')
+  elseif (len(loclist) > 0)
+    silent! exec(len(loclist) > 1 ? 'l'.a:cmd : 'll')
+  endif
+endfunction
+
+command! Lopen  call QuickfixOrLocationExists('open')
+command! Lclose call QuickfixOrLocationOpen('close')
+command! Lwin   call QuickfixOrLocationOpen('win')
+command! Lnext  call QuickfixOrLocationHasItems('next')
+command! Lprev  call QuickfixOrLocationHasItems('prev')
+" }}}
+
 " Buffers {{{
 " here is a more exotic version of my original Kwbd script
 " delete the buffer; keep windows; create a scratch buffer if no buffers left
