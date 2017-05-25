@@ -59,26 +59,26 @@ noremap <leader>lf :Vim<space>
 
 " Windows
 "" split windows
-nmap <leader>wsH      :topleft  vsp<CR>
-nmap <leader>wsL      :botright vsp<CR>
-nmap <leader>wsK      :topleft  sp<CR>
-nmap <leader>wsJ      :botright sp<CR>
+noremap <leader>wsH      :topleft  vsp<CR>
+noremap <leader>wsL      :botright vsp<CR>
+noremap <leader>wsK      :topleft  sp<CR>
+noremap <leader>wsJ      :botright sp<CR>
 "" small split
-nmap <leader>wsh      :leftabove  vsp<CR>
-nmap <leader>wsl      :rightbelow vsp<CR>
-nmap <leader>wsk      :leftabove  sp<CR>
-nmap <leader>wsj      :rightbelow sp<CR>
+noremap <leader>wsh      :leftabove  vsp<CR>
+noremap <leader>wsl      :rightbelow vsp<CR>
+noremap <leader>wsk      :leftabove  sp<CR>
+noremap <leader>wsj      :rightbelow sp<CR>
 "" window navigation
-nnoremap <leader>wh   <C-w>h
-nnoremap <leader>wl   <C-w>l
-nnoremap <leader>wk   <C-w>k
-nnoremap <leader>wj   <C-w>j
+noremap <leader>wh   <C-w>h
+noremap <leader>wl   <C-w>l
+noremap <leader>wk   <C-w>k
+noremap <leader>wj   <C-w>j
 "" window resize
-nnoremap <silent> <S-up>     :resize +10<CR>
-nnoremap <silent> <S-down>   :resize -10<CR>
-nnoremap <silent> <S-right>  :vertical resize +10<CR>
-nnoremap <silent> <S-left>   :vertical resize -10<CR>
-nnoremap <C-W>M              <C-W>\| <C-W>_
+noremap <silent> <S-up>     :resize +10<CR>
+noremap <silent> <S-down>   :resize -10<CR>
+noremap <silent> <S-right>  :vertical resize +10<CR>
+noremap <silent> <S-left>   :vertical resize -10<CR>
+noremap <C-W>M              <C-W>\| <C-W>_
 
 " Terminal mode
 if (has("nvim"))
