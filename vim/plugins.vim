@@ -49,17 +49,16 @@ Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
 
 " PureScript
 Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
-" Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
-Plug 'arthur-xavier/psc-ide-vim', { 'branch': 'sync-purescript-0.11', 'for': 'purescript' }
+Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
 
 " Elm
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 
 " Haskell
-" Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-" Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-" Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-" Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 
 " Unity
 " Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
