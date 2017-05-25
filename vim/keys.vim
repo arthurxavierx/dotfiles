@@ -23,8 +23,24 @@ noremap <C-l>         :bnext<CR>
 noremap <leader>t     :find *
 noremap <leader>ff    :find *
 noremap <leader>fw    :w<CR>
-"" netrw
-noremap <leader>f\    :Vexplore<CR>
+
+" netrw
+noremap <leader>f\    :Lexplore<CR>
+""" absolute width of netrw window
+let g:netrw_winsize = -28
+""" do not display info on the top of window
+let g:netrw_banner = 0
+""" tree-view
+let g:netrw_liststyle = 3
+""" sort is affecting only: directories on the top, files below
+let g:netrw_sort_sequence = '[\/]$,*'
+""" use the previous window to open file
+let g:netrw_browse_split = 4
+""" map o to <CR> in netrw
+autocmd filetype netrw call NetrwMapping()
+function! NetrwMapping()
+    map <buffer> o <CR>
+endfunction
 
 " Buffers
 noremap <leader>bb    :ls<CR>
