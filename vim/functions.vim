@@ -1,20 +1,28 @@
-" Quickfix {{{
-augroup Quickfix
- autocmd!
- autocmd BufWinEnter quickfix let g:quickfixwin = bufnr("$")
- autocmd BufWinLeave * if exists("g:quickfixwin") && expand("<abuf>") == g:quickfixwin | unlet! g:quickfixwin | endif
-augroup END
+function! QuickfixIsOpen()
+  " " The command below used to work before Vim8...
+  " return len(filter(range(1, winnr('$')), 'getbufvar(winbufnr(v:val), "&buftype") == "quickfix"')) > 0
+
+  " Now the only reliable way to detect whether a quickfix window is opened is
+  " by using ls.
+  silent! exec 'redir @a | ls | redir END'
+  return match(@a,'"\[Quickfix List\]"') >= 0
+endfunction
 
 " Execute a quickfix list command (preceded by 'c') if it exists (even if not
 " visible), else execute a location list command (preceded by 'l').
-function! QuickfixOrLocationExists(cmd)
-  silent! exec(len(getqflist()) > 0 ? 'c'.a:cmd : 'l'.a:cmd)
+function! QuickfixOrLocationExists(cmd, ...)
+  let cmdl = a:0 == 0 ? a:cmd : a:1
+  silent! exec(len(getqflist()) > 0 ? 'c'.a:cmd : 'l'.cmdl)
 endfunction
+
 " Execute a quickfix list command if it exists and is visible, else execute a
 " location list command (preceded by 'l').
-function! QuickfixOrLocationIsOpen(cmd)
-  silent! exec(exists("g:quickfixwin") > 0 ? 'c'.a:cmd : 'l'.a:cmd)
+function! QuickfixOrLocationIsOpen(cmd, ...)
+  let cmdl = a:0 < 1 ? a:cmd : a:1
+  echo QuickfixIsOpen()
+  exec(QuickfixIsOpen() ? 'c'.a:cmd : 'l'.cmdl)
 endfunction
+
 " Execute a quickfix list command if it exists and is visible, or focus the
 " quickfix list if it has only one item. If the Quickfix List does not exist
 " or is not visible, execute a location list command or focus it.
@@ -22,7 +30,7 @@ function! QuickfixOrLocationMove(cmd)
   let qflist = getqflist()
   let loclist = getloclist(0)
 
-  if (exists("g:quickfixwin") && len(qflist) > 0)
+  if (QuickfixIsOpen() && len(qflist) > 0)
     silent! exec(len(qflist) > 1 ? 'c'.a:cmd : 'cc')
   elseif (len(loclist) > 0)
     silent! exec(len(loclist) > 1 ? 'l'.a:cmd : 'll')
@@ -31,7 +39,8 @@ endfunction
 
 command! Lopen  call QuickfixOrLocationExists('open')
 command! Lclose call QuickfixOrLocationIsOpen('close')
-command! Lwin   call QuickfixOrLocationIsOpen('win')
+command! Lwin   call QuickfixOrLocationExists('win')
+command! Llist  call QuickfixOrLocationIsOpen('c', 'l')
 command! Lnext  call QuickfixOrLocationMove('next')
 command! Lprev  call QuickfixOrLocationMove('prev')
 
