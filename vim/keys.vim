@@ -15,6 +15,9 @@ vnoremap <silent> .   :norm.<CR>
 " Clear highlighting on escape in normal mode
 nnoremap <silent> <esc> :noh<CR><esc>
 
+" Project
+noremap <leader>pm    :wa<bar>make<CR>
+
 " Buffers
 noremap <C-h>         :bprev<CR>
 noremap <C-l>         :bnext<CR>
@@ -26,21 +29,8 @@ noremap <leader>fw    :w<CR>
 
 " netrw
 noremap <leader>f\    :Lexplore<CR>
-""" absolute width of netrw window
-let g:netrw_winsize = -28
-""" do not display info on the top of window
-let g:netrw_banner = 0
-""" tree-view
-let g:netrw_liststyle = 3
-""" sort is affecting only: directories on the top, files below
-let g:netrw_sort_sequence = '[\/]$,*'
-""" use the previous window to open file
-let g:netrw_browse_split = 4
-""" map o to <CR> in netrw
-autocmd filetype netrw call NetrwMapping()
-function! NetrwMapping()
-    map <buffer> o <CR>
-endfunction
+"" map o to <CR> in netrw
+autocmd filetype netrw map <buffer> o <CR>
 
 " Buffers
 noremap <leader>bb    :ls<CR>
@@ -65,6 +55,7 @@ vmap V                <Plug>(expand_region_shrink)
 noremap <leader>lo    :Lopen<CR>
 noremap <leader>lc    :Lclose<CR>
 noremap <leader>lw    :Lwin<CR>
+noremap <leader>ll    :Llist<CR>
 "" quickfix and location list navigation
 noremap <C-j>         :Lnext<CR>
 noremap <C-k>         :Lprev<CR>

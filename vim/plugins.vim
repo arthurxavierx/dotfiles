@@ -74,6 +74,14 @@ Plug 'tpope/vim-markdown', { 'for': ['markdown', 'mkd', 'md' ] }
 call plug#end()
 filetype plugin indent on
 
+" netrw Setup {{{
+let g:netrw_winsize = -28  " absolute width of netrw window
+let g:netrw_banner = 0  " do not display info on the top of window
+let g:netrw_liststyle = 3  " tree-view
+let g:netrw_sort_sequence = '[\/]$,*'  " sort is affecting only: directories on the top, files below
+let g:netrw_browse_split = 4  " use the previous window to open file
+" }}}
+
 " vim-airline Setup {{{
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -99,13 +107,14 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_java_javac_config_file_enabled = 1
 let g:syntastic_java_checkers = ['javac']
 let g:syntastic_javascript_checkers = ['eslint', './node_modules/.bin/eslint']
-let g:syntastic_purescript_checkers = ['pscide']
+" let g:syntastic_purescript_checkers = ['pscide']
 let g:syntastic_tex_checkers = ['lacheck']
 " }}}
 
 " indentLine Setup {{{
 let g:indentLine_char = '│'
 let g:indentLine_concealcursor = 0
+let g:indentLine_conceallevel = 1
 let g:indentLine_faster = 1
 
 let g:indentLine_color_term = 239
