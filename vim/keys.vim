@@ -8,6 +8,12 @@ noremap ; :
 noremap ç ;
 " Shortcut for searching
 noremap \ /
+" Yank to end of line
+nnoremap Y y$
+" Disable ex mode
+nnoremap Q @q
+" Disable man page
+nnoremap K <nop>
 
 " . repeat in visual mode
 vnoremap <silent> .   :norm.<CR>
@@ -17,6 +23,7 @@ nnoremap <silent> <esc> :noh<CR><esc>
 
 " Project
 noremap <leader>pm    :wa<bar>make<CR>
+noremap <leader>pM    :wa<bar>make<space>--<space>
 
 " Buffers
 noremap <C-h>         :bprev<CR>
@@ -27,10 +34,13 @@ noremap <leader>t     :find *
 noremap <leader>ff    :find *
 noremap <leader>fw    :w<CR>
 
+noremap <leader>gf    :Gf<CR>
+
 " netrw
-noremap <leader>f\    :Lexplore<CR>
+map <buffer> <leader>\ <Plug>VinegarUp
 "" map o to <CR> in netrw
 autocmd filetype netrw map <buffer> o <CR>
+autocmd filetype netrw map <buffer> <leader>\ :e #<CR>
 
 " Buffers
 noremap <leader>bb    :ls<CR>
@@ -43,48 +53,44 @@ noremap <leader>bw    :w<CR>
 noremap <leader>bc    :Kwbd<CR>
 noremap  <C-Q>        :Kwbd<CR>
 
-" Plugins {{{
-"" NERDCommenter
-map <leader>;         <Plug>NERDCommenterToggle
-"" vim-expand-region
-vmap v                <Plug>(expand_region_expand)
-vmap V                <Plug>(expand_region_shrink)
-" }}}
+"" vim-commentary
+map <leader>;         gcc
 
 " Quickfix and Location list
 noremap <leader>lo    :Lopen<CR>
 noremap <leader>lc    :Lclose<CR>
 noremap <leader>lw    :Lwin<CR>
 noremap <leader>ll    :Llist<CR>
+
 "" quickfix and location list navigation
 noremap <C-j>         :Lnext<CR>
 noremap <C-k>         :Lprev<CR>
+
 "" list search
 map <leader>lf :Vims<space>
-map <silent> <leader>lg :execute "Vims " . expand("<cword>")<CR>
+map <silent> <leader>lgg :execute "Vims " . expand("<cword>")<CR>
+map <silent> <leader>lgc :execute "VimsC " . expand("<cword>")<CR>
 
 " Windows
 "" split windows
-noremap <leader>wsH      :topleft  vsp<CR>
-noremap <leader>wsL      :botright vsp<CR>
-noremap <leader>wsK      :topleft  sp<CR>
-noremap <leader>wsJ      :botright sp<CR>
+noremap <leader>sH       :topleft  vsp<CR>
+noremap <leader>sL       :botright vsp<CR>
+noremap <leader>sK       :topleft  sp<CR>
+noremap <leader>sJ       :botright sp<CR>
+
 "" small split
-noremap <leader>wsh      :leftabove  vsp<CR>
-noremap <leader>wsl      :rightbelow vsp<CR>
-noremap <leader>wsk      :leftabove  sp<CR>
-noremap <leader>wsj      :rightbelow sp<CR>
-"" window navigation
-noremap <leader>wh   <C-w>h
-noremap <leader>wl   <C-w>l
-noremap <leader>wk   <C-w>k
-noremap <leader>wj   <C-w>j
+noremap <leader>sh       :leftabove  vsp<CR>
+noremap <leader>sl       :rightbelow vsp<CR>
+noremap <leader>sk       :leftabove  sp<CR>
+noremap <leader>sj       :rightbelow sp<CR>
+
 "" window resize
 noremap <silent> <S-up>     :resize +10<CR>
 noremap <silent> <S-down>   :resize -10<CR>
 noremap <silent> <S-right>  :vertical resize +10<CR>
 noremap <silent> <S-left>   :vertical resize -10<CR>
-noremap <C-W>M              <C-W>\| <C-W>_
+noremap <C-w>m              <C-W>\|<C-W>_
+noremap <C-w>=              <C-W>=
 
 " Terminal mode
 if (has("nvim"))

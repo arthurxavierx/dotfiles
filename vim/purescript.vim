@@ -2,11 +2,15 @@ let g:psc_ide_syntastic_mode = 1
 augroup purescript
   au!
   au FileType qf setlocal wrap
-  au FileType purescript nmap <leader>pt :PSCIDEtype<CR>
-  au FileType purescript nmap <leader>ps :PSCIDEapplySuggestion<CR>
-  au FileType purescript nmap <leader>pa :PSCIDEaddTypeAnnotation<CR>
-  au FileType purescript nmap <leader>pi :PSCIDEimportIdentifier<CR>
-  au FileType purescript nmap <leader>pc :PSCIDEcaseSplit<CR>
-  au FileType purescript nmap <leader>pf :PSCIDEpursuit<space>
-  au FileType purescript nmap <leader>pg :PSCIDEgoToDefinition<CR>
+  au FileType purescript nm <buffer> <silent> <leader>pt :<C-U>call PSCIDEtype(PSCIDEgetKeyword(), v:true)<CR>
+  au FileType purescript nm <buffer> <silent> <leader>pT :<C-U>call PSCIDEaddTypeAnnotation(matchstr(getline(line(".")), '^\s*\zs\k\+\ze'))<CR>
+  au FileType purescript nm <buffer> <silent> <leader>ps :Papply<CR>
+  au FileType purescript nm <buffer> <silent> <leader>pa :<C-U>call PSCIDEaddTypeAnnotation()<CR>
+  au FileType purescript nm <buffer> <silent> <leader>pi :<C-U>call PSCIDEimportIdentifier(PSCIDEgetKeyword())<CR>
+  au FileType purescript nm <buffer> <silent> <leader>pr :<C-U>call PSCIDEload()<CR>
+  au FileType purescript nm <buffer> <leader>pf :Pursuit<space>
+  au FileType purescript nm <buffer> <silent> <leader>pC :<C-U>call PSCIDEcaseSplit("!")<CR>
+  au FileType purescript nm <buffer> <silent> <leader>pc :<C-U>call PSCIDEaddClause("")<CR>
+  au FileType purescript nm <buffer> <silent> <leader>pq :<C-U>call PSCIDEaddImportQualifications()<CR>
+  au FileType purescript nm <buffer> <silent> ]d :<C-U>call PSCIDEgoToDefinition("", PSCIDEgetKeyword())<CR>
 augroup END

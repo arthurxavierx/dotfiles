@@ -48,8 +48,17 @@ command! Lprev  call QuickfixOrLocationMove('prev')
 command! -nargs=+ -complete=file_in_path -bar Vim vim <args> | cw | cfirst
 " Perform a vimgrep search over files of same extension under the current
 " directory (recursively).
-command! -nargs=+ -complete=user -bar Vims execute "Vim /\\<<args>\\>/g **/*" . (expand("%:e") == "" ? "" : ".".expand("%:e")) | silent! g/<args>/
+command! -nargs=+ -complete=user -bar Vims  execute "Vim /\\<<args>\\>/g **/*" . (expand("%:e") == "" ? "" : ".".expand("%:e")) | silent! g/<args>/
+command! -nargs=+ -complete=user -bar VimsC execute "Vim /\\C\\<<args>\\>/g **/*" . (expand("%:e") == "" ? "" : ".".expand("%:e")) | silent! g/<args>/
 " }}}
+
+function! s:Gf()
+  let wig = &wig
+  set wig=
+  normal gf
+  let &wig = wig
+endfunction
+command! Gf call s:Gf()
 
 " Buffers {{{
 " here is a more exotic version of my original Kwbd script

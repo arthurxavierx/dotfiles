@@ -1,3 +1,4 @@
+let $LANG = 'en'
 set nocompatible
 
 filetype plugin indent on
@@ -9,6 +10,7 @@ set showcmd
 runtime macros/matchit.vim
 
 set number
+set relativenumber
 set showmatch
 set title
 set visualbell
@@ -46,12 +48,14 @@ endif
 
 set colorcolumn=81
 
-" spacing
-set nowrap
+set ttyfast
+set lazyredraw
+
+set nowrap " spacing
 
 set shiftround
-set shiftwidth=0
-" set tabstop=2 shiftwidth=2
+" set shiftwidth=0
+set tabstop=2 shiftwidth=2
 
 set eol
 set expandtab
@@ -61,13 +65,15 @@ set copyindent
 set smarttab
 
 " search
+set gdefault
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-" hidden buffers
-set hidden
+
+set hidden " hidden buffers
+set splitright " split to right by default
 
 "
 source ~/Workspace/dotfiles/vim/plugins.vim
@@ -80,6 +86,7 @@ source ~/Workspace/dotfiles/vim/complete.vim
 
 source ~/Workspace/dotfiles/vim/csharp.vim
 source ~/Workspace/dotfiles/vim/purescript.vim
+source ~/Workspace/dotfiles/vim/idris.vim
 source ~/Workspace/dotfiles/vim/haskell.vim
 source ~/Workspace/dotfiles/vim/writing.vim
 source ~/Workspace/dotfiles/vim/visual-at.vim
