@@ -40,6 +40,15 @@ noremap <leader>w     :w<CR>
 noremap <leader>gf    :Gf<CR>
 " }}}
 
+" Find {{{
+noremap <leader>ff    :find *
+noremap <leader>fb    :buffer *
+noremap <leader>fa    :Vims<space>
+noremap <leader>fl    :Vim<space>
+noremap <leader>fw    :execute "Vims \\<" . expand("<cword>") . "\\>"<CR>
+noremap <leader>fW    :execute "VimsC \\<" . expand("<cword>") . "\\>"<CR>
+" }}}
+
 " netrw {{{
 map <leader>\ <Plug>VinegarUp
 "" map o to <CR> in netrw
