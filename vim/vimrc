@@ -23,8 +23,9 @@ set foldlevelstart=999
 set complete+=d
 
 set wildmenu
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.meta
+set wildignore+=*/tmp/*,*.so,*.out,*.exe,*.app,*.dll,*.a,*.la,*.lib,*.swp,*.zip,*.meta
 set wildignore+=*.swp,*.bak
+set wildignore+=*.o,*.d,*.obj
 set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
 set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=*/min/*
@@ -46,12 +47,15 @@ if has("termguicolors") && has("nvim")
   set termguicolors
 endif
 
-set colorcolumn=81
-
 set ttyfast
 set lazyredraw
 
 set nowrap " spacing
+set colorcolumn=90
+set tw=89
+set wm=0
+autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#693030
+autocmd BufEnter * match OverLength /\%91v.*/
 
 set shiftround
 " set shiftwidth=0
