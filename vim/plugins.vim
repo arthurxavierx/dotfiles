@@ -17,6 +17,9 @@ Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 
+" Windows
+Plug 'rgarver/Kwbd.vim'  " delete buffer window closing the window
+
 " Text edition
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -27,11 +30,12 @@ Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'  " auto-surround for delimiters
 
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-unimpaired'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/syntastic'
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Plug 'flazz/vim-colorschemes'
 Plug 'rakr/vim-one'
@@ -92,6 +96,8 @@ let g:syntastic_java_javac_config_file_enabled = 1
 let g:syntastic_java_checkers = ['javac']
 let g:syntastic_javascript_checkers = ['eslint', './node_modules/.bin/eslint']
 let g:syntastic_tex_checkers = ['lacheck']
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++ -Wno-pragma-once-outside-header'
 " }}}
 
 " indentLine Setup {{{
