@@ -51,14 +51,16 @@ set ttyfast
 set lazyredraw
 
 set nowrap " spacing
-set colorcolumn=90
 set tw=89
 set wm=0
-autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#693030
-autocmd BufEnter * match OverLength /\%91v.*/
+augroup Files
+  au!
+  au BufEnter *.* setlocal colorcolumn=90
+  au BufEnter *.* highlight OverLength ctermbg=darkgrey guibg=#693030
+  au BufEnter *.* match OverLength /\%91v.*/
+augroup END
 
 set shiftround
-" set shiftwidth=0
 set tabstop=2 shiftwidth=2
 
 set eol
@@ -74,7 +76,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-
 
 set hidden " hidden buffers
 set splitright " split to right by default
