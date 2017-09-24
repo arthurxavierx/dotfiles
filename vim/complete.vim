@@ -12,7 +12,10 @@ augroup omnicomplete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
 
-set completeopt=menuone
 set pumheight=10
+set shortmess-=c
+set completeopt-=preview
+set completeopt+=menuone,noinsert,noselect
+set belloff+=ctrlg " If Vim beeps during completion
 
 inoremap <expr><BS> pumvisible() ? "\<C-E>" : "\<BS>"

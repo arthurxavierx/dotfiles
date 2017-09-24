@@ -33,9 +33,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/syntastic'
-Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
-Plug 'SirVer/ultisnips'
+
+" Plug 'SirVer/ultisnips'
+Plug 'lifepillar/vim-mucomplete'
 
 " Plug 'flazz/vim-colorschemes'
 Plug 'rakr/vim-one'
@@ -109,25 +110,6 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#3B4048'
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
-" }}}
-
-" Supertab Setup {{{
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
-
-let g:SuperTabContextTextOmniPrecedence = ['&completefunc', '&omnifunc']
-
-let g:SuperTabLongestHighlight = 1
-let g:SuperTabLongestEnhanced = 1
-
-au FileType *
-  \ if &omnifunc != '' |
-  \   call SuperTabChain(&omnifunc, "<c-n>") |
-  \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
-  \ endif
 " }}}
 
 " CamelCaseMotion Setup {{{
