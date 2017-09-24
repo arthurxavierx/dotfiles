@@ -12,7 +12,5 @@ endif
 
 let g:one_allow_italics = 1
 set background=dark
-if (has("nvim")) || has("termguicolors") || has("gui_macvim")
-  colorscheme one
-  let g:airline_theme='one'
-endif
+colorscheme one
+let g:airline_theme='one'
