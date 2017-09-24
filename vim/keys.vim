@@ -65,6 +65,8 @@ noremap <silent> <S-up>     :resize +10<CR>
 noremap <silent> <S-down>   :resize -10<CR>
 noremap <silent> <S-right>  :vertical resize +10<CR>
 noremap <silent> <S-left>   :vertical resize -10<CR>
+noremap <C-w>m              <C-w>\|<C-w>_
+noremap <C-w><C-m>          <C-w>\|<C-w>_
 " }}}
 
 " Terminal mode {{{
