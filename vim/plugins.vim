@@ -18,7 +18,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 
 " Windows
-Plug 'rgarver/Kwbd.vim'  " delete buffer window closing the window
+Plug 'rgarver/Kwbd.vim'  " delete buffer without closing the window
 
 " Text edition
 Plug 'editorconfig/editorconfig-vim'
@@ -35,14 +35,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 " Plug 'SirVer/ultisnips'
 Plug 'lifepillar/vim-mucomplete'
 
-" Plug 'flazz/vim-colorschemes'
 Plug 'rakr/vim-one'
-
-" JavaScript
-Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
 
 " PureScript
 Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
@@ -55,10 +54,15 @@ Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 
+" Unity
+" Plug 'OrangeT/vim-csharp', { 'for': 'cs' }
+" Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
+" Plug 'vim-scripts/ShaderHighLight'
+
 " Writing
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
-Plug 'junegunn/limelight.vim', { 'for': ['markdown', 'mkd', 'md', 'tex'] }
+Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-markdown', { 'for': ['markdown', 'mkd', 'md' ] }
 
 call plug#end()
@@ -93,10 +97,23 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
 let g:syntastic_java_javac_config_file_enabled = 1
 let g:syntastic_java_checkers = ['javac']
-let g:syntastic_javascript_checkers = ['eslint', './node_modules/.bin/eslint']
+
+let g:syntastic_javascript_checkers = ['eslint']
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+  let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+  let g:syntastic_javascript_eslint_exec = local_eslint
+endif
+
 let g:syntastic_tex_checkers = ['lacheck']
+let g:syntastic_idris_checkers = ['idris']
+let g:syntastic_html_checkers = ['eslint']
+
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++ -Wno-pragma-once-outside-header'
 " }}}

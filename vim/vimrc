@@ -7,8 +7,6 @@ syntax on
 filetype on
 set showcmd
 
-runtime macros/matchit.vim
-
 set number
 set relativenumber
 set showmatch
@@ -17,10 +15,11 @@ set visualbell
 set noerrorbells
 set nobackup
 set noswapfile
-set list lcs=trail:·,tab:»»
+set list lcs=trail:·,tab:»»,extends:»,precedes:«
 set foldmethod=syntax
 set foldlevelstart=999
 set complete+=d
+set shortmess+=atI
 
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.out,*.exe,*.app,*.dll,*.a,*.la,*.lib,*.swp,*.zip,*.meta
@@ -52,13 +51,9 @@ set lazyredraw
 
 set nowrap " spacing
 set tw=89
+set colorcolumn=90
 set wm=0
-augroup Files
-  au!
-  au BufEnter *.* setlocal colorcolumn=90
-  au BufEnter *.* highlight OverLength ctermbg=darkgrey guibg=#693030
-  au BufEnter *.* match OverLength /\%91v.*/
-augroup END
+set fo-=t
 
 set shiftround
 set tabstop=2 shiftwidth=2
@@ -79,6 +74,10 @@ set smartcase
 
 set hidden " hidden buffers
 set splitright " split to right by default
+set splitbelow " split below by default
+
+set cursorcolumn
+set cursorline
 
 "
 source ~/Workspace/dotfiles/vim/plugins.vim
@@ -93,5 +92,8 @@ source ~/Workspace/dotfiles/vim/csharp.vim
 source ~/Workspace/dotfiles/vim/purescript.vim
 source ~/Workspace/dotfiles/vim/idris.vim
 source ~/Workspace/dotfiles/vim/haskell.vim
+source ~/Workspace/dotfiles/vim/fzf.vim
 source ~/Workspace/dotfiles/vim/writing.vim
 source ~/Workspace/dotfiles/vim/visual-at.vim
+
+set path-=/usr/include

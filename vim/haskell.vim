@@ -12,11 +12,9 @@ augroup Haskell
   au FileType haskell nnoremap <buffer><silent> <esc> :GhcModTypeClear<CR>:noh<CR><esc>
   au FileType haskell nmap <leader>ps :call ApplyOneSuggestion()<CR>
   au FileType haskell nmap <leader>pa :GhcModSigCodegen<CR>
-  " au FileType haskell nmap <leader>pi :PSCIDEimportIdentifier<CR>
   au FileType haskell nmap <leader>pc :GhcModSplitFunCase<CR>
   au FileType haskell nmap <leader>pp :Hoogle<space>
   au FileType haskell nmap <leader>pe :GhcModExpand<CR>
-  " au FileType haskell nmap <leader>pg :PSCIDEgoToDefinition<CR>
 
   au BufWritePost *.hs GhcModCheckAndLintAsync
 augroup END
