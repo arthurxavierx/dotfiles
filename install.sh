@@ -50,7 +50,7 @@ print_success() {
 }
 
 symlink() {
-	local sourceFile="$DOTFILES_DIR/$1"
+	local sourceFile="$DOTFILES/$1"
 	local targetFile="$HOME/$2"
 
 	print_info "Linking $targetFile -> $sourceFile"
@@ -92,9 +92,8 @@ while true; do
 	esac
 done
 
-# DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
-export DOTFILES_DIR
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DOTFILES
 
 # atom
 symlink "atom/keymap.cson" ".atom/keymap.cson"
@@ -105,8 +104,15 @@ symlink "atom/snippets.cson" ".atom/snippets.cson"
 symlink "vim/vimrc" ".vimrc"
 symlink "vim/vimrc" ".config/nvim/init.vim"
 
-# editorconfig
 symlink "editorconfig" ".editorconfig"
+symlink "eslintrc" ".eslintrc"
+
+# zsh
+symlink "oh-my-zsh" ".oh-my-zsh"
+symlink "profile" ".profile"
+symlink "zshrc" ".zshrc"
+
+symlink "bin" ".bin"
 
 #
 echo ""
