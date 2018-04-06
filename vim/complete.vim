@@ -25,5 +25,6 @@ inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
 
 let g:mucomplete#chains = {
   \ 'default': ['path', 'omni', 'c-n', 'incl', 'uspl'],
-  \ 'tex': ['path', 'c-n', 'incl', 'uspl']
+  \ 'tex': ['path', 'c-n', 'incl', 'uspl'],
+  \ 'javascript': ['path', 'c-n', 'incl', 'uspl', 'omni'],
   \ }

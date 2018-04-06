@@ -51,7 +51,7 @@ set lazyredraw
 
 set nowrap " spacing
 set tw=89
-set colorcolumn=90
+set colorcolumn=80
 set wm=0
 set fo-=t
 
