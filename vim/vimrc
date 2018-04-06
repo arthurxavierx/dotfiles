@@ -80,20 +80,20 @@ set cursorcolumn
 set cursorline
 
 "
-source ~/Workspace/dotfiles/vim/plugins.vim
-source ~/Workspace/dotfiles/vim/functions.vim
-source ~/Workspace/dotfiles/vim/gitignore.vim
-source ~/Workspace/dotfiles/vim/keys.vim
-source ~/Workspace/dotfiles/vim/colors.vim
-source ~/Workspace/dotfiles/vim/filetypes.vim
-source ~/Workspace/dotfiles/vim/complete.vim
+source $DOTFILES/vim/plugins.vim
+source $DOTFILES/vim/functions.vim
+source $DOTFILES/vim/gitignore.vim
+source $DOTFILES/vim/keys.vim
+source $DOTFILES/vim/colors.vim
+source $DOTFILES/vim/filetypes.vim
+source $DOTFILES/vim/complete.vim
 
-source ~/Workspace/dotfiles/vim/csharp.vim
-source ~/Workspace/dotfiles/vim/purescript.vim
-source ~/Workspace/dotfiles/vim/idris.vim
-source ~/Workspace/dotfiles/vim/haskell.vim
-source ~/Workspace/dotfiles/vim/fzf.vim
-source ~/Workspace/dotfiles/vim/writing.vim
-source ~/Workspace/dotfiles/vim/visual-at.vim
+source $DOTFILES/vim/csharp.vim
+source $DOTFILES/vim/purescript.vim
+source $DOTFILES/vim/idris.vim
+source $DOTFILES/vim/haskell.vim
+source $DOTFILES/vim/fzf.vim
+source $DOTFILES/vim/writing.vim
+source $DOTFILES/vim/visual-at.vim
 
 set path-=/usr/include
