@@ -32,8 +32,9 @@ Plug 'Raimondi/delimitMate'  " auto-surround for delimiters
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'sheerun/vim-polyglot'
-Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
+
+Plug 'w0rp/ale'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -71,14 +72,15 @@ filetype plugin indent on
 " netrw Setup {{{
 let g:netrw_winsize = -28  " absolute width of netrw window
 let g:netrw_banner = 0  " do not display info on the top of window
-let g:netrw_liststyle = 1  " tree-view
+let g:netrw_liststyle = 3  " tree-view
 let g:netrw_sort_sequence = '[\/]$,*'  " sort is affecting only: directories on the top, files below
+let g:netrw_bufsettings = 'noma nomod nu relativenumber nobl nowrap ro'
 " }}}
 
 " vim-airline Setup {{{
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -89,33 +91,19 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:gitgutter_map_keys = 0
 "}}}
 
-" Syntastic Setup {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" ALE Setup {{{
+let g:ale_sign_error = '»'
+let g:ale_sign_warning = '!'
 
-let g:syntastic_java_javac_config_file_enabled = 1
-let g:syntastic_java_checkers = ['javac']
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_open_list = 1
 
-let g:syntastic_javascript_checkers = ['eslint']
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-  let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-  let g:syntastic_javascript_eslint_exec = local_eslint
-endif
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linter_aliases = {'jsx': 'css'}
 
-let g:syntastic_tex_checkers = ['lacheck']
-let g:syntastic_idris_checkers = ['idris']
-let g:syntastic_html_checkers = ['eslint']
-
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++ -Wno-pragma-once-outside-header'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {'javascript': ['prettier']}
+let g:ale_javascript_prettier_use_local_config = 1
 " }}}
 
 " indentLine Setup {{{

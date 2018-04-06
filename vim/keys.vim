@@ -50,9 +50,11 @@ noremap <leader><leader> :Commands<CR>
 
 " netrw {{{
 map <leader>\ <Plug>VinegarUp
+map <leader>z <Plug>VinegarUp
 "" map o to <CR> in netrw
 autocmd filetype netrw map <buffer> o <CR>
 autocmd filetype netrw map <buffer> <leader>\ :e #<CR>
+autocmd filetype netrw map <buffer> <leader>z :e #<CR>
 " }}}
 
 " Windows {{{
