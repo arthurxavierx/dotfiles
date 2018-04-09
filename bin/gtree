@@ -1,3 +1,4 @@
 #!/bin/sh
 
-tree -a -C -I ".git|$(cat .gitignore | egrep -v "^#.*$|^[[:space:]]*$" | sed "s/^\///g" | sed "s/\/$//g" | tr "\\n" "|")"
+tree -a --ignore-case -C \
+  -I ".git|$(cat .gitignore | egrep -v "^#.*$|^[[:space:]]*$" | sed "s/^\///g" | tr "\\n" "|")"

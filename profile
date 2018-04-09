@@ -18,19 +18,21 @@ export NVM_DIR="/Users/xavier/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+# Python
+export PATH="~/Library/Python/3.6/bin:$PATH"
+
+# FZF
 export FZF_DEFAULT_COMMAND='
-  (git ls-tree -r --name-only HEAD ||
+  (git ls-files ||
    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
       sed s/^..//) 2> /dev/null'
 
+# Local binaries
 export PATH="$PATH:$HOME/.bin"
 
 # Aliases
-# From: https://justin.abrah.ms/dotfiles/zsh.html
-
 # Filesystem
 alias ..='cd ..'           # Go up one directory
 alias ...='cd ../..'       # Go up two directories
@@ -54,9 +56,22 @@ alias gr='git reset'
 alias gs='git status'
 alias gst='git stash'
 alias gsta='git stash apply'
-alias gd='git diff | $GIT_EDITOR -'
+alias gd='git diff'
 alias gmv='git mv'
-alias gt='gtree | less -R'
+alias gt='lgtree'
 
 # tree aliases
-alias t='tree -C -I "node_modules|bower_components|output" | less -R'
+alias t='ltree --ignore-case -C -I ".git|node_modules|bower_components"'
+alias ta='ltree -a --ignore-case -C -I ".git|node_modules|bower_components"'
+alias td='ltree -d --ignore-case -C -I ".git|node_modules|bower_components"'
+alias tl='ltree --ignore-case -C -I ".git|node_modules|bower_components" -L'
+alias tal='ltree -a --ignore-case -C -I ".git|node_modules|bower_components" -L'
+alias tdl='ltree -d --ignore-case -C -I ".git|node_modules|bower_components" -L'
+
+function ltree() {
+  tree --ignore-case -C -I ".git|node_modules|bower_components" $@ | less -R
+}
+
+function lgtree() {
+  gtree $@ | less -R
+}
