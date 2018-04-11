@@ -117,7 +117,7 @@ build_prompt() {
 
   prompt_newline
   prompt_virtualenv
-  prompt_context
+  # prompt_context
   prompt_dir
   prompt_git
   prompt_jobs
