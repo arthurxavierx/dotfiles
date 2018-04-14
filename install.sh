@@ -108,7 +108,7 @@ symlink "editorconfig" ".editorconfig"
 symlink "eslintrc" ".eslintrc"
 
 # zsh
-symlink "oh-my-zsh/themes/xavier.zsh-theme" ".oh-my-zsh/themes/xavier.zsh-theme"
+symlink "oh-my-zsh/custom" ".oh-my-zsh/custom"
 symlink "profile" ".profile"
 symlink "zshrc" ".zshrc"
 
