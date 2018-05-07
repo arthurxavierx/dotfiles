@@ -31,6 +31,7 @@ Plug 'Raimondi/delimitMate'  " auto-surround for delimiters
 
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-abolish'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 
