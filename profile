@@ -37,9 +37,9 @@ export PATH="$PATH:$HOME/.bin"
 alias ..='cd ..'           # Go up one directory
 alias ...='cd ../..'       # Go up two directories
 alias ....='cd ../../..'   # And for good measure
-alias l='ls -lah'   # Long view, show hidden
-alias la='ls -AF'   # Compact view, show hidden
-alias ll='ls -lFh'  # Long view, no hidden
+alias l='ls -lah'          # Long view, show hidden
+alias la='ls -AF'          # Compact view, show hidden
+alias ll='ls -lFh'         # Long view, no hidden
 
 alias tmux='TERM=xterm-256color-italic \tmux'
 
@@ -50,8 +50,9 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gch='git checkout'
-alias gl='git pull'
+alias gl='git log'
 alias gp='git push'
+alias gpo='git push -u origin'
 alias gr='git reset'
 alias gs='git status'
 alias gst='git stash'
