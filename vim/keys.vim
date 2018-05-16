@@ -20,8 +20,8 @@ vnoremap <silent> .   :norm.<CR>
 nnoremap <silent> <esc> :noh<CR><esc>
 
 " Make {{{
-noremap <leader>pm    :wa<bar>make<CR>
-noremap <leader>pM    :wa<bar>make<space>--<space>
+nnoremap <leader><CR>    :wa<bar>make<CR>
+nnoremap <leader><S-CR>  :wa<bar>make<space>--<space>
 " }}}
 
 " Buffers {{{
@@ -43,7 +43,9 @@ noremap <leader>ff    :Files<CR>
 noremap <leader>fb    :Buffers<CR>
 noremap <leader>fa    :Ag<CR>
 noremap <leader>fl    :Lines<CR>
-noremap <leader>fm    :Marks<CR>
+noremap <leader>f'    :Marks<CR>
+noremap <leader>f"    :Marks<CR>
+noremap <leader>fm    :Maps<CR>
 noremap <leader>fh    :History<CR>
 noremap <leader><leader> :Commands<CR>
 " }}}
