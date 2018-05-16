@@ -46,6 +46,7 @@ Plug 'rakr/vim-one'
 
 " PureScript
 Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
+Plug 'scrooloose/syntastic', { 'for': 'purescript' }
 
 " Idris
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
@@ -104,6 +105,12 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {'javascript': ['prettier']}
 let g:ale_javascript_prettier_use_local_config = 1
+" }}}
+
+" Syntastic Setup {{{
+ let g:syntastic_auto_loc_list = 1
+ let g:syntastic_check_on_open = 1
+ let g:syntastic_check_on_wq = 0
 " }}}
 
 " indentLine Setup {{{
