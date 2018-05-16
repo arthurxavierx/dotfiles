@@ -4,6 +4,9 @@ export DOTFILES=$HOME/Workspace/dotfiles
 # $EDITOR
 export EDITOR=nvim
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # $PATH
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.stack/programs/x86_64-osx/ghc-8.0.2/bin:$PATH
