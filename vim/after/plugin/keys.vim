@@ -38,6 +38,12 @@ noremap <leader>w     :w<CR>
 noremap <leader>gf    :Gf<CR>
 " }}}
 
+" Unicoder {{{
+let g:unicoder_cancel_visual = 1
+inoremap <silent> <C-l> <Esc>:Unicoder<CR>a
+vnoremap <silent> <C-l> :<C-u>call unicoder#selection()<CR>
+" }}}
+
 " Find {{{
 noremap <leader>ff    :Files<CR>
 noremap <leader>fb    :Buffers<CR>

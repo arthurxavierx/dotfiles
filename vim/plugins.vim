@@ -16,6 +16,7 @@ Plug 'tpope/vim-repeat'
 " Visual
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
+Plug 'joom/latex-unicoder.vim'
 
 " Windows
 Plug 'rgarver/Kwbd.vim'  " delete buffer without closing the window
@@ -53,7 +54,7 @@ Plug 'scrooloose/syntastic', { 'for': 'purescript' }
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 
 " Haskell
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+" Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 
