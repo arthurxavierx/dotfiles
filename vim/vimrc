@@ -39,7 +39,6 @@ set path& | let &path .= "**"
 
 set conceallevel=0
 
-set mouse=
 if has("termguicolors") && has("nvim")
   set t_8f=u;%lu;%lum
   set t_8b=u;%lu;%lum
@@ -83,15 +82,10 @@ set cursorline
 source $DOTFILES/vim/plugins.vim
 source $DOTFILES/vim/functions.vim
 source $DOTFILES/vim/gitignore.vim
-source $DOTFILES/vim/keys.vim
 source $DOTFILES/vim/colors.vim
 source $DOTFILES/vim/filetypes.vim
 source $DOTFILES/vim/complete.vim
 
-source $DOTFILES/vim/csharp.vim
-source $DOTFILES/vim/purescript.vim
-source $DOTFILES/vim/idris.vim
-source $DOTFILES/vim/haskell.vim
 source $DOTFILES/vim/fzf.vim
 source $DOTFILES/vim/writing.vim
 source $DOTFILES/vim/visual-at.vim

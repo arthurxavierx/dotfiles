@@ -103,6 +103,8 @@ symlink "atom/snippets.cson" ".atom/snippets.cson"
 # vim
 symlink "vim/vimrc" ".vimrc"
 symlink "vim/vimrc" ".config/nvim/init.vim"
+symlink "vim/after" ".vim/after"
+symlink "vim/after" ".config/nvim/after"
 
 symlink "editorconfig" ".editorconfig"
 symlink "eslintrc" ".eslintrc"
