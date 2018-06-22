@@ -32,6 +32,12 @@ export FZF_DEFAULT_COMMAND='
    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
       sed s/^..//) 2> /dev/null'
 
+# Google Cloud SDK
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/luis/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/luis/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/luis/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/luis/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
 # Local binaries
 export PATH="$PATH:$HOME/.bin"
 
