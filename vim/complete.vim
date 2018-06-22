@@ -15,7 +15,7 @@ augroup END
 set pumheight=10
 set shortmess-=c
 set completeopt-=preview
-set completeopt+=menuone,noinsert,noselect
+set completeopt+=menuone
 set belloff+=ctrlg " If Vim beeps during completion
 
 inoremap <expr><BS> pumvisible() ? "\<C-E>" : "\<BS>"

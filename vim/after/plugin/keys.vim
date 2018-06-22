@@ -20,8 +20,8 @@ vnoremap <silent> .   :norm.<CR>
 nnoremap <silent> <esc> :noh<CR><esc>
 
 " Make {{{
-nnoremap <leader><CR>    :wa<bar>make<CR>
-nnoremap <leader><S-CR>  :wa<bar>make<space>--<space>
+nnoremap m<CR>        :wa<bar>make<CR>
+nnoremap m<space>     :wa<bar>make<space>--<space>
 " }}}
 
 " Buffers {{{

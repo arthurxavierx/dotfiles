@@ -53,7 +53,7 @@ Plug 'scrooloose/syntastic', { 'for': 'purescript' }
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 
 " Haskell
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+" Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 
