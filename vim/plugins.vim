@@ -16,7 +16,6 @@ Plug 'tpope/vim-repeat'
 " Visual
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
-Plug 'joom/latex-unicoder.vim'
 
 " Windows
 Plug 'rgarver/Kwbd.vim'  " delete buffer without closing the window
