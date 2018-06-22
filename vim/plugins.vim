@@ -16,6 +16,7 @@ Plug 'tpope/vim-repeat'
 " Visual
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
+Plug 'rakr/vim-one'
 
 " Windows
 Plug 'rgarver/Kwbd.vim'  " delete buffer without closing the window
@@ -42,8 +43,7 @@ Plug 'junegunn/fzf.vim'
 
 " Plug 'SirVer/ultisnips'
 Plug 'lifepillar/vim-mucomplete'
-
-Plug 'rakr/vim-one'
+Plug 'arthurxavierx/vim-unicoder'
 
 " PureScript
 Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
