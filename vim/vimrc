@@ -16,7 +16,7 @@ set noerrorbells
 set nobackup
 set noswapfile
 set list lcs=trail:·,tab:»»,extends:»,precedes:«
-set foldmethod=syntax
+set foldmethod=marker
 set foldlevelstart=999
 set complete+=d
 set shortmess+=atI
