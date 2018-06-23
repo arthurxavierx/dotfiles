@@ -9,7 +9,7 @@ endif
 
 call plug#begin()
 
-Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 
