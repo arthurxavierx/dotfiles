@@ -25,8 +25,8 @@ nnoremap m<space>     :wa<bar>make<space>--<space>
 " }}}
 
 " Buffers {{{
-noremap <C-h>         :bprev<CR>
-noremap <C-l>         :bnext<CR>
+noremap <C-s>         :bprev<CR>
+noremap <C-t>         :bnext<CR>
 noremap <leader>r     :Buffers<CR>
 noremap <silent> <C-q> :Kwbd<CR>
 " }}}
@@ -50,16 +50,7 @@ noremap <leader>fh    :History<CR>
 noremap <leader><leader> :Commands<CR>
 " }}}
 
-" netrw {{{
-map <leader>\ <Plug>VinegarUp
-map <leader>z <Plug>VinegarUp
-"" map o to <CR> in netrw
-autocmd filetype netrw map <buffer> o <CR>
-autocmd filetype netrw map <buffer> <leader>\ :e #<CR>
-autocmd filetype netrw map <buffer> <leader>z :e #<CR>
-" }}}
-
-" Windows {{{
+" Panes {{{
 "" resize
 noremap <silent> <S-up>     :resize +5<CR>
 noremap <silent> <S-down>   :resize -5<CR>
@@ -72,7 +63,7 @@ noremap <C-w><C-m>          <C-w>\|<C-w>_
 " Terminal mode {{{
 if (has("nvim"))
   tnoremap <Esc>         <C-\><C-n>
-  tnoremap <C-h>         <C-\><C-n>:bprevious<CR>
-  tnoremap <C-l>         <C-\><C-n>:bnext<CR>
+  tnoremap <C-s>         <C-\><C-n>:bprevious<CR>
+  tnoremap <C-t>         <C-\><C-n>:bnext<CR>
 endif
 " }}}

@@ -20,6 +20,7 @@ Plug 'rakr/vim-one'
 
 " Windows
 Plug 'rgarver/Kwbd.vim'  " delete buffer without closing the window
+Plug 'christoomey/vim-tmux-navigator'
 
 " Text edition
 Plug 'editorconfig/editorconfig-vim'
@@ -30,7 +31,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'  " auto-surround for delimiters
 
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-abolish'
 Plug 'sheerun/vim-polyglot'
@@ -66,7 +66,7 @@ Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
 Plug 'junegunn/limelight.vim'
-Plug 'tpope/vim-markdown', { 'for': ['markdown', 'mkd', 'md' ] }
+Plug 'tpope/vim-markdown', { 'for': ['markdown', 'mkd', 'md'] }
 
 call plug#end()
 filetype plugin indent on
