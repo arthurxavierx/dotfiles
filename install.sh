@@ -100,6 +100,9 @@ symlink "atom/keymap.cson" ".atom/keymap.cson"
 symlink "atom/styles.less" ".atom/styles.less"
 symlink "atom/snippets.cson" ".atom/snippets.cson"
 
+# tmux
+symlink "tmux.conf" ".tmux.conf"
+
 # vim
 symlink "vim/vimrc" ".vimrc"
 symlink "vim/vimrc" ".config/nvim/init.vim"
