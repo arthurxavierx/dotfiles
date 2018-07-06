@@ -1,3 +1,4 @@
+" vim: foldmethod=marker
 let $LANG = 'en'
 set nocompatible
 
@@ -37,8 +38,11 @@ set wildignorecase
 set wildmode=list:full
 set path& | let &path .= "**"
 
+set path-=/usr/include
+
 set conceallevel=0
 
+" enable true color
 if has("termguicolors") && has("nvim")
   set t_8f=u;%lu;%lum
   set t_8b=u;%lu;%lum
@@ -80,14 +84,3 @@ set cursorline
 
 "
 source $DOTFILES/vim/plugins.vim
-source $DOTFILES/vim/functions.vim
-source $DOTFILES/vim/gitignore.vim
-source $DOTFILES/vim/colors.vim
-source $DOTFILES/vim/filetypes.vim
-source $DOTFILES/vim/complete.vim
-
-source $DOTFILES/vim/fzf.vim
-source $DOTFILES/vim/writing.vim
-source $DOTFILES/vim/visual-at.vim
-
-set path-=/usr/include

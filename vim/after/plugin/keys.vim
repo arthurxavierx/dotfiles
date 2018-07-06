@@ -1,3 +1,4 @@
+" vim: foldmethod=marker
 let mapleader = "\<space>"
 nnoremap <space> <nop>
 
@@ -6,6 +7,7 @@ set pastetoggle=<F3>
 noremap ; :
 noremap ç ;
 noremap \ /
+noremap <C-c> <C-a>
 
 " Yank to end of line
 nnoremap Y y$
@@ -25,9 +27,7 @@ nnoremap m<space>     :wa<bar>make<space>--<space>
 " }}}
 
 " Buffers {{{
-noremap <C-s>         :bprev<CR>
-noremap <C-t>         :bnext<CR>
-noremap <leader>r     :Buffers<CR>
+noremap <leader>r      :ls<CR>:b<space>
 noremap <silent> <C-q> :Kwbd<CR>
 " }}}
 
@@ -35,7 +35,7 @@ noremap <silent> <C-q> :Kwbd<CR>
 noremap <leader>t     :Files<CR>
 noremap <leader>w     :w<CR>
 "" go-to-file without wildignore
-noremap <leader>gf    :Gf<CR>
+noremap <silent> <leader>gf :call lib#GotoFile()<CR>
 " }}}
 
 " Find {{{
@@ -51,6 +51,11 @@ noremap <leader><leader> :Commands<CR>
 " }}}
 
 " Panes {{{
+"" movement
+noremap <silent> <C-h>      <C-w><C-h>
+noremap <silent> <C-j>      <C-w><C-j>
+noremap <silent> <C-k>      <C-w><C-k>
+noremap <silent> <C-l>      <C-w><C-l>
 "" resize
 noremap <silent> <S-up>     :resize +5<CR>
 noremap <silent> <S-down>   :resize -5<CR>
@@ -62,8 +67,17 @@ noremap <C-w><C-m>          <C-w>\|<C-w>_
 
 " Terminal mode {{{
 if (has("nvim"))
-  tnoremap <Esc>         <C-\><C-n>
-  tnoremap <C-s>         <C-\><C-n>:bprevious<CR>
-  tnoremap <C-t>         <C-\><C-n>:bnext<CR>
+  tnoremap <silent> <Esc>   <C-\><C-n>
 endif
+" }}}
+
+" CamelCaseMotion {{{
+map <silent> - <Plug>CamelCaseMotion_e
+map <silent> _ <Plug>CamelCaseMotion_b
+sunmap -
+sunmap _
+omap <silent> i- <Plug>CamelCaseMotion_ie
+xmap <silent> i- <Plug>CamelCaseMotion_ie
+omap <silent> i_ <Plug>CamelCaseMotion_ib
+xmap <silent> i_ <Plug>CamelCaseMotion_ib
 " }}}

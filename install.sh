@@ -106,10 +106,9 @@ tic ./xterm-256color-italic.terminfo
 tic ./tmux-256color.terminfo
 
 # vim
-symlink "vim/vimrc" ".vimrc"
-symlink "vim/vimrc" ".config/nvim/init.vim"
-symlink "vim/after" ".vim/after"
-symlink "vim/after" ".config/nvim/after"
+symlink "vim" ".config/nvim"
+symlink "vim" ".vim"
+symlink "vim/init.vim" ".vimrc"
 
 symlink "editorconfig" ".editorconfig"
 symlink "eslintrc" ".eslintrc"

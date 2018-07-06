@@ -1,3 +1,11 @@
 **.DS_Store
 node_modules
 bin/pass
+
+vim/.netrwhist
+vim/plugged
+vim/autoload/plug*
+vim/undodir
+vim/colors
+vim/doc
+vim/test
