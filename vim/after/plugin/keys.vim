@@ -65,6 +65,14 @@ noremap <C-w>m              <C-w>\|<C-w>_
 noremap <C-w><C-m>          <C-w>\|<C-w>_
 " }}}
 
+" Tabs {{{
+noremap <silent> <C-t><C-t> gt
+noremap <silent> <C-t><C-n> gt
+noremap <silent> <C-t><C-p> gT
+noremap <silent> <C-t><C-x> :tabclose<CR>
+noremap <silent> <C-w><C-t> <C-w>T
+" }}}
+
 " Terminal mode {{{
 if (has("nvim"))
   tnoremap <silent> <Esc>   <C-\><C-n>
