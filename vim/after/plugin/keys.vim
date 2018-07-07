@@ -27,7 +27,7 @@ nnoremap m<space>     :wa<bar>make<space>--<space>
 " }}}
 
 " Buffers {{{
-noremap <leader>r      :ls<CR>:b<space>
+noremap <leader>r      :Buffers<CR>
 noremap <silent> <C-q> :Kwbd<CR>
 " }}}
 

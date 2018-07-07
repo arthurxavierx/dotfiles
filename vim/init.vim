@@ -22,6 +22,8 @@ set foldlevelstart=2
 set complete+=d
 set shortmess+=atI
 
+set clipboard=unnamed
+
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.out,*.exe,*.app,*.dll,*.a,*.la,*.lib,*.swp,*.zip,*.meta
 set wildignore+=*.swp,*.bak
@@ -41,13 +43,6 @@ set path& | let &path .= "**"
 set path-=/usr/include
 
 set conceallevel=0
-
-" enable true color
-if has("termguicolors") && has("nvim")
-  set t_8f=u;%lu;%lum
-  set t_8b=u;%lu;%lum
-  set termguicolors
-endif
 
 set ttyfast
 set lazyredraw
@@ -81,6 +76,9 @@ set splitbelow " split below by default
 
 set cursorcolumn
 set cursorline
+
+let g:python_host_skip_check = 1
+let g:python3_host_skip_check = 1
 
 "
 source $DOTFILES/vim/plugins.vim

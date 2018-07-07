@@ -14,8 +14,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 
 " Visual
-Plug 'airblade/vim-gitgutter'
-Plug 'Yggdroot/indentLine'
 Plug 'rakr/vim-one'
 
 " Windows
@@ -33,7 +31,9 @@ Plug 'Raimondi/delimitMate'  " auto-surround for delimiters
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-abolish'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-airline/vim-airline'
+
+Plug 'itchyny/lightline.vim'
+Plug 'mgee/lightline-bufferline'
 
 Plug 'w0rp/ale'
 
@@ -52,7 +52,6 @@ Plug 'scrooloose/syntastic', { 'for': 'purescript' }
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 
 " Haskell
-" Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 
@@ -62,10 +61,7 @@ Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " Plug 'vim-scripts/ShaderHighLight'
 
 " Writing
-Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
-Plug 'junegunn/limelight.vim'
-Plug 'tpope/vim-markdown', { 'for': ['markdown', 'mkd', 'md'] }
 
 call plug#end()
 filetype plugin indent on
