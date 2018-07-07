@@ -29,6 +29,8 @@ nnoremap m<space>     :wa<bar>make<space>--<space>
 " Buffers {{{
 noremap <leader>r      :Buffers<CR>
 noremap <silent> <C-q> :Kwbd<CR>
+noremap <C-[>          :bprev<CR>
+noremap <C-]>          :bnext<CR>
 " }}}
 
 " Files {{{
