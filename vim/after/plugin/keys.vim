@@ -29,8 +29,6 @@ nnoremap m<space>     :wa<bar>make<space>--<space>
 " Buffers {{{
 noremap <leader>r      :Buffers<CR>
 noremap <silent> <C-q> :Kwbd<CR>
-noremap <C-[>          :bprev<CR>
-noremap <C-]>          :bnext<CR>
 " }}}
 
 " Files {{{
@@ -68,13 +66,15 @@ noremap <C-w><C-m>          <C-w>\|<C-w>_
 " }}}
 
 " Tabs {{{
-noremap <silent> <C-t><C-t> gt
-noremap <silent> <C-t><C-]> gt
-noremap <silent> <C-t><C-[> gT
+noremap <C-t><C-t>          gt
+noremap ]t                  gt
+noremap [t                  gT
+noremap ]T                  :tabfirst<CR>
+noremap [T                  :tablast<CR>
 
-noremap <silent> <C-t><C-x> :tabclose<CR>
-noremap <silent> <C-t><C-n> <C-w><C-n><C-w>T
-noremap <silent> <C-w><C-t> <C-w>T
+noremap <C-t><C-x>          :tabclose<CR>
+noremap <C-t><C-n>          <C-w><C-n><C-w>T
+noremap <C-w><C-t>          <C-w>T
 " }}}
 
 " Terminal mode {{{
@@ -84,12 +84,12 @@ endif
 " }}}
 
 " CamelCaseMotion {{{
-map <silent> - <Plug>CamelCaseMotion_e
-map <silent> _ <Plug>CamelCaseMotion_b
+map <silent> -              <Plug>CamelCaseMotion_e
+map <silent> _              <Plug>CamelCaseMotion_b
 sunmap -
 sunmap _
-omap <silent> i- <Plug>CamelCaseMotion_ie
-xmap <silent> i- <Plug>CamelCaseMotion_ie
-omap <silent> i_ <Plug>CamelCaseMotion_ib
-xmap <silent> i_ <Plug>CamelCaseMotion_ib
+omap <silent> i-            <Plug>CamelCaseMotion_ie
+xmap <silent> i-            <Plug>CamelCaseMotion_ie
+omap <silent> i_            <Plug>CamelCaseMotion_ib
+xmap <silent> i_            <Plug>CamelCaseMotion_ib
 " }}}
