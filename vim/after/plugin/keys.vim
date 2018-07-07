@@ -69,9 +69,11 @@ noremap <C-w><C-m>          <C-w>\|<C-w>_
 
 " Tabs {{{
 noremap <silent> <C-t><C-t> gt
-noremap <silent> <C-t><C-n> gt
-noremap <silent> <C-t><C-p> gT
+noremap <silent> <C-t><C-]> gt
+noremap <silent> <C-t><C-[> gT
+
 noremap <silent> <C-t><C-x> :tabclose<CR>
+noremap <silent> <C-t><C-n> <C-w><C-n><C-w>T
 noremap <silent> <C-w><C-t> <C-w>T
 " }}}
 
