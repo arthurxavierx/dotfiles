@@ -18,6 +18,7 @@ Plug 'rakr/vim-one'
 
 " Windows
 Plug 'rgarver/Kwbd.vim'  " delete buffer without closing the window
+Plug 'christoomey/vim-tmux-navigator'
 
 " Text edition
 Plug 'editorconfig/editorconfig-vim'
