@@ -69,8 +69,8 @@ noremap <C-w><C-m>          <C-w>\|<C-w>_
 noremap <C-t><C-t>          gt
 noremap ]t                  gt
 noremap [t                  gT
-noremap ]T                  :tabfirst<CR>
-noremap [T                  :tablast<CR>
+noremap ]T                  :tablast<CR>
+noremap [T                  :tabfirst<CR>
 
 noremap <C-t><C-x>          :tabclose<CR>
 noremap <C-t><C-n>          <C-w><C-n><C-w>T
