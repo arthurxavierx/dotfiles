@@ -18,9 +18,11 @@ set nobackup
 set noswapfile
 set list lcs=trail:·,tab:»»,extends:»,precedes:«
 set foldmethod=syntax
-set foldlevelstart=2
+set foldlevel=2
 set complete+=d
 set shortmess+=atI
+
+
 
 set clipboard=unnamed
 

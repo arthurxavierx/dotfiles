@@ -51,11 +51,6 @@ noremap <leader><leader> :Commands<CR>
 " }}}
 
 " Panes {{{
-"" movement
-noremap <silent> <C-h>      <C-w><C-h>
-noremap <silent> <C-j>      <C-w><C-j>
-noremap <silent> <C-k>      <C-w><C-k>
-noremap <silent> <C-l>      <C-w><C-l>
 "" resize
 noremap <silent> <S-up>     :resize +5<CR>
 noremap <silent> <S-down>   :resize -5<CR>
@@ -69,8 +64,8 @@ noremap <C-w><C-m>          <C-w>\|<C-w>_
 noremap <C-t><C-t>          gt
 noremap ]t                  gt
 noremap [t                  gT
-noremap ]T                  :tabfirst<CR>
-noremap [T                  :tablast<CR>
+noremap ]T                  :tablast<CR>
+noremap [T                  :tabfirst<CR>
 
 noremap <C-t><C-x>          :tabclose<CR>
 noremap <C-t><C-n>          <C-w><C-n><C-w>T
