@@ -40,7 +40,6 @@ endfunction
 
 function! lib#WritingMode(conceal)
   call pencil#init({'wrap': 'soft'})
-  call s:UnmapPencilLines()
 
   sil! nun <buffer> $
   sil! nun <buffer> 0
@@ -54,7 +53,6 @@ function! lib#WritingMode(conceal)
 
   if a:conceal
     set conceallevel=1
-    exec 'IndentLinesDisable'
     hi Conceal guifg=white
   endif
 endfunction
