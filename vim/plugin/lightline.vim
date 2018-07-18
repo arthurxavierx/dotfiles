@@ -10,22 +10,11 @@ let g:lightline = {
       \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
       \     ]
       \   },
-      \   'component': {
-      \     'lineinfo': ' %3l:%-2v',
-      \   },
       \ }
 
 let g:lightline.tabline = {
       \   'left': [ ['buffers'] ],
       \   'right': [ ['tabs'] ],
-      \ }
-
-let g:lightline.separator = {
-      \   'left': '', 'right': ''
-      \ }
-
-let g:lightline.subseparator = {
-      \   'left': '', 'right': ''
       \ }
 
 let g:lightline.component_expand = { 'buffers': 'lightline#bufferline#buffers' }
