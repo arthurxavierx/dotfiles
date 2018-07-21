@@ -95,6 +95,8 @@ done
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export DOTFILES
 
+git submodule update --init
+
 # atom
 symlink "atom/keymap.cson" ".atom/keymap.cson"
 symlink "atom/styles.less" ".atom/styles.less"
