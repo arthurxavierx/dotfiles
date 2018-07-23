@@ -104,6 +104,7 @@ symlink "atom/snippets.cson" ".atom/snippets.cson"
 
 # tmux
 symlink "tmux.conf" ".tmux.conf"
+symlink "tmux" ".tmux"
 tic ./xterm-256color-italic.terminfo
 tic ./tmux-256color.terminfo
 
