@@ -15,7 +15,7 @@ colorscheme one
 let g:airline_theme='one'
 
 " fix vim-one colors in 256 color Vim
-hi Normal guifg=#ABB2BF ctermfg=145 guibg=#282C34 ctermbg=NONE
+hi Normal guifg=#ABB2BF ctermfg=145 guibg=NONE ctermbg=NONE
 
 hi CursorLine guibg=#2C323C ctermbg=236
 hi CursorColumn guibg=#2C323C ctermbg=236

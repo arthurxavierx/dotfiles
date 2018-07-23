@@ -51,7 +51,7 @@ set lazyredraw
 
 set nowrap " spacing
 set tw=89
-set colorcolumn=80
+set colorcolumn=0
 set wm=0
 set fo-=t
 
@@ -75,9 +75,6 @@ set smartcase
 set hidden " hidden buffers
 set splitright " split to right by default
 set splitbelow " split below by default
-
-set cursorcolumn
-set cursorline
 
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
