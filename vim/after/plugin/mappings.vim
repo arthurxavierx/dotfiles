@@ -33,7 +33,7 @@ noremap <silent> <C-q> :Kwbd<CR>
 
 " Files {{{
 noremap <leader>t     :Files<CR>
-"" go-to-file without wildignore
+"" go-to-file without wildignore [../../autoload/lib.vim]
 noremap <silent> <leader>gf :call lib#GotoFile()<CR>
 " }}}
 
@@ -71,7 +71,7 @@ autocmd VimEnter * noremap ]T :tablast<CR>
 autocmd VimEnter * noremap [T :tabfirst<CR>
 " }}}
 
-" Completion {{{
+" Completion [../../plugin/completion.vim] {{{
 inoremap <expr> <BS>  pumvisible() ? "\<C-E>" : "\<BS>"
 inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
 inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")

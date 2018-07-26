@@ -1,6 +1,6 @@
 " vim: fdm=marker:fdl=0:
-let $LANG = 'en'
 set nocompatible
+let $LANG = 'en'
 
 " Sensible defaults
 filetype plugin indent on
@@ -102,3 +102,6 @@ let g:python3_host_skip_check = 1
 " }}}
 
 source $DOTFILES/vim/plugins.vim
+
+" Mappings [after/plugin/mappings.vim] {{{
+" }}}
