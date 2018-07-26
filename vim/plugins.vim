@@ -1,4 +1,4 @@
-" vim: fdm=marker:fdl=0:
+" vim: fdm=marker:fdl=0:cc=80:
 " Automatic installation {{{
 if empty(glob('~/.vim/autoload/plug.vim')) && empty(glob('~/vimfiles/autoload/plug.vim'))
     !mkdir -p ~/.vim/autoload
@@ -16,8 +16,9 @@ Plug 'tpope/vim-repeat'
 
 Plug 'tpope/vim-unimpaired'
 
-" Visual {{{
-Plug 'rakr/vim-one'
+Plug 'rakr/vim-one'  " [plugin/colors.vim]
+
+" Lightline [plugin/lightline.vim] {{{
 Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 " }}}
@@ -30,47 +31,41 @@ Plug 'christoomey/vim-tmux-navigator'
 " Text edition {{{
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'bkad/CamelCaseMotion'
+Plug 'bkad/CamelCaseMotion'             " [./mappings.vim]
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-abolish'  " coercion between cases
-Plug 'Raimondi/delimitMate'  " auto-surround for delimiters
-Plug 'arthurxavierx/vim-unicoder'
-Plug 'lifepillar/vim-mucomplete'
+Plug 'tpope/vim-abolish'
+Plug 'Raimondi/delimitMate'
+Plug 'arthurxavierx/vim-unicoder'       " [plugin/abbreviations.vim]
+Plug 'lifepillar/vim-mucomplete'        " [plugin/completion.vim]
 " }}}
 
-" Syntax and linting {{{
-Plug 'sheerun/vim-polyglot'
+" Syntax and linting [plugin/ale.vim] {{{
 Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
 " }}}
 
-" Finding {{{
+" FZF [plugin/fzf.vim] {{{
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " }}}
 
-" PureScript {{{
+" PureScript [after/ftplugin/purescript.vim] {{{
 Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
-Plug 'scrooloose/syntastic', { 'for': 'purescript' }
+Plug 'scrooloose/syntastic', { 'for': 'purescript' }  " [plugin/syntastic.vim]
 " }}}
 
-" Idris {{{
+" Idris [after/ftplugin/idris.vim] {{{
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 " }}}
 
-" Haskell {{{
+" Haskell [after/ftplugin/haskell.vim] {{{
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " }}}
 
-" Unity {{{
-" Plug 'OrangeT/vim-csharp', { 'for': 'cs' }
-" Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
-" Plug 'vim-scripts/ShaderHighLight'
-" }}}
-
-" Writing {{{
+" Writing [plugin/writing.vim] {{{
 Plug 'reedes/vim-pencil'
 " }}}
 

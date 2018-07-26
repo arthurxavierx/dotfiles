@@ -33,7 +33,7 @@ set lazyredraw
 " Use system clipboard for yanking and pasting
 set clipboard=unnamed
 
-" Completion {{{
+" Completion [plugin/completion.vim] {{{
 set complete+=d
 set pumheight=10
 set completeopt=menu,menuone
@@ -42,6 +42,7 @@ set completeopt=menu,menuone
 " Folding {{{
 set foldmethod=syntax
 set foldlevel=2
+" folding text object: [plugin/textobj/fold.vim]
 " }}}
 
 " Wildmenu {{{
