@@ -18,11 +18,6 @@ set completeopt-=preview
 set completeopt+=menuone
 set belloff+=ctrlg " If Vim beeps during completion
 
-inoremap <expr><BS> pumvisible() ? "\<C-E>" : "\<BS>"
-inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
-
 let g:mucomplete#chains = {
   \ 'default': ['path', 'omni', 'c-n', 'incl', 'uspl'],
   \ 'tex': ['path', 'c-n', 'incl', 'uspl'],

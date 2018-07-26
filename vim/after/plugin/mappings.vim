@@ -1,4 +1,4 @@
-" vim: foldmethod=marker
+" vim: fdm=marker:fdl=0:
 let mapleader = "\<space>"
 nnoremap <space> <nop>
 
@@ -13,7 +13,6 @@ noremap <C-c> <C-a>
 nnoremap Y y$
 " Disable ex mode and man page
 nnoremap Q <nop>
-nnoremap K <nop>
 
 " . repeat in visual mode
 vnoremap <silent> .   :norm.<CR>
@@ -27,26 +26,26 @@ nnoremap m<space>     :wa<bar>make<space>--<space>
 " }}}
 
 " Buffers {{{
+noremap <leader>w      :w<CR>
 noremap <leader>r      :Buffers<CR>
 noremap <silent> <C-q> :Kwbd<CR>
 " }}}
 
 " Files {{{
 noremap <leader>t     :Files<CR>
-noremap <leader>w     :w<CR>
 "" go-to-file without wildignore
 noremap <silent> <leader>gf :call lib#GotoFile()<CR>
 " }}}
 
 " Find {{{
-noremap <leader>ff    :Files<CR>
-noremap <leader>fb    :Buffers<CR>
-noremap <leader>fa    :Ag<CR>
-noremap <leader>fl    :Lines<CR>
-noremap <leader>f'    :Marks<CR>
-noremap <leader>f"    :Marks<CR>
-noremap <leader>fm    :Maps<CR>
-noremap <leader>fh    :History<CR>
+noremap <leader>ff       :Files<CR>
+noremap <leader>fb       :Buffers<CR>
+noremap <leader>fa       :Ag<CR>
+noremap <leader>fl       :Lines<CR>
+noremap <leader>f'       :Marks<CR>
+noremap <leader>f"       :Marks<CR>
+noremap <leader>fm       :Maps<CR>
+noremap <leader>fh       :History<CR>
 noremap <leader><leader> :Commands<CR>
 " }}}
 
@@ -62,20 +61,21 @@ noremap <C-w><C-m>          <C-w>\|<C-w>_
 
 " Tabs {{{
 noremap <C-t><C-t>          gt
-noremap ]t                  gt
-noremap [t                  gT
-noremap ]T                  :tablast<CR>
-noremap [T                  :tabfirst<CR>
-
 noremap <C-t><C-x>          :tabclose<CR>
 noremap <C-t><C-n>          <C-w><C-n><C-w>T
 noremap <C-w><C-t>          <C-w>T
+" Override vim-unimpaired's t to switch between tabs
+autocmd VimEnter * noremap ]t gt
+autocmd VimEnter * noremap [t gT
+autocmd VimEnter * noremap ]T :tablast<CR>
+autocmd VimEnter * noremap [T :tabfirst<CR>
 " }}}
 
-" Terminal mode {{{
-if (has("nvim"))
-  tnoremap <silent> <Esc>   <C-\><C-n>
-endif
+" Complete  {{{
+inoremap <expr> <BS>  pumvisible() ? "\<C-E>" : "\<BS>"
+inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+inoremap <expr> <cr>  mucomplete#popup_exit("\<cr>")
 " }}}
 
 " CamelCaseMotion {{{
@@ -87,4 +87,10 @@ omap <silent> i-            <Plug>CamelCaseMotion_ie
 xmap <silent> i-            <Plug>CamelCaseMotion_ie
 omap <silent> i_            <Plug>CamelCaseMotion_ib
 xmap <silent> i_            <Plug>CamelCaseMotion_ib
+" }}}
+
+" Terminal mode {{{
+if (has("nvim"))
+  tnoremap <silent> <Esc>   <C-\><C-n>
+endif
 " }}}
