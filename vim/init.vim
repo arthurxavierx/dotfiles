@@ -42,6 +42,7 @@ set completeopt=menu,menuone
 " Folding {{{
 set foldmethod=syntax
 set foldlevel=2
+set foldignore=
 " folding text object: [plugin/textobj/fold.vim]
 " }}}
 
