@@ -53,6 +53,5 @@ function! lib#WritingMode(conceal)
 
   if a:conceal
     set conceallevel=1
-    hi Conceal guifg=white ctermfg=white
   endif
 endfunction
