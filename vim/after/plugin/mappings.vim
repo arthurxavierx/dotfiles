@@ -71,7 +71,7 @@ autocmd VimEnter * noremap ]T :tablast<CR>
 autocmd VimEnter * noremap [T :tabfirst<CR>
 " }}}
 
-" Complete  {{{
+" Completion {{{
 inoremap <expr> <BS>  pumvisible() ? "\<C-E>" : "\<BS>"
 inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
 inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")

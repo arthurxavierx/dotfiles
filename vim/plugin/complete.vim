@@ -12,12 +12,6 @@ augroup omnicomplete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
 
-set pumheight=10
-set shortmess-=c
-set completeopt-=preview
-set completeopt+=menuone
-set belloff+=ctrlg " If Vim beeps during completion
-
 let g:mucomplete#chains = {
   \ 'default': ['path', 'omni', 'c-n', 'incl', 'uspl'],
   \ 'tex': ['path', 'c-n', 'incl', 'uspl'],

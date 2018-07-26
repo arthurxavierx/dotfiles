@@ -1,31 +1,50 @@
-" vim: foldmethod=marker
+" vim: fdm=marker:fdl=0:
 let $LANG = 'en'
 set nocompatible
 
+" Sensible defaults
 filetype plugin indent on
 syntax on
-
 filetype on
 set showcmd
-
-set number
-set relativenumber
-set showmatch
+set eol
 set title
-set visualbell
-set noerrorbells
 set nobackup
 set noswapfile
-set list lcs=trail:·,tab:»»,extends:»,precedes:«
-set foldmethod=syntax
-set foldlevel=2
-set complete+=d
-set shortmess+=atI
+set noerrorbells
 
+set number relativenumber
 
+" Show matching brackets when inserting
+set showmatch
 
+set conceallevel=0
+set colorcolumn=0
+set list listchars=trail:·,tab:»»,extends:»,precedes:«
+
+" Abbreviate messages and truncate when needed
+set shortmess+=at
+" Remove the intro message when starting Vim
+set shortmess+=I
+
+" Do not redraw the screen for commands that have not been typed
+set lazyredraw
+
+" Use system clipboard for yanking and pasting
 set clipboard=unnamed
 
+" Completion {{{
+set complete+=d
+set pumheight=10
+set completeopt=menu,menuone
+" }}}
+
+" Folding {{{
+set foldmethod=syntax
+set foldlevel=2
+" }}}
+
+" Wildmenu {{{
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.out,*.exe,*.app,*.dll,*.a,*.la,*.lib,*.swp,*.zip,*.meta
 set wildignore+=*.swp,*.bak
@@ -41,43 +60,43 @@ set wildignore+=*/output/**
 set wildignorecase
 set wildmode=list:full
 set path& | let &path .= "**"
-
 set path-=/usr/include
+" }}}
 
-set conceallevel=0
+" Wrapping and formatting {{{
+set nowrap
+set textwidth=80
+set wrapmargin=0
+set formatoptions=vcrqjl
+" }}}
 
-set ttyfast
-set lazyredraw
-
-set nowrap " spacing
-set tw=89
-set colorcolumn=0
-set wm=0
-set fo-=t
-
+" Indentation {{{
 set shiftround
 set tabstop=2 shiftwidth=2
-
-set eol
 set expandtab
 set autoindent
 set backspace=indent,eol,start
 set copyindent
 set smarttab
+" }}}
 
-" search
+" Search {{{
 set gdefault
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+" }}}
 
-set hidden " hidden buffers
-set splitright " split to right by default
-set splitbelow " split below by default
+" Buffers {{{
+set hidden
+set splitright
+set splitbelow
+" }}}
 
+" Python {{{
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
+" }}}
 
-"
 source $DOTFILES/vim/plugins.vim
