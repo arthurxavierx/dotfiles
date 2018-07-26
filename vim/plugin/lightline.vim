@@ -1,3 +1,6 @@
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
+
 let g:lightline#bufferline#show_number = 1
 let g:lightline#bufferline#shorten_path = 0
 let g:lightline#bufferline#filename_modifier = ':t'
@@ -10,15 +13,10 @@ let g:lightline = {
       \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
       \     ]
       \   },
+      \   'tabline': {
+      \     'left': [ ['buffers'] ],
+      \     'right': [ ['tabs'] ],
+      \   },
+      \   'component_expand': { 'buffers': 'lightline#bufferline#buffers' },
+      \   'component_type': { 'buffers': 'tabsel' },
       \ }
-
-let g:lightline.tabline = {
-      \   'left': [ ['buffers'] ],
-      \   'right': [ ['tabs'] ],
-      \ }
-
-let g:lightline.component_expand = { 'buffers': 'lightline#bufferline#buffers' }
-let g:lightline.component_type   = { 'buffers': 'tabsel' }
-
-set showtabline=2  " Show tabline
-set guioptions-=e  " Don't use GUI tabline
