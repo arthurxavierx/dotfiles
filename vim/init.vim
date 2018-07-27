@@ -44,7 +44,7 @@ set omnifunc=syntaxcomplete#Complete
 set foldmethod=syntax
 set foldlevel=1
 set foldignore=
-" folding text object: [plugin/textobj/fold.vim]
+set fillchars+=fold:\ ,
 " }}}
 
 " Wildmenu {{{
