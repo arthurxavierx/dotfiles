@@ -103,6 +103,4 @@ let g:python3_host_skip_check = 1
 " }}}
 
 source $DOTFILES/vim/plugins.vim
-
-" Mappings [after/plugin/mappings.vim] {{{
-" }}}
+source $DOTFILES/vim/mappings.vim
