@@ -37,6 +37,7 @@ set clipboard=unnamed
 set complete+=d
 set pumheight=10
 set completeopt=menu,menuone
+set omnifunc=syntaxcomplete#Complete
 " }}}
 
 " Folding {{{

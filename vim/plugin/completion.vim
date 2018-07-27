@@ -1,6 +1,3 @@
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-
 augroup omnicomplete
   autocmd!
   autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
