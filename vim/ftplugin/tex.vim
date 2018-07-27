@@ -1,7 +1,7 @@
 let g:pencil#cursorwrap = 0
 call pencil#init({ 'wrap': 'soft' })
 
-set conceallevel=0
+set conceallevel=1
 
 " Treat softly wrapped lines normally
 sil! nun <buffer> $

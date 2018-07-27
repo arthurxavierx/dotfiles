@@ -33,25 +33,3 @@ function lib#SplitWithoutNesting()
     quitall
   endif
 endfunction
-
-" Writing mode is automatically set for LaTeX or Markdown files.
-" When in writing mode, soft wrap is used (but lines are treated normally for
-" movements) and concealing is enabled.
-" See: [../plugin/writing.vim]
-function! lib#WritingMode(conceal)
-  call pencil#init({'wrap': 'soft'})
-
-  " Treat softly wrapped lines normally
-  sil! nun <buffer> $
-  sil! nun <buffer> 0
-  sil! vu  <buffer> $
-  sil! vu  <buffer> 0
-  sil! nun <buffer> j
-  sil! nun <buffer> k
-  sil! vu  <buffer> j
-  sil! vu  <buffer> k
-
-  if a:conceal
-    set conceallevel=1
-  endif
-endfunction
