@@ -64,11 +64,10 @@ noremap <C-t><C-t>          gt
 noremap <C-t><C-x>          :tabclose<CR>
 noremap <C-t><C-n>          <C-w><C-n><C-w>T
 noremap <C-w><C-t>          <C-w>T
-" Override vim-unimpaired's t to switch between tabs
-autocmd VimEnter * noremap ]t gt
-autocmd VimEnter * noremap [t gT
-autocmd VimEnter * noremap ]T :tablast<CR>
-autocmd VimEnter * noremap [T :tabfirst<CR>
+noremap ]<Tab>              gt
+noremap [<Tab>              gT
+noremap ]<S-Tab>            :tablast<CR>
+noremap [<S-Tab>            :tabfirst<CR>
 " }}}
 
 " Completion [../../plugin/completion.vim] {{{

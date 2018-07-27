@@ -51,16 +51,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " }}}
 
-" PureScript [after/ftplugin/purescript.vim] {{{
+" PureScript [ftplugin/purescript.vim] {{{
 Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
 Plug 'scrooloose/syntastic', { 'for': 'purescript' }  " [plugin/syntastic.vim]
 " }}}
 
-" Idris [after/ftplugin/idris.vim] {{{
+" Idris [ftplugin/idris.vim] {{{
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 " }}}
 
-" Haskell [after/ftplugin/haskell.vim] {{{
+" Haskell [ftplugin/haskell.vim] {{{
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " }}}
@@ -70,4 +70,3 @@ Plug 'reedes/vim-pencil'
 " }}}
 
 call plug#end()
-filetype plugin indent on
