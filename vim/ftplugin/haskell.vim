@@ -5,11 +5,7 @@ let b:ale_linters = {
       \ 'haskell': ['hdevtools', 'hlint', 'stack-build', 'stack-ghc']
       \ }
 
-augroup Haskell
-  au!
-  au FileType qf setlocal wrap
-  au FileType haskell setlocal omnifunc=necoghc#omnifunc
+setlocal omnifunc=necoghc#omnifunc
 
-  au FileType haskell nmap <leader>ps :call ApplyOneSuggestion()<CR>
-  au FileType haskell nmap <leader>pp :Hoogle<space>
-augroup END
+nmap <buffer> <leader>ps :call ApplyOneSuggestion()<CR>
+nmap <buffer> <leader>pp :Hoogle<space>

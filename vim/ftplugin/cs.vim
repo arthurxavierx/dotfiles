@@ -1,17 +1,14 @@
-let g:psc_ide_syntastic_mode = 1
-augroup CSharp
-  au!
-  au FileType cs setlocal omnifunc=OmniSharp#Complete
-  au FileType cs nmap <leader>pt :OmniSharpTypeLookup<CR>
-  au FileType cs nmap <leader>ps :OmniSharpFixIssues<CR>
-  au FileType cs nmap <leader>pr :OmniSharpRename<CR>
-  au FileType cs nmap <leader>pd :OmniSharpDocumentation<CR>
+setlocal omnifunc=OmniSharp#Complete
 
-  au FileType cs nmap <leader>pfi :OmniSharpFindImplementations<CR>
-  au FileType cs nmap <leader>pfm :OmniSharpFindMembers<CR>
-  au FileType cs nmap <leader>pfs :OmniSharpFindSymbol<CR>
-  au FileType cs nmap <leader>pft :OmniSharpFindType<CR>
-  au FileType cs nmap <leader>pfu :OmniSharpFindUsages<CR>
+nmap <buffer> <leader>pt :OmniSharpTypeLookup<CR>
+nmap <buffer> <leader>ps :OmniSharpFixIssues<CR>
+nmap <buffer> <leader>pr :OmniSharpRename<CR>
+nmap <buffer> <leader>pd :OmniSharpDocumentation<CR>
 
-  au BufWritePost *.cs call OmniSharp#BuildAsync()
-augroup END
+nmap <buffer> <leader>pfi :OmniSharpFindImplementations<CR>
+nmap <buffer> <leader>pfm :OmniSharpFindMembers<CR>
+nmap <buffer> <leader>pfs :OmniSharpFindSymbol<CR>
+nmap <buffer> <leader>pft :OmniSharpFindType<CR>
+nmap <buffer> <leader>pfu :OmniSharpFindUsages<CR>
+
+au BufWritePost *.cs call OmniSharp#BuildAsync()

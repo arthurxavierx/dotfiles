@@ -1,8 +1,8 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-setlocal norelativenumber
-setlocal number
+setlocal norelativenumber number
+setlocal wrap
 
 " do not list quickfix buffers as a file buffer
 set nobuflisted
