@@ -11,16 +11,18 @@ endif
 call plug#begin()
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
-
 Plug 'tpope/vim-unimpaired'
 
-Plug 'rakr/vim-one'  " [plugin/colors.vim]
+" Visual {{{
+Plug 'rakr/vim-one'               " [plugin/colors.vim]
 
-" Lightline [plugin/lightline.vim] {{{
-Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'      " [plugin/lightline.vim]
 Plug 'mgee/lightline-bufferline'
+
+Plug 'arthurxavierx/vim-unicoder' " [plugin/abbreviations.vim]
+Plug 'RRethy/vim-illuminate'      " [plugin/illuminate.vim]
+Plug 'kshenoy/vim-signature'
 " }}}
 
 " Windows and buffers {{{
@@ -37,7 +39,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'Raimondi/delimitMate'
-Plug 'arthurxavierx/vim-unicoder'       " [plugin/abbreviations.vim]
 Plug 'lifepillar/vim-mucomplete'        " [plugin/completion.vim]
 " }}}
 

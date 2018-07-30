@@ -33,6 +33,14 @@ set lazyredraw
 " Use system clipboard for yanking and pasting
 set clipboard=unnamed
 
+" Keep at least 8 lines above or below the cursor
+set scrolloff=5
+
+" Save deleted marks when closing buffers
+if has('nvim')
+  autocmd BufUnload * delm 0-9 | wshada!
+endif
+
 " Completion [plugin/completion.vim] {{{
 set complete+=d
 set pumheight=10
@@ -44,6 +52,7 @@ set omnifunc=syntaxcomplete#Complete
 set foldmethod=syntax
 set foldlevel=1
 set foldignore=
+set foldopen-=block
 set fillchars+=fold:\ ,
 " }}}
 

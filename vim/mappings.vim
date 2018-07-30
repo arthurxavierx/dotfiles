@@ -14,6 +14,10 @@ nnoremap Y y$
 " Disable ex mode and man page
 nnoremap Q <nop>
 
+" Remap marks
+nnoremap " '
+nnoremap ' `
+
 " . repeat in visual mode
 vnoremap <silent> .   :norm.<CR>
 
@@ -21,14 +25,18 @@ vnoremap <silent> .   :norm.<CR>
 nnoremap <silent> <esc> :noh<CR><esc>
 
 " Make {{{
-nnoremap m<CR>        :wa<bar>make<CR>
-nnoremap m<space>     :wa<bar>make<space>--<space>
+nnoremap M<CR>        :wa<bar>make<CR>
+nnoremap M<space>     :wa<bar>make<space>--<space>
 " }}}
 
 " Buffers {{{
 noremap <leader>w      :w<CR>
 noremap <leader>r      :Buffers<CR>
 noremap <silent> <C-q> :Kwbd<CR>
+" }}}
+
+" Marks {{{
+nnoremap <silent> m<BS>  :delm!<CR>:delm A-Z0-9<CR>:SignatureRefresh<CR>
 " }}}
 
 " Files {{{
@@ -47,6 +55,9 @@ noremap <leader>f"       :Marks<CR>
 noremap <leader>fm       :Maps<CR>
 noremap <leader>fh       :History<CR>
 noremap <leader><leader> :Commands<CR>
+
+noremap <leader>8        #*cgn
+noremap <leader>3        *#cgN
 " }}}
 
 " Panes {{{
@@ -71,10 +82,8 @@ noremap [<S-Tab>            :tabfirst<CR>
 " }}}
 
 " Completion [../../plugin/completion.vim] {{{
-inoremap <expr> <BS>  pumvisible() ? "\<C-E>" : "\<BS>"
-inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-inoremap <expr> <cr>  mucomplete#popup_exit("\<cr>")
+inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
+inoremap <expr> <CR> pumvisible() ? "<C-y><CR>" : "<CR>"
 " }}}
 
 " CamelCaseMotion {{{
