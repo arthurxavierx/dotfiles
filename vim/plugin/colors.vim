@@ -11,7 +11,6 @@ endif
 let g:one_allow_italics = 1
 set background=dark
 colorscheme one
-let g:airline_theme='one'
 
 " fix vim-one colors in 256 color Vim
 hi Normal guifg=#ABB2BF ctermfg=145 guibg=NONE ctermbg=NONE
