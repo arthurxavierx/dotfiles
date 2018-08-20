@@ -19,7 +19,7 @@ set number relativenumber
 set showmatch
 
 set conceallevel=0
-set colorcolumn=0
+set colorcolumn=80
 set list listchars=trail:·,tab:»»,extends:»,precedes:«
 
 " Abbreviate messages and truncate when needed

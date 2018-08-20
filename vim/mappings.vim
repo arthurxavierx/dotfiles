@@ -14,10 +14,6 @@ nnoremap Y y$
 " Disable ex mode and man page
 nnoremap Q <nop>
 
-" Remap marks
-nnoremap " '
-nnoremap ' `
-
 " . repeat in visual mode
 vnoremap <silent> .   :norm.<CR>
 
@@ -61,6 +57,7 @@ noremap <leader>3        *#cgN
 " }}}
 
 " Panes {{{
+noremap <C-w><C-c>          <C-w><C-n>
 "" resize
 noremap <silent> <S-up>     :resize +5<CR>
 noremap <silent> <S-down>   :resize -5<CR>
@@ -73,7 +70,7 @@ noremap <C-w><C-m>          <C-w>\|<C-w>_
 " Tabs {{{
 noremap <C-t><C-t>          gt
 noremap <C-t><C-x>          :tabclose<CR>
-noremap <C-t><C-n>          <C-w><C-n><C-w>T
+noremap <C-t><C-c>          <C-w><C-n><C-w>T
 noremap <C-w><C-t>          <C-w>T
 noremap ]<Tab>              gt
 noremap [<Tab>              gT

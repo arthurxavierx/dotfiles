@@ -1,0 +1,2 @@
+setlocal norelativenumber nonumber
+set buflisted

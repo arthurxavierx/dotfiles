@@ -21,7 +21,6 @@ Plug 'itchyny/lightline.vim'      " [plugin/lightline.vim]
 Plug 'mgee/lightline-bufferline'
 
 Plug 'arthurxavierx/vim-unicoder' " [plugin/abbreviations.vim]
-Plug 'RRethy/vim-illuminate'      " [plugin/illuminate.vim]
 Plug 'kshenoy/vim-signature'
 " }}}
 
