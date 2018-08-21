@@ -27,6 +27,7 @@ Plug 'kshenoy/vim-signature'
 " Windows and buffers {{{
 Plug 'rgarver/Kwbd.vim'  " delete buffer without closing the window
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-dirvish'
 " }}}
 
 " Text edition {{{

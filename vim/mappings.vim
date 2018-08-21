@@ -37,6 +37,7 @@ nnoremap <silent> m<BS>  :delm!<CR>:delm A-Z0-9<CR>:SignatureRefresh<CR>
 
 " Files {{{
 noremap <leader>t     :Files<CR>
+noremap <nowait><silent> <leader>\ :<C-U>exe "Dirvish %:h".repeat(":h",v:count1)<CR>
 "" go-to-file without wildignore [../../autoload/lib.vim]
 noremap <silent> <leader>gf :call lib#GotoFile()<CR>
 " }}}
