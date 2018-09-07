@@ -26,5 +26,5 @@ let g:lightline = {
 
 function! LightlineFilename()
   let path = expand('%:.')
-  return len(path) > 40 ? '...'.path[-35:] : path
+  return len(path) > 50 ? '...'.path[-45:] : path
 endfunction

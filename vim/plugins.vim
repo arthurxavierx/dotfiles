@@ -37,7 +37,7 @@ Plug 'bkad/CamelCaseMotion'             " [./mappings.vim]
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-abolish'
+Plug 'arthurxavierx/vim-caser'
 Plug 'Raimondi/delimitMate'
 Plug 'lifepillar/vim-mucomplete'        " [plugin/completion.vim]
 " }}}

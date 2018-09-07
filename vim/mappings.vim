@@ -7,7 +7,6 @@ set pastetoggle=<F3>
 noremap ; :
 noremap ç ;
 noremap \ /
-noremap <C-c> <C-a>
 
 " Yank to end of line
 nnoremap Y y$
@@ -37,7 +36,7 @@ nnoremap <silent> m<BS>  :delm!<CR>:delm A-Z0-9<CR>:SignatureRefresh<CR>
 
 " Files {{{
 noremap <leader>t     :Files<CR>
-noremap <nowait><silent> <leader>\ :<C-U>exe "Dirvish %:h".repeat(":h",v:count1)<CR>
+nmap <nowait><silent> \| <Plug>(dirvish_up)
 "" go-to-file without wildignore [../../autoload/lib.vim]
 noremap <silent> <leader>gf :call lib#GotoFile()<CR>
 " }}}
@@ -79,7 +78,11 @@ noremap ]<S-Tab>            :tablast<CR>
 noremap [<S-Tab>            :tabfirst<CR>
 " }}}
 
-" Completion [../../plugin/completion.vim] {{{
+" ALE [./plugin/ale.vim] {{{
+nnoremap MF           :ALEFix<CR>
+" }}}
+
+" Completion [./plugin/completion.vim] {{{
 inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
 inoremap <expr> <CR> pumvisible() ? "<C-y><CR>" : "<CR>"
 " }}}
