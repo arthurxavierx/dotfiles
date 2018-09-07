@@ -119,6 +119,7 @@ symlink "eslintrc" ".eslintrc"
 # zsh
 symlink "oh-my-zsh/custom" ".oh-my-zsh/custom"
 symlink "profile" ".profile"
+symlink "aliases" ".aliases"
 symlink "zshrc" ".zshrc"
 
 symlink "bin" ".bin"

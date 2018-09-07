@@ -1,4 +1,4 @@
-# vim: fdm=marker:fdl=0:
+# vim: ft=sh:fdm=marker:fdl=0:
 export DOTFILES=$HOME/Workspace/dotfiles
 export EDITOR=nvim
 
@@ -43,51 +43,4 @@ if [ -f '/Users/luis/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/U
 if [ -f '/Users/luis/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/luis/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 # }}}
 
-# Aliases {{{
-alias tmux='TERM=xterm-256color-italic \tmux'
-
-# Filesystem {{{
-alias ..='cd ..'           # Go up one directory
-alias ...='cd ../..'       # Go up two directories
-alias ....='cd ../../..'   # And for good measure
-alias l='ls -lah'          # Long view, show hidden
-alias la='ls -AF'          # Compact view, show hidden
-alias ll='ls -lFh'         # Long view, no hidden
-# }}}
-
-# git {{{
-alias g=git
-alias ga='git add'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gc='git commit -v'
-alias gch='git checkout'
-alias gl='git log'
-alias gp='git push'
-alias gpo='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
-alias gr='git reset'
-alias gs='git status'
-alias gst='git stash'
-alias gsta='git stash apply'
-alias gd='git diff'
-alias gmv='git mv'
-alias gt='lgtree'
-# }}}
-
-# tree {{{
-alias t='ltree'
-alias ta='ltree -a'
-alias td='ltree -d'
-alias tl='ltree -L'
-alias tal='ltree -a -L'
-alias tdl='ltree -d -L'
-
-function ltree() {
-  tree --ignore-case -C -I ".git|node_modules|bower_components|plugged" $@ | less -R
-}
-
-function lgtree() {
-  gtree $@ | less -R
-}
-# }}}
-# }}}
+source ~/.aliases
