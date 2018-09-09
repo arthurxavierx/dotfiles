@@ -41,6 +41,8 @@ if has('nvim')
   autocmd BufUnload * delm 0-9 | wshada!
 endif
 
+" set fillchars+=vert:\ ,
+
 " Completion [plugin/completion.vim] {{{
 set complete+=d
 set pumheight=10
