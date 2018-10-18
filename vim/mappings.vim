@@ -10,8 +10,11 @@ noremap \ /
 
 " Yank to end of line
 nnoremap Y y$
-" Disable ex mode and man page
-nnoremap Q <nop>
+" Disable ex mode
+nnoremap Q @q
+
+" Allow mappings to use <C-c>
+nnoremap <C-c> <nop>
 
 " . repeat in visual mode
 vnoremap <silent> .   :norm.<CR>
@@ -27,7 +30,8 @@ nnoremap M<space>     :wa<bar>make<space>--<space>
 " Buffers {{{
 noremap <leader>w      :w<CR>
 noremap <leader>r      :Buffers<CR>
-noremap <silent> <C-q> :Kwbd<CR>
+noremap <C-q>          :Kwbd<CR>
+noremap <C-s><C-s>     :b#<CR>
 " }}}
 
 " Marks {{{
@@ -36,8 +40,9 @@ nnoremap <silent> m<BS>  :delm!<CR>:delm A-Z0-9<CR>:SignatureRefresh<CR>
 
 " Files {{{
 noremap <leader>t     :Files<CR>
+"" [ftplugin/dirvish.vim]
 nmap <nowait><silent> \| <Plug>(dirvish_up)
-"" go-to-file without wildignore [../../autoload/lib.vim]
+"" go-to-file without wildignore [autoload/lib.vim]
 noremap <silent> <leader>gf :call lib#GotoFile()<CR>
 " }}}
 

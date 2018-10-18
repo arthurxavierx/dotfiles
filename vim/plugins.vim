@@ -19,9 +19,6 @@ Plug 'rakr/vim-one'               " [plugin/colors.vim]
 
 Plug 'itchyny/lightline.vim'      " [plugin/lightline.vim]
 Plug 'mgee/lightline-bufferline'
-
-Plug 'arthurxavierx/vim-unicoder' " [plugin/abbreviations.vim]
-Plug 'kshenoy/vim-signature'
 " }}}
 
 " Windows and buffers {{{
@@ -37,9 +34,10 @@ Plug 'bkad/CamelCaseMotion'             " [./mappings.vim]
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'arthurxavierx/vim-caser'
 Plug 'Raimondi/delimitMate'
 Plug 'lifepillar/vim-mucomplete'        " [plugin/completion.vim]
+Plug 'arthurxavierx/vim-caser'
+Plug 'arthurxavierx/vim-unicoder' " [plugin/abbreviations.vim]
 " }}}
 
 " Syntax and linting [plugin/ale.vim] {{{
