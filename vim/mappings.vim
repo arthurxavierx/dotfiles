@@ -43,8 +43,6 @@ nnoremap <silent> m<BS>  :delm!<CR>:delm A-Z0-9<CR>:SignatureRefresh<CR>
 noremap <leader>t     :Files<CR>
 "" [[ftplugin/dirvish.vim]]
 nmap <nowait><silent> \| <Plug>(dirvish_up)
-"" go-to-file without wildignore [[autoload/lib.vim]]
-noremap <silent> <leader>gf :call lib#GotoFile()<CR>
 " }}}
 
 " Find {{{
@@ -63,8 +61,9 @@ noremap <leader>3        *#cgN
 " }}}
 
 " Links {{{
-nmap <silent> gj            :call search('\[\[[^\]]\+\]\]', 's')<CR>
-nmap <silent> gk            :call search('\[\[[^\]]\+\]\]', 'sb')<CR>
+nmap <silent> gj      :call search('\[\[[^\]]\+\]\]', 's')<CR>
+nmap <silent> gk      :call search('\[\[[^\]]\+\]\]', 'sb')<CR>
+nmap gf               gF
 " }}}
 
 " Panes {{{

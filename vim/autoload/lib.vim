@@ -1,11 +1,3 @@
-" Temporarily disables wildignore for :gf
-function! lib#GotoFile()
-  let wig = &wig
-  set wig=
-  normal gf
-  let &wig = wig
-endfunction!
-
 " Hide line numbers in terminal buffers
 function! lib#SetNumberDisplay()
   if &buftype == 'terminal'

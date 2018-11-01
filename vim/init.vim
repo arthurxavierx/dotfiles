@@ -66,9 +66,7 @@ set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=*/min/*
 set wildignore+=tags,cscope.*
 set wildignore+=*.tar.*
-set wildignore+=*/bower_components/**
 set wildignore+=*/node_modules/**
-set wildignore+=*/output/**
 set wildignorecase
 set wildmode=list:full
 set path& | let &path .= "**"
