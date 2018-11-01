@@ -24,8 +24,6 @@ set list listchars=trail:·,tab:»»,extends:»,precedes:«
 
 " Abbreviate messages and truncate when needed
 set shortmess+=at
-" Remove the intro message when starting Vim
-set shortmess+=I
 
 " Do not redraw the screen for commands that have not been typed
 set lazyredraw
