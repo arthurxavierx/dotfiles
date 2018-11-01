@@ -6,6 +6,7 @@ set pastetoggle=<F3>
 
 noremap ; :
 noremap ç ;
+noremap Ç ,
 noremap \ /
 
 " Yank to end of line
@@ -40,9 +41,9 @@ nnoremap <silent> m<BS>  :delm!<CR>:delm A-Z0-9<CR>:SignatureRefresh<CR>
 
 " Files {{{
 noremap <leader>t     :Files<CR>
-"" [ftplugin/dirvish.vim]
+"" [[ftplugin/dirvish.vim]]
 nmap <nowait><silent> \| <Plug>(dirvish_up)
-"" go-to-file without wildignore [autoload/lib.vim]
+"" go-to-file without wildignore [[autoload/lib.vim]]
 noremap <silent> <leader>gf :call lib#GotoFile()<CR>
 " }}}
 
@@ -59,6 +60,11 @@ noremap <leader><leader> :Commands<CR>
 
 noremap <leader>8        #*cgn
 noremap <leader>3        *#cgN
+" }}}
+
+" Links {{{
+nmap <silent> gj            :call search('\[\[[^\]]\+\]\]', 's')<CR>
+nmap <silent> gk            :call search('\[\[[^\]]\+\]\]', 'sb')<CR>
 " }}}
 
 " Panes {{{
@@ -83,11 +89,11 @@ noremap ]<S-Tab>            :tablast<CR>
 noremap [<S-Tab>            :tabfirst<CR>
 " }}}
 
-" ALE [./plugin/ale.vim] {{{
+" ALE [[./plugin/ale.vim]] {{{
 nnoremap MF           :ALEFix<CR>
 " }}}
 
-" Completion [./plugin/completion.vim] {{{
+" Completion [[./plugin/completion.vim]] {{{
 inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
 inoremap <expr> <CR> pumvisible() ? "<C-y><CR>" : "<CR>"
 " }}}

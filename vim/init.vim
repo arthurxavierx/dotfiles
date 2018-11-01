@@ -41,7 +41,7 @@ endif
 
 " set fillchars+=vert:\ ,
 
-" Completion [plugin/completion.vim] {{{
+" Completion [[plugin/completion.vim]] {{{
 set complete+=d
 set pumheight=10
 set completeopt=menu,menuone
