@@ -14,5 +14,5 @@ endif
 
 setlocal omnifunc=necoghc#omnifunc
 
-nmap <buffer> <leader>ps :call ApplyOneSuggestion()<CR>
-nmap <buffer> <leader>pp :Hoogle<space>
+nmap <buffer> <leader><leader>s :call ApplyOneSuggestion()<CR>
+nmap <buffer> <leader><leader>p :Hoogle<space>

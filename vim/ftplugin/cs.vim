@@ -1,14 +1,14 @@
 setlocal omnifunc=OmniSharp#Complete
 
-nmap <buffer> <leader>pt :OmniSharpTypeLookup<CR>
-nmap <buffer> <leader>ps :OmniSharpFixIssues<CR>
-nmap <buffer> <leader>pr :OmniSharpRename<CR>
-nmap <buffer> <leader>pd :OmniSharpDocumentation<CR>
+nmap <buffer> <leader><leader>t :OmniSharpTypeLookup<CR>
+nmap <buffer> <leader><leader>s :OmniSharpFixIssues<CR>
+nmap <buffer> <leader><leader>r :OmniSharpRename<CR>
+nmap <buffer> <leader><leader>d :OmniSharpDocumentation<CR>
 
-nmap <buffer> <leader>pfi :OmniSharpFindImplementations<CR>
-nmap <buffer> <leader>pfm :OmniSharpFindMembers<CR>
-nmap <buffer> <leader>pfs :OmniSharpFindSymbol<CR>
-nmap <buffer> <leader>pft :OmniSharpFindType<CR>
-nmap <buffer> <leader>pfu :OmniSharpFindUsages<CR>
+nmap <buffer> <leader><leader>fi :OmniSharpFindImplementations<CR>
+nmap <buffer> <leader><leader>fm :OmniSharpFindMembers<CR>
+nmap <buffer> <leader><leader>fs :OmniSharpFindSymbol<CR>
+nmap <buffer> <leader><leader>ft :OmniSharpFindType<CR>
+nmap <buffer> <leader><leader>fu :OmniSharpFindUsages<CR>
 
 au BufWritePost *.cs call OmniSharp#BuildAsync()

@@ -1,5 +1,6 @@
 " vim: fdm=marker:fdl=0:
 let mapleader = "\<space>"
+let maplocalleader = "\<space>p"
 nnoremap <space> <nop>
 
 set pastetoggle=<F3>

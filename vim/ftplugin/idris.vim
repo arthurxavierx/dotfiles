@@ -40,33 +40,33 @@ command! -nargs=1 IdrisDoc call s:IdrisCommand(':doc', <f-args>)
 
 " Mappings {{{
 "" REPL {{{
-nmap <buffer> <leader>pr  :IdrisReload<CR>
-nmap <buffer> <leader>pt  :IdrisShowType<CR>
-nmap <buffer> <leader>pd  :IdrisShowDoc<Space>
-nmap <buffer> <leader>pi  :IdrisResponseWin<CR>
-nmap <buffer> <leader>pe  :IdrisEval<CR>
-nmap <buffer> <leader>ph  :IdrisHoles<CR>
-nmap <buffer> <leader>ps  :IdrisSearch<Space>
-nmap <buffer> <leader>pD  :IdrisDoc<Space>
+nmap <buffer> <leader><leader>r  :IdrisReload<CR>
+nmap <buffer> <leader><leader>t  :IdrisShowType<CR>
+nmap <buffer> <leader><leader>d  :IdrisShowDoc<Space>
+nmap <buffer> <leader><leader>i  :IdrisResponseWin<CR>
+nmap <buffer> <leader><leader>e  :IdrisEval<CR>
+nmap <buffer> <leader><leader>h  :IdrisHoles<CR>
+nmap <buffer> <leader><leader>s  :IdrisSearch<Space>
+nmap <buffer> <leader><leader>D  :IdrisDoc<Space>
 "" }}}
 
 "" Add clauses {{{
-nmap <buffer> <leader>pat :IdrisAddClauseType<CR>
-nmap <buffer> <leader>pac :IdrisAddClause<CR>
-nmap <buffer> <leader>pap :IdrisAddClauseProof<CR>
-nmap <buffer> <leader>paw :IdrisAddWithClause<CR>
-nmap <buffer> <leader>pam :IdrisAddMissing<CR>
+nmap <buffer> <leader><leader>at :IdrisAddClauseType<CR>
+nmap <buffer> <leader><leader>ac :IdrisAddClause<CR>
+nmap <buffer> <leader><leader>ap :IdrisAddClauseProof<CR>
+nmap <buffer> <leader><leader>aw :IdrisAddWithClause<CR>
+nmap <buffer> <leader><leader>am :IdrisAddMissing<CR>
 "" }}}
 
 "" Cases {{{
-nmap <buffer> <leader>pc  :IdrisCaseSplit<CR>
-nmap <buffer> <leader>pmc :IdrisMakeCase<CR>
-nmap <buffer> <leader>pml :IdrisMakeLemma<CR>
+nmap <buffer> <leader><leader>c  :IdrisCaseSplit<CR>
+nmap <buffer> <leader><leader>mc :IdrisMakeCase<CR>
+nmap <buffer> <leader><leader>ml :IdrisMakeLemma<CR>
 "" }}}
 
 "" Proofs {{{
-nmap <buffer> <leader>po  :IdrisProofObvious<CR>
-nmap <buffer> <leader>pp  :IdrisProofSearch<CR>
-nmap <buffer> <leader>pf  :IdrisRefine<CR>
+nmap <buffer> <leader><leader>o  :IdrisProofObvious<CR>
+nmap <buffer> <leader><leader>p  :IdrisProofSearch<CR>
+nmap <buffer> <leader><leader>f  :IdrisRefine<CR>
 "" }}}
 " }}}
