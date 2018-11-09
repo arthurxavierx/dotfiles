@@ -39,10 +39,8 @@ if has('nvim')
   autocmd BufUnload * delm 0-9 | wshada!
 endif
 
-" set fillchars+=vert:\ ,
-
 " Completion [[plugin/completion.vim]] {{{
-set complete+=d
+set complete-=i
 set pumheight=10
 set completeopt=menu,menuone
 set omnifunc=syntaxcomplete#Complete
@@ -94,8 +92,15 @@ set smarttab
 set gdefault
 set hlsearch
 set incsearch
+nohlsearch
+
 set ignorecase
 set smartcase
+set fileignorecase
+
+if has('nvim')
+  set inccommand=nosplit
+endif
 " }}}
 
 " Buffers {{{

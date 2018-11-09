@@ -16,6 +16,8 @@ nnoremap Q @q
 
 " Allow mappings to use <C-c>
 nnoremap <C-c> <nop>
+" Disable <C-q>
+nnoremap <C-q> <nop>
 
 " . repeat in visual mode
 vnoremap <silent> .   :norm.<CR>
@@ -31,8 +33,9 @@ nnoremap M<space>     :wa<bar>make<space>--<space>
 " Buffers {{{
 noremap <leader>w      :w<CR>
 noremap <leader>r      :Buffers<CR>
-noremap <C-q>          :Kwbd<CR>
-noremap <C-s><C-s>     :b#<CR>
+cnoreab Q              Kwbd
+cnoreab Q!             Kwbd
+noremap <leader><leader> :b#<CR>
 " }}}
 
 " Marks {{{
@@ -46,15 +49,15 @@ nmap <nowait><silent> \| <Plug>(dirvish_up)
 " }}}
 
 " Find {{{
-noremap <leader>ff       :Files<CR>
-noremap <leader>fb       :Buffers<CR>
-noremap <leader>fa       :Ag<CR>
-noremap <leader>fl       :Lines<CR>
-noremap <leader>f'       :Marks<CR>
-noremap <leader>f"       :Marks<CR>
-noremap <leader>fm       :Maps<CR>
-noremap <leader>fh       :History<CR>
-noremap <leader><leader> :Commands<CR>
+noremap <leader>ff        :Files<CR>
+noremap <leader>fb        :Buffers<CR>
+noremap <leader>fa        :Ag<CR>
+noremap <leader>fl        :Lines<CR>
+noremap <leader>f'        :Marks<CR>
+noremap <leader>f"        :Marks<CR>
+noremap <leader>fm        :Maps<CR>
+noremap <leader>fh        :History<CR>
+noremap <leader>f<leader> :Commands<CR>
 
 noremap <leader>8        #*cgn
 noremap <leader>3        *#cgN

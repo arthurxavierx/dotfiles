@@ -1,4 +1,5 @@
 let g:psc_ide_syntastic_mode = 1
+let g:psc_ide_import_on_completion = 0
 
 " Redefine default indentation rules to some sane values
 let g:purescript_indent_if = 2
