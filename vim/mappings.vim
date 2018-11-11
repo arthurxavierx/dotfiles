@@ -32,11 +32,12 @@ nnoremap M<space>     :wa<bar>make<space>--<space>
 " }}}
 
 " Buffers {{{
+noremap <C-q>          :Q<CR>
 noremap <leader>w      :w<CR>
 noremap <leader>r      :Buffers<CR>
-cnoreab Q              Kwbd
-cnoreab Q!             Kwbd
+
 noremap <leader><leader> :b#<CR>
+noremap <BS><BS>         :b#<CR>
 " }}}
 
 " Marks {{{

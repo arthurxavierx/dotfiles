@@ -19,7 +19,7 @@ Plug 'mgee/lightline-bufferline'
 " }}}
 
 " Windows and buffers {{{
-Plug 'rgarver/Kwbd.vim'  " delete buffer without closing the window
+Plug 'rgarver/Kwbd.vim'                 " [[plugin/kwbd.vim]]
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-dirvish'
 " }}}
