@@ -26,6 +26,11 @@ vnoremap <silent> .   :norm.<CR>
 " Clear highlighting on escape in normal mode
 nnoremap <silent> <esc> :noh<CR><esc>
 
+" VIMRC {{{
+nmap <leader>ve       :e $MYVIMRC<CR>
+nmap <leader>vR       :so $MYVIMRC<CR>
+" }}}
+
 " Make {{{
 nnoremap M<CR>        :wa<bar>make<CR>
 nnoremap M<space>     :wa<bar>make<space>--<space>
