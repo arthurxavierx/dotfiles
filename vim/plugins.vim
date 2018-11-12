@@ -39,6 +39,12 @@ Plug 'arthurxavierx/vim-caser'
 Plug 'arthurxavierx/vim-unicoder'       " [[plugin/abbreviations.vim]]
 " }}}
 
+" Snippets [[snippets]] {{{
+Plug 'SirVer/ultisnips'                 " [[plugin/snippets.vim]]
+Plug 'honza/vim-snippets'
+let g:snippets_folder = getcwd() . '/snippets'
+" }}}
+
 " Syntax and linting [[plugin/linting.vim]] {{{
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'

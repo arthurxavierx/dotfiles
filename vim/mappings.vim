@@ -61,6 +61,7 @@ noremap <leader>f"        :Marks<CR>
 noremap <leader>fm        :Maps<CR>
 noremap <leader>fh        :History<CR>
 noremap <leader>f<leader> :Commands<CR>
+noremap <leader>fs        :Snippets<CR>
 
 noremap <leader>8        #*cgn
 noremap <leader>3        *#cgN
@@ -101,6 +102,7 @@ nnoremap MF           :ALEFix<CR>
 " Completion [[plugin/completion.vim]] {{{
 inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
 inoremap <expr> <CR> pumvisible() ? "<C-y><CR>" : "<CR>"
+inoremap <expr> <CR> mucomplete#ultisnips#expand_snippet("\<cr>")
 " }}}
 
 " CamelCaseMotion {{{

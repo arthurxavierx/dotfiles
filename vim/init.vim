@@ -42,7 +42,7 @@ endif
 " Completion [[plugin/completion.vim]] {{{
 set complete-=i
 set pumheight=10
-set completeopt=menu,menuone
+set completeopt=menu,menuone,noselect
 set omnifunc=syntaxcomplete#Complete
 " }}}
 
