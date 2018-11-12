@@ -40,10 +40,6 @@ noremap <leader><leader> :b#<CR>
 noremap <BS><BS>         :b#<CR>
 " }}}
 
-" Marks {{{
-nnoremap <silent> m<BS>  :delm!<CR>:delm A-Z0-9<CR>:SignatureRefresh<CR>
-" }}}
-
 " Files {{{
 noremap <leader>t     :Files<CR>
 "" [[ftplugin/dirvish.vim]]
@@ -65,9 +61,9 @@ noremap <leader>8        #*cgn
 noremap <leader>3        *#cgN
 " }}}
 
-" Links {{{
-nmap <silent> gj      :call search('\[\[[^\]]\+\]\]', 's')<CR>
-nmap <silent> gk      :call search('\[\[[^\]]\+\]\]', 'sb')<CR>
+" Links [[plugin/links.vim]] {{{
+nmap <Tab>            <Plug>(NextLink)
+nmap <S-Tab>          <Plug>(PrevLink)
 nmap gf               gF
 " }}}
 
@@ -93,11 +89,11 @@ noremap ]<S-Tab>            :tablast<CR>
 noremap [<S-Tab>            :tabfirst<CR>
 " }}}
 
-" ALE [[./plugin/ale.vim]] {{{
+" ALE {{{
 nnoremap MF           :ALEFix<CR>
 " }}}
 
-" Completion [[./plugin/completion.vim]] {{{
+" Completion [[plugin/completion.vim]] {{{
 inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
 inoremap <expr> <CR> pumvisible() ? "<C-y><CR>" : "<CR>"
 " }}}

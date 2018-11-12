@@ -21,7 +21,7 @@ Plug 'mgee/lightline-bufferline'
 " Windows and buffers {{{
 Plug 'rgarver/Kwbd.vim'                 " [[plugin/kwbd.vim]]
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'justinmk/vim-dirvish'
+Plug 'justinmk/vim-dirvish'             " [[plugin/dirvish.vim]]
 " }}}
 
 " Text edition {{{
