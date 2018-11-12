@@ -63,10 +63,10 @@ Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " }}}
 
-" Writing {{{
+" Writing [[plugin/writing.vim]] {{{
 Plug 'reedes/vim-pencil'
-Plug 'junegunn/goyo.vim'                " [[plugin/goyo.vim]]
-Plug 'junegunn/limelight.vim'           " [[plugin/limelight.vim]]
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 " }}}
 
 call plug#end()
