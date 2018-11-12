@@ -39,7 +39,7 @@ Plug 'arthurxavierx/vim-caser'
 Plug 'arthurxavierx/vim-unicoder'       " [[plugin/abbreviations.vim]]
 " }}}
 
-" Syntax and linting [[plugin/ale.vim]] {{{
+" Syntax and linting [[plugin/linting.vim]] {{{
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 " }}}
