@@ -1,6 +1,5 @@
 augroup omnicomplete
   autocmd!
-  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
@@ -9,14 +8,5 @@ augroup omnicomplete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
 
-let g:mucomplete#minimum_prefix_length = 2
-let g:mucomplete#enable_auto_at_startup = 1
-" let g:mucomplete#completion_delay = 0
-
-let g:mucomplete#chains = {
-  \ 'default': ['path', 'ulti', 'c-n', 'omni', 'uspl'],
-  \ 'vim': ['path', 'ulti', 'c-n', 'omni', 'uspl'],
-  \ 'tex': ['path', 'c-n', 'incl', 'uspl'],
-  \ 'javascript': ['path', 'c-n', 'incl', 'uspl', 'omni'],
-  \ 'javascript.jsx': ['path', 'c-n', 'incl', 'uspl', 'omni'],
-  \ }
+autocmd BufEnter * set completefunc=symbols#complete
+inoremap \ \<C-x><C-u>

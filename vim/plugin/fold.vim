@@ -1,5 +1,5 @@
-" Set a nicer foldtext function
 set foldtext=MyFoldText()
+
 function! MyFoldText()
   let line = getline(v:foldstart)
   if match(line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$') == 0
@@ -28,7 +28,7 @@ function! MyFoldText()
 
   let n = v:foldend - v:foldstart + 1
   let info = " " . n . " lines"
-  let sub = sub . "                                                                                                                  "
+  let sub = sub . "                                                                                                                                                                                                                                                                                        "
   let num_w = getwinvar(0, '&number') * getwinvar(0, '&numberwidth')
   let fold_w = getwinvar(0, '&foldcolumn')
   let sub = strpart(sub, 0, winwidth(0) - strlen(info) - num_w - fold_w - 3)

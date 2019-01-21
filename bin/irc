@@ -1,0 +1,5 @@
+#!/bin/sh
+ii -s irc.freenode.net -n arthurxavierx -f "Arthur Xavier" -k IRCPASS &
+sleep 10
+echo "/j #vim" > ~/irc/irc.freenode.net/in
+echo "/j #purescript" > ~/irc/irc.freenode.net/in

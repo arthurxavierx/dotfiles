@@ -1,7 +1,7 @@
 if has('nvim')
   augroup terminal
     autocmd!
-    autocmd VimEnter * call lib#SplitWithoutNesting()
-    autocmd TermOpen,BufWinEnter * call lib#SetNumberDisplay()
+    autocmd VimEnter * call lib#MergeNvimInstances()
+    autocmd TermOpen,BufWinEnter * call lib#HideNumbersInTerminal()
   augroup END
 endif

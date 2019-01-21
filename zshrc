@@ -93,3 +93,8 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line

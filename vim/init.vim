@@ -18,12 +18,12 @@ set number relativenumber
 " Show matching brackets when inserting
 set showmatch
 
-set conceallevel=0
 set colorcolumn=80
 set list listchars=trail:·,tab:»»,extends:»,precedes:«
 
 " Abbreviate messages and truncate when needed
-set shortmess+=at
+set shortmess+=atF
+set noshowmode
 
 " Do not redraw the screen for commands that have not been typed
 set lazyredraw
@@ -34,16 +34,46 @@ set clipboard=unnamed
 " Keep at least 8 lines above or below the cursor
 set scrolloff=5
 
-" Save deleted marks when closing buffers
 if has('nvim')
-  autocmd BufUnload * delm 0-9 | wshada!
+  set shada='100,n$HOME/.nviminfo
+else
+  set viminfo='100,n$HOME/.viminfo
 endif
 
 " Completion [[plugin/completion.vim]] {{{
-set complete-=i
+set complete=.,b
+set ignorecase
+set shortmess+=c
+set belloff+=ctrlg
 set pumheight=10
 set completeopt=menu,menuone,noselect
 set omnifunc=syntaxcomplete#Complete
+" }}}
+
+" Color {{{
+if has("nvim")
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set t_8f=u;%lu;%lum
+  set t_8b=u;%lu;%lum
+else
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+if has("termguicolors")
+  set termguicolors
+endif
+
+if $COLORFGBG == "15;0"
+  set background=dark
+else
+  set background=light
+endif
+
+colorscheme notebook
+set nocursorcolumn nocursorline colorcolumn=0
+
+set fillchars+=vert:│
 " }}}
 
 " Folding {{{
@@ -65,6 +95,7 @@ set wildignore+=*/min/*
 set wildignore+=tags,cscope.*
 set wildignore+=*.tar.*
 set wildignore+=*/node_modules/**
+set wildignore+=*/plugged/**
 set wildignorecase
 set wildmode=list:full
 set path& | let &path .= "**"

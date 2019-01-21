@@ -1,4 +1,3 @@
-" vim: fdm=marker:fdl=0:cc=80:
 " Automatic installation {{{
 if empty(glob('~/.vim/autoload/plug.vim')) && empty(glob('~/vimfiles/autoload/plug.vim'))
     !mkdir -p ~/.vim/autoload
@@ -8,24 +7,25 @@ if empty(glob('~/.vim/autoload/plug.vim')) && empty(glob('~/vimfiles/autoload/pl
 endif
 " }}}
 
+let writing = ['markdown', 'md', 'tex', 'latex']
+
 call plug#begin()
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
+Plug 'vimwiki/vimwiki'                  " [[plugin/vimwiki.vim]]
+
 " Visual {{{
-Plug 'rakr/vim-one'                     " [[plugin/colors.vim]]
-Plug 'itchyny/lightline.vim'            " [[plugin/lightline.vim]]
-Plug 'mgee/lightline-bufferline'
+Plug 'mhinz/vim-startify'               " [[plugin/startscreen.vim]]
 " }}}
 
 " Windows and buffers {{{
-Plug 'rgarver/Kwbd.vim'                 " [[plugin/kwbd.vim]]
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-dirvish'             " [[plugin/dirvish.vim]]
 " }}}
 
 " Text edition {{{
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'bkad/CamelCaseMotion'             " [[./mappings.vim]]
 Plug 'michaeljsmith/vim-indent-object'
@@ -36,13 +36,11 @@ Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'lifepillar/vim-mucomplete'        " [[plugin/completion.vim]]
 Plug 'arthurxavierx/vim-caser'
-Plug 'arthurxavierx/vim-unicoder'       " [[plugin/abbreviations.vim]]
 " }}}
 
 " Snippets [[snippets]] {{{
 Plug 'SirVer/ultisnips'                 " [[plugin/snippets.vim]]
 Plug 'honza/vim-snippets'
-let g:snippets_folder = getcwd() . '/snippets'
 " }}}
 
 " Syntax and linting [[plugin/linting.vim]] {{{
@@ -69,10 +67,11 @@ Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " }}}
 
-" Writing [[plugin/writing.vim]] {{{
-Plug 'reedes/vim-pencil'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+" Writing {{{
+Plug 'reedes/vim-pencil', { 'for': writing }
+Plug 'junegunn/limelight.vim'           " [[plugin/limelight.vim]]
 " }}}
+
+unlet writing
 
 call plug#end()

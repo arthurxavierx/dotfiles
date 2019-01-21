@@ -43,4 +43,49 @@ if [ -f '/Users/luis/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/U
 if [ -f '/Users/luis/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/luis/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 # }}}
 
+# COLORFGBG {{{
+colorfgbg() {
+  stty -echo
+  if [ -n "$TMUX" ]; then
+    echo -ne '\033Ptmux;\e\e]10;?\a\e\e]11;?\a\033\\'
+  else
+    echo -ne '\e]10;?\a\e]11;?\a'
+  fi
+  IFS=: read -t 0.1 -d $'\a' x fg
+  IFS=: read -t 0.1 -d $'\a' x bg
+  if [[ ${fg:0:1} =~ [01234567] ]]; then
+    [[ -n "$TMUX" ]] && tmux set-environment COLORFGBG "0;15"
+    export COLORFGBG='0;15'
+  else
+    [[ -n "$TMUX" ]] && tmux set-environment COLORFGBG "15;0"
+    export COLORFGBG='15;0'
+  fi
+  unset x fg bg
+  stty echo
+}
+# }}}
+
+# iTerm2 color profiles {{{
+profile() {
+  if [ -n "$TMUX" ]; then
+    echo -ne "\033Ptmux;\033\033]50;SetProfile=$1\a\033\\"
+  else
+    echo -ne "\033]50;SetProfile=$1\a"
+  fi
+  colorfgbg
+}
+
+light() {
+  profile light
+}
+
+dark() {
+  profile dark
+}
+# }}}
+
 source ~/.aliases
+source ~/.local_profile
+
+colorfgbg
+[[ ! -n "$TMUX" ]] && tmux

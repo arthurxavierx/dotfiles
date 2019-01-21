@@ -27,6 +27,7 @@ alias gs='git status'
 alias gst='git stash'
 alias gsta='git stash apply'
 alias gd='git diff'
+alias gds='git diff --staged'
 alias gdh='git diff HEAD'
 alias gdh1='git diff HEAD~1'
 alias gmv='git mv'
@@ -47,5 +48,21 @@ function ltree() {
 
 function lgtree() {
   gtree $@ | less -R
+}
+# }}}
+
+# IRC {{{
+function ircnew() {
+  for out in $(find ~/irc -name out -print)
+  do
+    cp /dev/null $out
+  done
+  irc
+}
+# }}}
+
+# Vimwiki {{{
+function wiki() {
+  nvim "$HOME/vimwiki/${PWD##*/}.wiki" -c "cd $HOME/vimwiki"
 }
 # }}}

@@ -13,7 +13,10 @@ noremap \ /
 " Yank to end of line
 nnoremap Y y$
 " Disable ex mode
-nnoremap Q @q
+noremap Q @q
+
+" Visual @
+xnoremap <silent> @ :<C-u>call lib#ExecuteMacroOverVisualRange()<CR>
 
 " Allow mappings to use <C-c>
 nnoremap <C-c> <nop>
@@ -26,8 +29,18 @@ vnoremap <silent> .   :norm.<CR>
 " Clear highlighting on escape in normal mode
 nnoremap <silent> <esc> :noh<CR><esc>
 
+nnoremap <C-m> <C-i>
+
+map <C-g> :call lib#EchoHighlightGroup()<CR>
+
+" Make arrow keys work inside tmux
+" map ^[B <Down>
+
 " VIMRC {{{
 nmap <leader>ve       :e $MYVIMRC<CR>
+nmap <leader>vt       :e $DOTFILES/tmux.conf<CR>
+nmap <leader>vs       :UltiSnipsEdit<CR>
+nmap <leader>vy       :e $DOTFILES/vim/symbols<CR>
 nmap <leader>vR       :so $MYVIMRC<CR>
 " }}}
 
@@ -40,9 +53,7 @@ nnoremap M<space>     :wa<bar>make<space>--<space>
 noremap <C-q>          :Q<CR>
 noremap <leader>w      :w<CR>
 noremap <leader>r      :Buffers<CR>
-
-noremap <leader><leader> :b#<CR>
-noremap <BS><BS>         :b#<CR>
+nnoremap <leader><BS>  :b#<CR>
 " }}}
 
 " Files {{{
@@ -68,9 +79,9 @@ noremap <leader>3        *#cgN
 " }}}
 
 " Links [[plugin/links.vim]] {{{
-nmap <Tab>            <Plug>(NextLink)
-nmap <S-Tab>          <Plug>(PrevLink)
-nmap gf               gF
+map <Tab>            <Plug>(NextLink)
+map <S-Tab>          <Plug>(PrevLink)
+map gf               gF
 " }}}
 
 " Panes {{{
@@ -82,6 +93,8 @@ noremap <silent> <S-right>  :vertical resize +5<CR>
 noremap <silent> <S-left>   :vertical resize -5<CR>
 noremap <C-w>m              <C-w>\|<C-w>_
 noremap <C-w><C-m>          <C-w>\|<C-w>_
+"" focus mode
+noremap <silent> <leader><leader> :Focus 22<CR>
 " }}}
 
 " Tabs {{{
@@ -101,8 +114,10 @@ nnoremap MF           :ALEFix<CR>
 
 " Completion [[plugin/completion.vim]] {{{
 inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
-inoremap <expr> <CR> pumvisible() ? "<C-y><CR>" : "<CR>"
-inoremap <expr> <CR> mucomplete#ultisnips#expand_snippet("\<cr>")
+inoremap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+
+imap <expr> <left>  mucomplete#extend_bwd("\<left>")
+imap <expr> <right> mucomplete#extend_fwd("\<right>")
 " }}}
 
 " CamelCaseMotion {{{

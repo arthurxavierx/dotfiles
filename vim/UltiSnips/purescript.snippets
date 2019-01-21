@@ -1,0 +1,98 @@
+# vim:noexpandtab:
+priority 1
+
+snippet "^module\s" "" rbA
+module ${1:`!v substitute(substitute(expand('%:r'), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')`} where
+
+import Prelude
+
+${0}
+endsnippet
+
+snippet data "" b
+data ${1:Type}
+	= ${0}
+endsnippet
+
+snippet newtype "" b
+newtype ${1:Type} = ${0}
+endsnippet
+
+snippet type "" b
+type ${1:Type} = ${0}
+endsnippet
+
+snippet class "" b
+class ${1:Class} ${2:args} where
+	${0}
+endsnippet
+
+snippet instance "" b
+instance ${1:instanceName} :: ${2:Class} ${3:Type} where
+	${0}
+endsnippet
+
+snippet comp "" b
+${1:name}
+	:: Component
+			{ ${2}
+			}
+$1 = component { displayName: "${3}", initialState, receiveProps, render }
+	where
+		initialState =
+			{ ${4}
+			}
+
+		receiveProps = mempty
+
+		render this@{ props, state, setState } =
+			${0}
+endsnippet
+
+snippet scomp "" b
+${1:name}
+	:: Component
+			{ ${2}
+			}
+$1 = stateless { displayName: "${3}", render }
+	where
+		render props =
+			${0}
+endsnippet
+
+snippet const
+${1:name} :: ${2:a}
+$1 = ${0:?$1}
+endsnippet
+
+snippet let
+let
+	${1} = ${2}
+in
+	${0}
+endsnippet
+
+snippet form
+${1:form}
+	:: forall props
+	 . FormBuilder
+			{ readonly :: Boolean | props }
+			${2:FormData}
+			${3:Result}
+$1 = ${0}
+endsnippet
+
+snippet field
+${1:field} <-
+	F.indent "${2}" Neither
+	$ F.focus Lenses._$1
+	$ ${0}
+endsnippet
+
+snippet field*
+${1:field} <-
+	F.indent "${2}" Required
+	$ F.focus Lenses._$1
+	$ F.validated ${3:(F.nonEmpty "$2")}
+	$ ${0}
+endsnippet
