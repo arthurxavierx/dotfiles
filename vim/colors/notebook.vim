@@ -275,6 +275,10 @@ hi! link qfFileName          Underlined
 hi! link QuickFixLine        PmenuSel
 " }}}
 
+" rust {{{
+hi! link rustCommentBlockDoc Comment
+" }}}
+
 " sql {{{
 hi! link sqlKeyword          Keyword
 hi! link sqlSpecial          Type

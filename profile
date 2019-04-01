@@ -89,3 +89,5 @@ source ~/.local_profile
 
 colorfgbg
 [[ ! -n "$TMUX" ]] && tmux
+
+export PATH="$HOME/.cargo/bin:$PATH"

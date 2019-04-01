@@ -53,7 +53,7 @@ nnoremap M<space>     :wa<bar>make<space>--<space>
 noremap <C-q>          :Q<CR>
 noremap <leader>w      :w<CR>
 noremap <leader>r      :Buffers<CR>
-nnoremap <leader><BS>  :b#<CR>
+nnoremap <BS><BS>      :b#<CR>
 " }}}
 
 " Files {{{
@@ -136,3 +136,10 @@ if (has("nvim"))
   tnoremap <silent> <Esc>   <C-\><C-n>
 endif
 " }}}
+
+" Difftool {{{
+if &diff
+  map <leader>1 :diffget LOCAL<CR>
+  map <leader>2 :diffget BASE<CR>
+  map <leader>3 :diffget REMOTE<CR>
+endif

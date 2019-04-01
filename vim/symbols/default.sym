@@ -78,14 +78,19 @@ exists: ∃ ∄
 empty: ∅
 in: ∈ ∉
 
-intersection: ∩ ∏
-union: ∪ ∐
+intersection cap: ∩ ⋂ ⊓ ⨅
+union cup: ∪ ⋃ ⊔ ⨆ ⊎ ⊍ ⨄ ⨃
 
 subset: ⊂ ⊄ ⊆ ⊈
 supset: ⊃ ⊅ ⊇ ⊉
 
-and: ∧
-or: ∨
+squb: ⊏ ⊑ ⋢
+squp: ⊐ ⊒ ⋣
+sqcup: ⊔ ⨆
+sqcap: ⊓ ⨅
+
+and: ∧ ⋀
+or: ∨ ⋁
 neg not: ¬
 
 top: ⊤
@@ -116,9 +121,13 @@ partial: 𝜕
 increment: ∆
 
 integral: ∫ ∬ ∭ ∮ ∯ ∰
+join: ⋈ ⋉ ⋊ ⋋ ⋌ ⨝ ⟕ ⟖ ⟗ 
 
 < lbracket: ⟨ ⟦ ⟪
 > rbracket: ⟩ ⟧ ⟫
+
+flat: ♭
+# sharp: ♯
 
 " Equality {{{
 = eq: ∼ ≃ ≅ ≈

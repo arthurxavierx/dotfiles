@@ -40,6 +40,9 @@ else
   set viminfo='100,n$HOME/.viminfo
 endif
 
+autocmd FileType c,cpp,purescript,haskell,javascript,idris,agda,cs,tex
+      \ autocmd BufWritePre <buffer> %s/\s\+$//e
+
 " Completion [[plugin/completion.vim]] {{{
 set complete=.,b
 set ignorecase
@@ -64,12 +67,7 @@ if has("termguicolors")
   set termguicolors
 endif
 
-if $COLORFGBG == "15;0"
-  set background=dark
-else
-  set background=light
-endif
-
+set background=light
 colorscheme notebook
 set nocursorcolumn nocursorline colorcolumn=0
 
