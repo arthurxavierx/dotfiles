@@ -36,6 +36,7 @@ Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'lifepillar/vim-mucomplete'        " [[plugin/completion.vim]]
 Plug 'arthurxavierx/vim-caser'
+Plug 'arthurxavierx/vim-symbols'
 " }}}
 
 " Snippets [[snippets]] {{{
