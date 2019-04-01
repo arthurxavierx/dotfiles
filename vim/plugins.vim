@@ -16,6 +16,7 @@ Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'vimwiki/vimwiki'                  " [[plugin/vimwiki.vim]]
 
 " Visual {{{
+Plug 'arthurxavierx/vim-notebook'
 Plug 'mhinz/vim-startify'               " [[plugin/startscreen.vim]]
 " }}}
 

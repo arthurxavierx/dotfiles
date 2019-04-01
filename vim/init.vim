@@ -53,27 +53,6 @@ set completeopt=menu,menuone,noselect
 set omnifunc=syntaxcomplete#Complete
 " }}}
 
-" Color {{{
-if has("nvim")
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  set t_8f=u;%lu;%lum
-  set t_8b=u;%lu;%lum
-else
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-
-if has("termguicolors")
-  set termguicolors
-endif
-
-set background=light
-colorscheme notebook
-set nocursorcolumn nocursorline colorcolumn=0
-
-set fillchars+=vert:│
-" }}}
-
 " Folding {{{
 set foldmethod=syntax
 set foldlevel=1
@@ -145,3 +124,24 @@ let g:python3_host_skip_check = 1
 
 source $DOTFILES/vim/plugins.vim
 source $DOTFILES/vim/mappings.vim
+
+" Color {{{
+if has("nvim")
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set t_8f=u;%lu;%lum
+  set t_8b=u;%lu;%lum
+else
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+if has("termguicolors")
+  set termguicolors
+endif
+
+set background=light
+colorscheme notebook
+set nocursorcolumn nocursorline colorcolumn=0
+
+set fillchars+=vert:│
+" }}}
