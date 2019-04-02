@@ -54,7 +54,6 @@ set omnifunc=syntaxcomplete#Complete
 " }}}
 
 " Folding {{{
-set foldmethod=syntax
 set foldlevel=1
 set foldignore=
 set foldopen-=block

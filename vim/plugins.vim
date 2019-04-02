@@ -13,7 +13,7 @@ call plug#begin()
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
-Plug 'vimwiki/vimwiki'                  " [[plugin/vimwiki.vim]]
+Plug 'tpope/vim-fugitive'
 
 " Visual {{{
 Plug 'arthurxavierx/vim-notebook'
