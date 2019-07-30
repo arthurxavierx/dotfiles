@@ -18,6 +18,8 @@ noremap Q @q
 " Visual @
 xnoremap <silent> @ :<C-u>call lib#ExecuteMacroOverVisualRange()<CR>
 
+" ExecuteMacroOverVisualRange
+
 " Allow mappings to use <C-c>
 nnoremap <C-c> <nop>
 " Disable <C-q>
@@ -45,8 +47,8 @@ nmap <leader>vR       :so $MYVIMRC<CR>
 " }}}
 
 " Make {{{
-nnoremap M<CR>        :wa<bar>make<CR>
-nnoremap M<space>     :wa<bar>make<space>--<space>
+nnoremap M<CR>        :wa<bar>make!<CR>
+nnoremap M<space>     :wa<bar>make!<space>--<space>
 " }}}
 
 " Buffers {{{
@@ -74,18 +76,20 @@ noremap <leader>fh        :History<CR>
 noremap <leader>f<leader> :Commands<CR>
 noremap <leader>fs        :Snippets<CR>
 
-noremap <leader>8        #*cgn
-noremap <leader>3        *#cgN
+nnoremap cg*              #*cgn
+nnoremap cg#              *#cgN
 " }}}
 
 " Links [[plugin/links.vim]] {{{
 map <Tab>            <Plug>(NextLink)
 map <S-Tab>          <Plug>(PrevLink)
 map gf               gF
+map gw               :vsplit <cfile><CR>
+map gp               :ped <cfile><CR>
 " }}}
 
-" Panes {{{
-noremap <C-w><C-c>          <C-w><C-n>
+" Windows {{{
+noremap <C-w><C-p>          <C-w>z
 "" resize
 noremap <silent> <S-up>     :resize +5<CR>
 noremap <silent> <S-down>   :resize -5<CR>
@@ -113,11 +117,41 @@ nnoremap MF           :ALEFix<CR>
 " }}}
 
 " Completion [[plugin/completion.vim]] {{{
+
+" Cancel completion with <BS>
 inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
+" Close completion popup with <CR>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+
+function! TryUltiSnips() abort
+  if !pumvisible() " With the pop-up menu open, let Tab move down
+    call UltiSnips#ExpandSnippet()
+  endif
+  return ''
+endfunction
+
+fun! TryMUcomplete()
+  return exists('g:ulti_expand_res') && g:ulti_expand_res ? "" : "\<Plug>(MUcompleteFwd)"
+endf
+
+inoremap <Plug>(TryUltiSnips) <C-r>=TryUltiSnips()<CR>
+imap <expr> <silent> <Plug>(TryMUcomplete) TryMUcomplete()
+
+au BufEnter * exe 'imap <expr> <silent> ' . g:UltiSnipsExpandTrigger . ' "\<Plug>(TryUltiSnips)\<Plug>(TryMUcomplete)"'
+au BufEnter * exe 'inoremap <expr> <silent> ' . g:UltiSnipsJumpForwardTrigger . ' pumvisible() ? "\<C-n>" : "\<C-r>=UltiSnips#JumpForwards()<CR>"'
+au BufEnter * exe 'inoremap <expr> <silent> ' . g:UltiSnipsJumpBackwardTrigger . ' pumvisible() ? "\<C-p>" : "\<C-r>=UltiSnips#JumpBackwards()<CR>"'
+
+function! IsBehindDir()
+  return strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
+endfunction
+
+imap <expr> / pumvisible() && IsBehindDir()
+      \ ? "\<c-y>\<plug>(MUcompleteFwd)"
+      \ : '/'
 
 imap <expr> <left>  mucomplete#extend_bwd("\<left>")
 imap <expr> <right> mucomplete#extend_fwd("\<right>")
+
 " }}}
 
 " CamelCaseMotion {{{

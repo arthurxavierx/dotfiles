@@ -16,3 +16,5 @@ setlocal omnifunc=necoghc#omnifunc
 
 nmap <buffer> <localleader>s :call ApplyOneSuggestion()<CR>
 nmap <buffer> <localleader>p :Hoogle<space>
+
+nnoremap <buffer> K :!open -a "/Applications/Google Chrome.app" 'https://hoogle.haskell.org/?hoogle=<c-r>=expand("<cword>")<cr>'<cr>

@@ -3,7 +3,7 @@
 " Author:       Arthur Xavier <arthur.xavierx@gmail.com>
 " Description:  Minimalistic statusline that shows an icon for the current mode,
 "               the file path, and the current column.
-" License:      GLPv3+
+" License:      GPLv3+
 " ------------------------------------------------------------------------------
 
 set noshowmode

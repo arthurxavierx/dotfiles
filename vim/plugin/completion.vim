@@ -8,5 +8,4 @@ augroup omnicomplete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
 
-autocmd BufEnter * set completefunc=symbols#complete
-inoremap \ \<C-x><C-u>
+let g:symbols_user_completion = 0

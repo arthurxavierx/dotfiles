@@ -1,9 +1,6 @@
 let g:psc_ide_syntastic_mode = 1
 let g:psc_ide_import_on_completion = 0
 
-setlocal foldmethod=marker
-setlocal foldlevel=0
-
 " Redefine default indentation rules to some sane values
 let g:purescript_indent_if = 2
 let g:purescript_indent_case = 2
@@ -25,3 +22,5 @@ nmap <buffer> <silent> <localleader>c :PaddClause<CR>
 nmap <buffer> <silent> <localleader>q :PaddImportQualifications<CR>
 
 nmap <buffer> <silent> ]d :Pgoto<CR>
+
+nnoremap <buffer> K :!open -a "/Applications/Google Chrome.app" 'https://pursuit.purescript.org/search?q=<c-r>=expand("<cword>")<cr>'<cr>

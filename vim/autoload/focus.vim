@@ -3,7 +3,7 @@
 " Author:       Arthur Xavier <arthur.xavierx@gmail.com>
 " Description:  Focus mode for coding in Vim.
 "               Inspired by https://github.com/bilalq/lite-dfm.
-" License:      GLPv3+
+" License:      GPLv3+
 " ------------------------------------------------------------------------------
 
 let s:cpo_save = &cpo

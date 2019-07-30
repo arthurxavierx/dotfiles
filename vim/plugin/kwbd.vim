@@ -4,7 +4,7 @@
 " Description:  Delete buffer and keep window. Open a Dirvish buffer if no
 "               buffer is left.
 "               Inspired by https://github.com/rgarver/Kwbd.vim.
-" License:      GLPv3+
+" License:      GPLv3+
 " ------------------------------------------------------------------------------
 
 function! s:Kwbd(unsafe, kwbdStage)

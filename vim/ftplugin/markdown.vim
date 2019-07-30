@@ -12,6 +12,3 @@ sil! nun <buffer> j
 sil! nun <buffer> k
 sil! vu  <buffer> j
 sil! vu  <buffer> k
-
-" nmap <silent> <buffer> <Tab> zMzjzoztj
-" nmap <silent> <buffer> <S-Tab> zMzkzo[zztj

@@ -1,7 +1,10 @@
 # vim: ft=sh:fdm=marker:fdl=0:
 alias tmux='TERM=xterm-256color-italic \tmux'
 
-alias vim='/usr/local/Cellar/vim/8.1.0350/bin/vim'
+alias vi='nvim'
+alias vim='/usr/local/Cellar/vim/8.1.1600/bin/vim'
+
+alias love='/Applications/love.app/Contents/MacOS/love'
 
 # Filesystem {{{
 alias ..='cd ..'           # Go up one directory
@@ -58,11 +61,5 @@ function ircnew() {
     cp /dev/null $out
   done
   irc
-}
-# }}}
-
-# Vimwiki {{{
-function wiki() {
-  nvim "$HOME/vimwiki/${PWD##*/}.wiki" -c "cd $HOME/vimwiki"
 }
 # }}}

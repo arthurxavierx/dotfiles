@@ -2,7 +2,7 @@
 " File:         tabline.vim
 " Author:       Arthur Xavier <arthur.xavierx@gmail.com>
 " Description:  Minimalistic tabline that shows visible buffers and tabs.
-" License:      GLPv3+
+" License:      GPLv3+
 " ------------------------------------------------------------------------------
 
 " Always show tabline

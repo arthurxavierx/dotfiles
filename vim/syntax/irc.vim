@@ -1,8 +1,8 @@
 " ------------------------------------------------------------------------------
 " File:         irc.vim
 " Author:       Arthur Xavier <arthur.xavierx@gmail.com>
-" Description:  
-" License:      GLPv3+
+" Description:
+" License:      GPLv3+
 " ------------------------------------------------------------------------------
 
 if exists("b:current_syntax")

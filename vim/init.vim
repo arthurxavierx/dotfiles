@@ -40,11 +40,11 @@ else
   set viminfo='100,n$HOME/.viminfo
 endif
 
-autocmd FileType c,cpp,purescript,haskell,javascript,idris,agda,cs,tex
-      \ autocmd BufWritePre <buffer> %s/\s\+$//e
+" Always open quickfix window after a grep or make command.
+autocmd QuickFixCmdPost *grep* cwindow
 
 " Completion [[plugin/completion.vim]] {{{
-set complete=.,b
+set complete=.,b,u,k,kspell,s
 set ignorecase
 set shortmess+=c
 set belloff+=ctrlg
@@ -54,6 +54,7 @@ set omnifunc=syntaxcomplete#Complete
 " }}}
 
 " Folding {{{
+set foldmethod=marker
 set foldlevel=1
 set foldignore=
 set foldopen-=block

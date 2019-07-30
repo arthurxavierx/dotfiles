@@ -12,6 +12,8 @@ export PATH="$HOME/.stack/programs/x86_64-osx/ghc-8.0.2/bin:$PATH"
 export PATH="$PATH:$HOME/.bin"
 # Python
 export PATH="~/Library/Python/3.6/bin:$PATH"
+# Postgresapp
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # }}}
 
 # Android SDK {{{
@@ -83,9 +85,6 @@ dark() {
   profile dark
 }
 # }}}
-
-source ~/.aliases
-source ~/.local_profile
 
 colorfgbg
 [[ ! -n "$TMUX" ]] && tmux

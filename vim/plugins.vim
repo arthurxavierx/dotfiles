@@ -35,19 +35,22 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
-Plug 'lifepillar/vim-mucomplete'        " [[plugin/completion.vim]]
 Plug 'arthurxavierx/vim-caser'
+" }}}
+
+" Completion [[plugin/completion.vim]] {{{
+Plug 'lifepillar/vim-mucomplete'        " [[plugin/mucomplete.vim]]
 Plug 'arthurxavierx/vim-symbols'
 " }}}
 
 " Snippets [[snippets]] {{{
 Plug 'SirVer/ultisnips'                 " [[plugin/snippets.vim]]
-Plug 'honza/vim-snippets'
 " }}}
 
 " Syntax and linting [[plugin/linting.vim]] {{{
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
+Plug 'vmchale/dhall-vim'
 " }}}
 
 " FZF [[plugin/fzf.vim]] {{{
@@ -56,7 +59,7 @@ Plug 'junegunn/fzf.vim'
 " }}}
 
 " PureScript [[ftplugin/purescript.vim]] {{{
-Plug 'frigoeu/psc-ide-vim', { 'for': 'purescript' }
+Plug 'danieljharvey/psc-ide-vim', { 'for': 'purescript', 'commit': 'd71ead6' }
 Plug 'scrooloose/syntastic', { 'for': 'purescript' }  " [[plugin/syntastic.vim]]
 " }}}
 
@@ -73,6 +76,10 @@ Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'reedes/vim-pencil', { 'for': writing }
 Plug 'junegunn/limelight.vim'           " [[plugin/limelight.vim]]
 " }}}
+
+Plug 'ssteinbach/vim-pico8-syntax'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'vim-scripts/ShaderHighLight'
 
 unlet writing
 

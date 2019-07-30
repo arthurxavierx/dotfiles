@@ -11,8 +11,6 @@ endglobal
 snippet "^module\s" "" rbA
 module ${1:`!v substitute(substitute(expand('%:r'), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')`} where
 
-import ${2:Prelude}
-
 ${0}
 endsnippet
 
@@ -41,9 +39,7 @@ class ${1:Class} ${2:args} where
 endsnippet
 
 snippet dfins "" b
-instance `!p
-snip.rv = t[1][:1].lower() + t[1][1:] + t[2].replace('(', '').replace(')', '').split(' ')[0]
-` :: ${1:Class} ${2:Type} where
+instance ${1:Class} ${2:Type} where
 	${0}
 endsnippet
 
@@ -113,66 +109,5 @@ $1 ${4:args} = ${0:`!p snip.rv = '?' + t[1].split(' ')[0]`}
 endsnippet
 
 # }}}
-
-# }}}
-
-# React Basic {{{
-
-snippet "^comp\s" "" rbA
-${1:name}
-	:: ${2}
-	-> JSX
-$1 =
-	make (createComponent "`!p snip.rv = t[1][:1].upper() + t[1][1:]`")
-		{ initialState
-		, ${3:render}
-		}
-	where
-		initialState =
-			{ ${4}
-			}
-
-		render self@{ props, state, setState } =
-			${0}
-endsnippet
-
-snippet "^scomp\s" "" rbA
-${1:name}
-	:: ${2}
-	-> JSX
-$1 = makeStateless (createComponent "`!p snip.rv = t[1][:1].upper() + t[1][1:]`") render
-	where
-		render props =
-			${0}
-endsnippet
-
-# }}}
-
-# Forms {{{
-
-snippet dfo
-${1:form}
-	:: forall props
-	 . FormBuilder
-			{ readonly :: Boolean | props }
-			${2:FormData}
-			${3:Result}
-$1 = ${0}
-endsnippet
-
-snippet dfof
-${1:field} <-
-	F.indent "${2}" Neither
-	$ F.focus Lenses._$1
-	$ ${0}
-endsnippet
-
-snippet dfof*
-${1:field} <-
-	F.indent "${2}" Required
-	$ F.focus Lenses._$1
-	$ F.validated ${3:(F.nonEmpty "$2")}
-	$ ${0}
-endsnippet
 
 # }}}
