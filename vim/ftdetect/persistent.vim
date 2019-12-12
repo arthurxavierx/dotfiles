@@ -1,1 +1,2 @@
-au BufNewFile,BufRead models setlocal filetype=persistent foldmethod=indent foldlevel=0 commentstring=--\ %s
+au BufNewFile,BufRead models setlocal filetype=persistent foldmethod=indent commentstring=--\ %s
+au BufNewFile,BufRead *.persistentmodels setlocal filetype=persistent foldmethod=indent commentstring=--\ %s

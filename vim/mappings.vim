@@ -72,7 +72,7 @@ noremap <leader>fl        :Lines<CR>
 noremap <leader>f'        :Marks<CR>
 noremap <leader>f"        :Marks<CR>
 noremap <leader>fm        :Maps<CR>
-noremap <leader>fh        :History<CR>
+noremap <leader>fh        :Helptags<CR>
 noremap <leader>f<leader> :Commands<CR>
 noremap <leader>fs        :Snippets<CR>
 

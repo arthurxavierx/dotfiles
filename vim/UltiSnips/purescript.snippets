@@ -18,16 +18,16 @@ endsnippet
 
 # Define types {{{
 
-snippet dfdt "" b
+snippet dfdt "Define a data type" b
 data ${1:Type}
 	= ${0}
 endsnippet
 
-snippet dfnt "" b
+snippet dfnt "Define a newtype" b
 newtype ${1:Type} = ${0}
 endsnippet
 
-snippet dfta "" b
+snippet dfta "Define a type synonym" b
 type ${1:Type} = ${0}
 endsnippet
 
@@ -35,12 +35,12 @@ endsnippet
 
 # Type classes {{{
 
-snippet "^class\s" "" rbA
+snippet "^class\s" "Define a typeclass" rbA
 class ${1:Class} ${2:args} where
 	${0}
 endsnippet
 
-snippet dfins "" b
+snippet dfins "Define a typeclass instance" b
 instance `!p
 snip.rv = t[1][:1].lower() + t[1][1:] + t[2].replace('(', '').replace(')', '').split(' ')[0]
 ` :: ${1:Class} ${2:Type} where
@@ -118,7 +118,7 @@ endsnippet
 
 # React Basic {{{
 
-snippet "^comp\s" "" rbA
+snippet "^comp\s" "react-basic component" rbA
 ${1:name}
 	:: ${2}
 	-> JSX
@@ -136,7 +136,7 @@ $1 =
 			${0}
 endsnippet
 
-snippet "^scomp\s" "" rbA
+snippet "^scomp\s" "react-basic stateless component" rbA
 ${1:name}
 	:: ${2}
 	-> JSX
@@ -150,7 +150,7 @@ endsnippet
 
 # Forms {{{
 
-snippet dfo
+snippet dfo "Define a form"
 ${1:form}
 	:: forall props
 	 . FormBuilder
@@ -160,14 +160,14 @@ ${1:form}
 $1 = ${0}
 endsnippet
 
-snippet dfof
+snippet dfof "Form field"
 ${1:field} <-
 	F.indent "${2}" Neither
 	$ F.focus Lenses._$1
 	$ ${0}
 endsnippet
 
-snippet dfof*
+snippet dfof* "Required form field"
 ${1:field} <-
 	F.indent "${2}" Required
 	$ F.focus Lenses._$1
