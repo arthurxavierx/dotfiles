@@ -127,15 +127,15 @@ function! focus#toggle(margin)
 
   " Store global settings.
   let s:settings =
-    \ { 'columns':       &columns
-    \ , 'foldcolumn':    &foldcolumn
-    \ , 'numberwidth':   &numberwidth
-    \ , 'showtabline':   &showtabline
-    \ , 'tabline':       &tabline
-    \ , 'statusline':    &statusline
-    \ , 'guioptions':    &guioptions
-    \ , 'ruler':         &ruler
-    \ , 'tabpagenr':     tabpagenr()
+    \ { 'columns': &columns
+    \ , 'foldcolumn': &foldcolumn
+    \ , 'numberwidth': &numberwidth
+    \ , 'showtabline': &showtabline
+    \ , 'tabline': &tabline
+    \ , 'statusline': &statusline
+    \ , 'guioptions': &guioptions
+    \ , 'ruler': &ruler
+    \ , 'tabpagenr': tabpagenr()
     \ }
 
   let s:offsets = s:CalculateOffsets(a:margin)

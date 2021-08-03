@@ -12,6 +12,7 @@ set title
 set nobackup
 set noswapfile
 set noerrorbells
+set mouse=a
 
 set number relativenumber
 
@@ -43,13 +44,16 @@ endif
 " Always open quickfix window after a grep or make command.
 autocmd QuickFixCmdPost *grep* cwindow
 
+" Reformat on file save.
+autocmd BufWrite *.hs :Autoformat
+
 " Completion [[plugin/completion.vim]] {{{
 set complete=.,b,u,k,kspell,s
 set ignorecase
 set shortmess+=c
 set belloff+=ctrlg
 set pumheight=10
-set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone,noinsert
 set omnifunc=syntaxcomplete#Complete
 " }}}
 
@@ -117,11 +121,6 @@ set splitright
 set splitbelow
 " }}}
 
-" Python {{{
-let g:python_host_skip_check = 1
-let g:python3_host_skip_check = 1
-" }}}
-
 source $DOTFILES/vim/plugins.vim
 source $DOTFILES/vim/mappings.vim
 
@@ -145,3 +144,8 @@ set nocursorcolumn nocursorline colorcolumn=0
 
 set fillchars+=vert:│
 " }}}
+
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+augroup END

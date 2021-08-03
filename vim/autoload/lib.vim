@@ -60,3 +60,28 @@ function! lib#EchoHighlightGroup()
   let _ .= synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
   echo _
 endfunction
+
+" TODO: documentation
+function! lib#FtPluginEdit(root)
+  exe 'e ' . a:root . '/ftplugin/' . &ft . '.vim'
+endfunction
+
+" TODO: documentation
+function! lib#Space(...)
+  let regex = get(a:, 1, '\k')
+  if col(".") == 1 || getline(".")[col(".") - 2] !~ regex
+    return ""
+  else
+    return " "
+  endif
+endfunction
+
+" TODO: documentation
+function! lib#Newline()
+  " if col(".") == 1 || getline(".")[0:col(".") - 2] =~ '^\s*$'
+  if col(".") == 1 || getline(".") =~ '^\s*$'
+    return ""
+  else
+    return "\<CR>"
+  endif
+endfunction

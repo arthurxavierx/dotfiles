@@ -1,5 +1,5 @@
 setlocal makeprg=love\ .
-setlocal dictionary+=$DOTFILES/vim/dict/love.dict
-setlocal dictionary+=$DOTFILES/vim/dict/lua.dict
+setlocal dictionary+=$DOTFILES/vim/dict/love
+setlocal dictionary+=$DOTFILES/vim/dict/lua
 " setlocal iskeyword+=:
 " setlocal iskeyword+=.

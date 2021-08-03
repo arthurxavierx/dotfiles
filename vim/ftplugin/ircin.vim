@@ -1,24 +1,30 @@
 setl wrap
 
-startinsert
 nnoremap <silent><buffer> <CR> :call <SID>SendMessage(1)<CR>
 inoremap <silent><buffer> <CR> <C-o>:call <SID>SendMessage(1)<CR>
 
-au BufLeave <buffer> exe 'bdelete %'
+au BufLeave <buffer> silent! exe 'close'
+au InsertLeave <buffer> silent! call <SID>CloseIfEmpty()
+au TextChanged <buffer> silent! call <SID>CloseIfEmpty()
 
-function! s:SendMessage(delete)
-  if !exists('b:in_file')
+function! s:CloseIfEmpty()
+  if line('$') == 1 && getline(1) == ''
+    exe 'close'
+  endif
+endfunction
+
+function! s:SendMessage(close)
+  if !exists('b:filename')
     exe 'bdelete %'
     return
   endif
 
-  let message = join(getline(1, '$'), "\n")
-  exe 'w >> ' . escape(b:in_file, ' \#')
+  exe 'w >> ' . escape(b:filename, ' #\')
 
-  if a:delete
-    exe 'bdelete %'
+  if a:close
+    exe 'close'
   else
     exe '1,$delete'
-    startinsert
+    startinsert!
   endif
 endfunction

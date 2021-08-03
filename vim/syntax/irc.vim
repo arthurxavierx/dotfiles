@@ -1,7 +1,7 @@
 " ------------------------------------------------------------------------------
 " File:         irc.vim
 " Author:       Arthur Xavier <arthur.xavierx@gmail.com>
-" Description:
+" Description:  Vendored and adapted from https://github.com/trapd00r/irc.vim
 " License:      GPLv3+
 " ------------------------------------------------------------------------------
 
@@ -83,7 +83,6 @@ syn region ircBoldItalic matchgroup=ircBoldItalicDel start="\k\@!\zs___\ze\S" en
 syn region ircCode matchgroup=ircCode start=/\(\([^\\]\|^\)\\\)\@<!</ end=/\(\([^\\]\|^\)\\\)\@<!>/ oneline
 syn region ircCode matchgroup=ircCodeDel start=/\(\([^\\]\|^\)\\\)\@<!`/ end=/\(\([^\\]\|^\)\\\)\@<!`/ oneline concealends
 syn region ircCode matchgroup=ircCodeDel start=/\(\([^\\]\|^\)\\\)\@<!``/ end=/\(\([^\\]\|^\)\\\)\@<!``/ skip=/[^`]`[^`]/ oneline concealends
-" syn region ircCode matchgroup=ircCodeDelimiter start=/^\s*\z(`\{3,}\)[^`]*$/ end=/^\s*\z1`*\s*$/ concealends
 
 syn match  ircURL /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z0-9][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
 syn region ircURL matchgroup=ircDelimiter start="(\(https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z0-9][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*)\)\@=" end=")"
@@ -93,26 +92,26 @@ syn region ircURL matchgroup=ircDelimiter start="\\\@<!<\ze[a-z][a-z0-9,.-]\{1,2
 syn cluster ircText contains=ircItalic,ircBold,ircBoldItalic,ircCode,ircURL
 
 " syn match ircError   "\v(error)"
-syn match Comment    "^#.*"
+syn match Comment "^#.*"
 
-syn match ircMsg      "\v(.+)$" contains=@ircText
+syn match ircMsg "\v(.+)$" contains=@ircText
 
-syn match ircDate     "\v([\(\[]?[0-9-]* *\d\d:\d\d(:\d\d)?[APMapm]*[)\]]?|^)" skipwhite nextgroup=ircSys,ircChannel,ircSpeaker
+syn match ircDate "\v([\(\[]?[0-9-]* *\d\d:\d\d(:\d\d)?[APMapm]*[)\]]?|^)" skipwhite nextgroup=ircSys,ircChannel,ircSpeaker
 
-syn match ircChannel  "\v\k+[^:<]\s*.*" contained contains=@ircNames,@ircText
-syn match ircSys      "\v^Conversation.*" contained
-syn match ircSys      "\v(\>|-|\*|\=)+[^:<]\s*.*" contained contains=@ircNames
+syn match ircChannel "\v\k+[^:<]\s*.*" contained contains=@ircNames,@ircText
+syn match ircSys "\v^Conversation.*" contained
+syn match ircSys "\v(\>|-|\*|\=)+[^:<]\s*.*" contained " contains=@ircNames
 
-syn match ircSpeaker  "\v(\<[-+*@ ]*)?[a-zA-Z0-9#\[\]\{\}|_@. ]+[:>]\s"he=e-1 contained contains=@ircNames skipwhite
+syn match ircSpeaker "\v(\<[-+*@ ]*)?[a-zA-Z0-9#\[\]\{\}|_@. ]+[:>]\s"he=e-1 contained contains=@ircNames skipwhite
 
 syn cluster ircNames contains=NONE
 call s:DoNames()
 
 " Highlighting {{{
-hi! link ircSys     Comment
-hi! link ircDate    Ignore
+hi! link ircSys Ignore
+hi! link ircDate Ignore
 hi! link ircSpeaker Todo
-hi! link ircMsg     Normal
+hi! link ircMsg Normal
 
 hi! ircItalic cterm=italic gui=italic
 hi! ircBold cterm=bold gui=bold

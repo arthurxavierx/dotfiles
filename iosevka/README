@@ -1,0 +1,2 @@
+$ brew tap arthurxavierx/homebrew-tap
+$ brew install iosevka --with-tilde-low --with-asterisk-low --with-underscore-low --with-at-short --with-zero-slashed --with-ligset-coq --with-termlig

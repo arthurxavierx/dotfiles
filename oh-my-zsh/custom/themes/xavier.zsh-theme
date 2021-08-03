@@ -107,8 +107,8 @@ prompt_symbol() {
   prompt_status="%{%F{magenta}%}"
   [[ $RETVAL -ne 0 ]] && prompt_status="%{%F{red}%}"
 
-  [[ -n "$prompt_status" ]] && echo -n "${prompt_status}${PROMPT_SYMBOL:-❯}"
-  # [[ -n "$prompt_status" ]] && echo -n "${prompt_status}${PROMPT_SYMBOL:-λ}"
+  # [[ -n "$prompt_status" ]] && echo -n "${prompt_status}${PROMPT_SYMBOL:-❯}"
+  [[ -n "$prompt_status" ]] && echo -n "${prompt_status}${PROMPT_SYMBOL:-λ}"
 }
 
 ## Main prompt

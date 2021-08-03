@@ -2,9 +2,6 @@
 alias tmux='TERM=xterm-256color-italic \tmux'
 
 alias vi='nvim'
-alias vim='/usr/local/Cellar/vim/8.1.1600/bin/vim'
-
-alias love='/Applications/love.app/Contents/MacOS/love'
 
 # Filesystem {{{
 alias ..='cd ..'           # Go up one directory
@@ -30,6 +27,7 @@ alias gs='git status'
 alias gst='git stash'
 alias gsta='git stash apply'
 alias gd='git diff'
+alias gdw='git diff -w'
 alias gds='git diff --staged'
 alias gdh='git diff HEAD'
 alias gdh1='git diff HEAD~1'
@@ -62,4 +60,10 @@ function ircnew() {
   done
   irc
 }
+
+alias virc='pushd ~/irc && vi . && popd'
 # }}}
+
+function stackid() {
+  ghcid --command="stack repl $@ --ghc-options='-O0'"
+}

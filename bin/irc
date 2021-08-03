@@ -1,5 +1,26 @@
 #!/bin/sh
-ii -s irc.freenode.net -n arthurxavierx -f "Arthur Xavier" -k IRCPASS &
-sleep 10
-echo "/j #vim" > ~/irc/irc.freenode.net/in
-echo "/j #purescript" > ~/irc/irc.freenode.net/in
+
+set -e
+
+IRCDIR="${IRCDIR:-$HOME/irc}"
+SERVER=${SERVER:-irc.libera.chat}
+NICK=${NICK:-arthurxavierx}
+FULLNAME=${FULLNAME:-"Arthur Xavier"}
+CHANNELS='#news #haskell #purescript #vim #neovim #lobsters'
+
+echo "#### Connecting to $SERVER as $NICK"
+
+while read -s -p "Enter password: " IRCPASS; do
+  ii -i $IRCDIR -s $SERVER -n $NICK -f $FULLNAME -k $IRCPASS >/dev/null &
+  echo "\n#### Connected to $SERVER."
+  iipid="$!"
+  sleep 5
+
+  echo "##### Joining $CHANNELS"
+  for c in $CHANNELS; do
+    echo "/j $c" > $IRCDIR/$SERVER/in &
+    echo "##### Joined $c" &
+    sleep 1
+  done
+  wait "$iipid"
+done

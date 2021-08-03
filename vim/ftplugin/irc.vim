@@ -1,15 +1,18 @@
 setlocal autoread
 setlocal nomodifiable
 setlocal foldmethod=manual
+setlocal wrap linebreak
 
 setlocal nonumber norelativenumber
 
-au BufEnter    <buffer> normal G
+au BufEnter <buffer> normal G
 au BufReadPost <buffer> normal G
 
 let b:lines = line('w$')
 
 " Auto read {{{
+" au FocusGained <buffer> :checktime
+
 if !exists('b:autoread')
     let b:autoread = 1
     call timer_start(1, 'CheckUpdate')
@@ -21,20 +24,20 @@ function! CheckUpdate(timer)
 endfunction
 " }}}
 
-" Compose messages {{{
 let b:in_file = substitute(expand('%:~'), 'out$', 'in', '')
+let b:in_buffer = escape(substitute(expand('%:2t'), 'out$', 'in', ''), ' #\')
 
-nmap <buffer><silent> a :call <SID>ComposeMessage(b:in_file)<CR>
-nmap <buffer><silent> A :call <SID>ComposeMessage(b:in_file)<CR>
-nmap <buffer><silent> i :call <SID>ComposeMessage(b:in_file)<CR>
-nmap <buffer><silent> I :call <SID>ComposeMessage(b:in_file)<CR>
-nmap <buffer><silent> o :call <SID>ComposeMessage(b:in_file)<CR>
-nmap <buffer><silent> O :call <SID>ComposeMessage(b:in_file)<CR>
+nmap <buffer><silent> a :call <SID>ComposeMessage(b:in_file, b:in_buffer)<CR>
+nmap <buffer><silent> A :call <SID>ComposeMessage(b:in_file, b:in_buffer)<CR>
+nmap <buffer><silent> i :call <SID>ComposeMessage(b:in_file, b:in_buffer)<CR>
+nmap <buffer><silent> I :call <SID>ComposeMessage(b:in_file, b:in_buffer)<CR>
+nmap <buffer><silent> o :call <SID>ComposeMessage(b:in_file, b:in_buffer)<CR>
+nmap <buffer><silent> O :call <SID>ComposeMessage(b:in_file, b:in_buffer)<CR>
 
-function! s:ComposeMessage(in_file)
-  exe 'new +set\ ft=ircin'
-  exe 'setlocal bt=nofile bh=wipe nobl noswf'
+function! s:ComposeMessage(filename, bufname) " {{{
+  " exe 'new +set\ ft=ircin\ bt=nofile\ bh=hide\ nobl\ noswf ' . a:bufname
+  exe 'new +set\ ft=ircin\ bt=nofile\ bh=wipe\ nobl\ noswf'
   exe 'resize 2'
-  exe 'let b:in_file = "' . a:in_file . '"'
-endfunction
-" }}}
+  exe 'let b:filename = "' . a:filename . '"'
+  exe 'startinsert!'
+endfunction " }}}

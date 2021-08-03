@@ -5,9 +5,6 @@ nnoremap <space> <nop>
 
 set pastetoggle=<F3>
 
-noremap ; :
-noremap ç ;
-noremap Ç ,
 noremap \ /
 
 " Yank to end of line
@@ -17,8 +14,6 @@ noremap Q @q
 
 " Visual @
 xnoremap <silent> @ :<C-u>call lib#ExecuteMacroOverVisualRange()<CR>
-
-" ExecuteMacroOverVisualRange
 
 " Allow mappings to use <C-c>
 nnoremap <C-c> <nop>
@@ -31,18 +26,34 @@ vnoremap <silent> .   :norm.<CR>
 " Clear highlighting on escape in normal mode
 nnoremap <silent> <esc> :noh<CR><esc>
 
-nnoremap <C-m> <C-i>
-
-map <C-g> :call lib#EchoHighlightGroup()<CR>
+" map <C-g> :call lib#EchoHighlightGroup()<CR>
 
 " Make arrow keys work inside tmux
 " map ^[B <Down>
 
-" VIMRC {{{
+" TODO: documentation
+nnoremap cg*              #*cgn
+nnoremap cg#              *#cgN
+
+" Alt-backspace deletes words
+inoremap <M-BS> <C-w>
+cnoremap <M-BS> <C-w>
+inoremap <M-b> <S-Left>
+cnoremap <M-b> <S-Left>
+inoremap <M-f> <S-Right>
+cnoremap <M-f> <S-Right>
+
+" TODO: documentation
+inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
+
+" Configs {{{
 nmap <leader>ve       :e $MYVIMRC<CR>
 nmap <leader>vt       :e $DOTFILES/tmux.conf<CR>
 nmap <leader>vs       :UltiSnipsEdit<CR>
 nmap <leader>vy       :e $DOTFILES/vim/symbols<CR>
+nmap <leader>vf       :call lib#FtPluginEdit('$DOTFILES/vim')<CR>
+nmap <leader>vd       :exe 'e '.dict#Dict(&ft)<CR>
 nmap <leader>vR       :so $MYVIMRC<CR>
 " }}}
 
@@ -75,17 +86,12 @@ noremap <leader>fm        :Maps<CR>
 noremap <leader>fh        :Helptags<CR>
 noremap <leader>f<leader> :Commands<CR>
 noremap <leader>fs        :Snippets<CR>
-
-nnoremap cg*              #*cgn
-nnoremap cg#              *#cgN
 " }}}
 
 " Links [[plugin/links.vim]] {{{
-map <Tab>            <Plug>(NextLink)
-map <S-Tab>          <Plug>(PrevLink)
+map gl               <Plug>(NextLink)
+map gL               <Plug>(PrevLink)
 map gf               gF
-map gw               :vsplit <cfile><CR>
-map gp               :ped <cfile><CR>
 " }}}
 
 " Windows {{{
@@ -118,39 +124,43 @@ nnoremap MF           :ALEFix<CR>
 
 " Completion [[plugin/completion.vim]] {{{
 
-" Cancel completion with <BS>
-inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
-" Close completion popup with <CR>
-inoremap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+" " Cancel completion with <BS>
+" inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
+" " Close completion popup with <CR>
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-function! TryUltiSnips() abort
-  if !pumvisible() " With the pop-up menu open, let Tab move down
-    call UltiSnips#ExpandSnippet()
-  endif
-  return ''
-endfunction
+inoremap <expr> <Tab> compe#complete()
+inoremap <expr> <CR> compe#confirm('<CR>')
+inoremap <expr> <BS> compe#close('<BS>')
 
-fun! TryMUcomplete()
-  return exists('g:ulti_expand_res') && g:ulti_expand_res ? "" : "\<Plug>(MUcompleteFwd)"
-endf
+" imap <expr> <Left> mucomplete#extend_bwd("\<Left>")
+" imap <expr> <Right> mucomplete#extend_fwd("\<Right>")
 
-inoremap <Plug>(TryUltiSnips) <C-r>=TryUltiSnips()<CR>
-imap <expr> <silent> <Plug>(TryMUcomplete) TryMUcomplete()
+" function! TryUltiSnips() abort
+"   if !pumvisible() " With the pop-up menu open, let Tab move down
+"     call UltiSnips#ExpandSnippet()
+"   endif
+"   return ''
+" endfunction
 
-au BufEnter * exe 'imap <expr> <silent> ' . g:UltiSnipsExpandTrigger . ' "\<Plug>(TryUltiSnips)\<Plug>(TryMUcomplete)"'
-au BufEnter * exe 'inoremap <expr> <silent> ' . g:UltiSnipsJumpForwardTrigger . ' pumvisible() ? "\<C-n>" : "\<C-r>=UltiSnips#JumpForwards()<CR>"'
-au BufEnter * exe 'inoremap <expr> <silent> ' . g:UltiSnipsJumpBackwardTrigger . ' pumvisible() ? "\<C-p>" : "\<C-r>=UltiSnips#JumpBackwards()<CR>"'
+" fun! TryMUcomplete()
+"   return exists('g:ulti_expand_res') && g:ulti_expand_res ? "" : "\<Plug>(MUcompleteFwd)"
+" endf
 
-function! IsBehindDir()
-  return strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
-endfunction
+" inoremap <Plug>(TryUltiSnips) <C-r>=TryUltiSnips()<CR>
+" imap <expr> <silent> <Plug>(TryMUcomplete) TryMUcomplete()
 
-imap <expr> / pumvisible() && IsBehindDir()
-      \ ? "\<c-y>\<plug>(MUcompleteFwd)"
-      \ : '/'
+" au BufEnter * exe 'imap <expr> <silent> ' . g:UltiSnipsExpandTrigger . ' "\<Plug>(TryUltiSnips)\<Plug>(TryMUcomplete)"'
+" au BufEnter * exe 'inoremap <expr> <silent> ' . g:UltiSnipsJumpForwardTrigger . ' pumvisible() ? "\<C-n>" : "\<C-r>=UltiSnips#JumpForwards()<CR>"'
+" au BufEnter * exe 'inoremap <expr> <silent> ' . g:UltiSnipsJumpBackwardTrigger . ' pumvisible() ? "\<C-p>" : "\<C-r>=UltiSnips#JumpBackwards()<CR>"'
 
-imap <expr> <left>  mucomplete#extend_bwd("\<left>")
-imap <expr> <right> mucomplete#extend_fwd("\<right>")
+" function! IsBehindDir()
+"   return strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
+" endfunction
+
+" imap <expr> / pumvisible() && IsBehindDir()
+"       \ ? "\<c-y>\<plug>(MUcompleteFwd)"
+"       \ : '/'
 
 " }}}
 
@@ -177,3 +187,6 @@ if &diff
   map <leader>2 :diffget BASE<CR>
   map <leader>3 :diffget REMOTE<CR>
 endif
+" }}}
+
+command! ClearRegisters for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor

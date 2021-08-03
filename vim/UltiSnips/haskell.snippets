@@ -1,113 +1,62 @@
 # vim:noexpandtab:fdm=marker:fdl=0:
 priority 1
 
-global !p
-def expand(snip):
-    if snip.tabstop != 1:
-        return
-    vim.eval('feedkeys("\<C-R>=UltiSnips#ExpandSnippet()\<CR>")')
-endglobal
+snippet module "Module header" b
+module ${1:`!v substitute(substitute(fnamemodify(expand("%:r"), ":~:."), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')`} where
 
-snippet "^module\s" "" rbA
-module ${1:`!v substitute(substitute(expand('%:r'), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')`} where
+import ${2:Prelude}
 
 ${0}
 endsnippet
 
-# Define types {{{
-
-snippet dfdt "" b
-data ${1:Type}
-	= ${0}
+snippet importq "Qualified import" b
+import qualified ${1:Module} as ${2:Q}
 endsnippet
 
-snippet dfnt "" b
-newtype ${1:Type} = ${0}
+snippet language "Language extension" b
+{-# LANGUAGE ${1:_} #-}
 endsnippet
 
-snippet dfta "" b
-type ${1:Type} = ${0}
-endsnippet
-
-# }}}
-
-# Type classes {{{
-
-snippet "^class\s" "" rbA
-class ${1:Class} ${2:args} where
-	${0}
-endsnippet
-
-snippet dfins "" b
-instance ${1:Class} ${2:Type} where
-	${0}
-endsnippet
-
-# }}}
-
-# Values {{{
-
-snippet let "let ... in ..." b
+snippet leti "let ... in ..." b
 let
 	${1}
 in
 	${0}
 endsnippet
-post_jump "expand(snip)"
-snippet "letin\s" "let ... in ..." rbA
-let$1
-endsnippet
 
-snippet wh "where ..." b
+snippet where "where ..." b
 where
 	${0}
 endsnippet
-post_jump "expand(snip)"
-snippet "where\s" "where ..." rbA
-wh$1
-endsnippet
-
-snippet fa. "forall a." w
-forall ${1:a}. ${0:x}
-endsnippet
 
 snippet lam "Lambda" w
-\${1:_} -> ${0:?x}
+\\${1:_} -> ${0:_}
 endsnippet
 
-snippet dt "value :: Type" w
-${1:value} :: ${0:Type}
-endsnippet
-
-snippet drt "Define record type in multiple lines" w
-{ ${1:field} :: ${0:Type}
-}
-endsnippet
-
-# Equality {{{
-
-snippet df "Define an equality" b
-${1:name} = ${0:`!p snip.rv = '?' + t[1].split(' ')[0]`}
-endsnippet
-
-snippet dfd "Define an equality with a type signature" b
+snippet def "Define an equality with a type signature" b
 ${1:name} :: ${2:Type}
-$1 = ${0:`!p snip.rv = '?' + t[1].split(' ')[0]`}
+$1 = ${0:`!p snip.rv = '_' + t[1].split(' ')[0]`}
 endsnippet
 
-# }}}
-
-# Function {{{
-
-snippet dfk "Define a function" b
-${1:function} ${2:args} = ${0:`!p snip.rv = '?' + t[1].split(' ')[0]`}
+snippet fun "Define a function with a type signature" b
+${1:function} :: ${2:Type}
+$1 ${3:args} = ${0:`!p snip.rv = '_' + t[1].split(' ')[0]`}
 endsnippet
 
-snippet dfkd "Define a function with a type signature" b
-${1:function} :: ${2:Args} -> ${3:Return}
-$1 ${4:args} = ${0:`!p snip.rv = '?' + t[1].split(' ')[0]`}
+snippet caseof "case ... of" b
+case ${1:_} of
+	${2:_} ->
+		${0:_}
 endsnippet
 
-# }}}
+snippet ifthen "if ... then ... else" b
+if ${1:_} then
+	${2:_}
+else
+	${3:_}
+endsnippet
 
-# }}}
+snippet describe "HSpec describe" b
+describe "${1:_}" do
+	${0:_}
+endsnippet

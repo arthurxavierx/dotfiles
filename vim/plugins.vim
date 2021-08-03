@@ -13,8 +13,6 @@ call plug#begin()
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
-Plug 'tpope/vim-fugitive'
-
 " Visual {{{
 Plug 'arthurxavierx/vim-notebook'
 Plug 'mhinz/vim-startify'               " [[plugin/startscreen.vim]]
@@ -36,11 +34,23 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'arthurxavierx/vim-caser'
+Plug 'Chiel92/vim-autoformat'
+Plug 'arecarn/vim-crunch'
 " }}}
 
+Plug 'kana/vim-arpeggio'
+
 " Completion [[plugin/completion.vim]] {{{
-Plug 'lifepillar/vim-mucomplete'        " [[plugin/mucomplete.vim]]
-Plug 'arthurxavierx/vim-symbols'
+" Plug 'lifepillar/vim-mucomplete'        " [[plugin/mucomplete.vim]]
+" Plug 'arthurxavierx/vim-symbols'
+
+Plug 'hrsh7th/nvim-compe'
+Plug 'andersevenrud/compe-tmux', { 'branch': 'main' }
+
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'steelsojka/completion-buffers'
+" Plug 'albertoCaroM/completion-tmux', { 'branch': 'main' }
+
 " }}}
 
 " Snippets [[snippets]] {{{
@@ -48,9 +58,9 @@ Plug 'SirVer/ultisnips'                 " [[plugin/snippets.vim]]
 " }}}
 
 " Syntax and linting [[plugin/linting.vim]] {{{
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-Plug 'vmchale/dhall-vim'
+" Plug 'vmchale/dhall-vim'
 " }}}
 
 " FZF [[plugin/fzf.vim]] {{{
@@ -64,22 +74,17 @@ Plug 'scrooloose/syntastic', { 'for': 'purescript' }  " [[plugin/syntastic.vim]]
 " }}}
 
 " Idris [[ftplugin/idris.vim]] {{{
-Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
-" }}}
-
-" Haskell [[ftplugin/haskell.vim]] {{{
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+" Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 " }}}
 
 " Writing {{{
-Plug 'reedes/vim-pencil', { 'for': writing }
-Plug 'junegunn/limelight.vim'           " [[plugin/limelight.vim]]
+" Plug 'reedes/vim-pencil', { 'for': writing }
+" Plug 'junegunn/limelight.vim'           " [[plugin/limelight.vim]]
 " }}}
 
-Plug 'ssteinbach/vim-pico8-syntax'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'vim-scripts/ShaderHighLight'
+" Plug 'ssteinbach/vim-pico8-syntax'
+" Plug 'OmniSharp/omnisharp-vim'
+" Plug 'vim-scripts/ShaderHighLight'
 
 unlet writing
 
