@@ -32,10 +32,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 Plug 'arthurxavierx/vim-caser'
 Plug 'Chiel92/vim-autoformat'
 Plug 'arecarn/vim-crunch'
+Plug 'justinmk/vim-sneak'
 " }}}
 
 Plug 'kana/vim-arpeggio'
@@ -44,12 +45,14 @@ Plug 'kana/vim-arpeggio'
 " Plug 'lifepillar/vim-mucomplete'        " [[plugin/mucomplete.vim]]
 " Plug 'arthurxavierx/vim-symbols'
 
-Plug 'hrsh7th/nvim-compe'
-Plug 'andersevenrud/compe-tmux', { 'branch': 'main' }
-
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'steelsojka/completion-buffers'
-" Plug 'albertoCaroM/completion-tmux', { 'branch': 'main' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-dictionary',
+  \ 'coc-syntax',
+  \ 'coc-ultisnips',
+  \ 'coc-tsserver'
+  \ ]
 
 " }}}
 

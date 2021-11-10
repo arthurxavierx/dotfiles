@@ -21,7 +21,7 @@ nnoremap <silent> <Plug>DictAdd :set opfunc=dict#opfunc<CR>g@
 xnoremap <silent> <Plug>DictAddVisual :<C-u>call dict#opfunc(visualmode())<CR>
 
 if !exists('g:dicts_no_mappings') || !g:dicts_no_mappings
-  inoremap <silent> <C-p> <C-o>:call dict#AddEntry(expand('<cword>'))<CR>
-  nmap <C-p> <Plug>DictAdd
-  xmap <C-p> <Plug>DictAddVisual
+  " inoremap <silent> <C-p> <C-o>:call dict#AddEntry(expand('<cword>'))<CR>
+  " nmap <C-p> <Plug>DictAdd
+  " xmap <C-p> <Plug>DictAddVisual
 endif

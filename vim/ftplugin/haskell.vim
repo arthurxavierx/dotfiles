@@ -23,7 +23,16 @@ nmap <buffer> <localleader>p :Hoogle<space>
 
 nnoremap <buffer> K :!open -a "/Applications/Google Chrome.app" 'https://hoogle.haskell.org/?hoogle=<c-r>=expand("<cword>")<cr>'<cr>
 
+inoremap [<CR> [<CR>]<Esc>kA
+inoremap {<CR> {<CR>}<Esc>kA
+
 " Chords {{{
+
+Arpeggiois cv ::<Space>
+Arpeggiois <leader>rw -><Space>
+Arpeggiois <leader>RW =><Space>
+Arpeggio inoremap {} {}<Left>
+Arpeggio inoremap .br {..}
 
 Arpeggioibufsnipk lam lam
 Arpeggioibufsnipcr fun fun
@@ -39,8 +48,8 @@ Arpeggioibufcr cls class<Space>
 Arpeggioibufcr int instance<Space>
 
 " Operators
-Arpeggioibufk <>  <><Space>
-Arpeggioibufk <Space>cm  .<Space>
+Arpeggioibufk <> <><Space>
+Arpeggioibufk <Space>cm .<Space>
 
 " Modules and imports
 Arpeggioibufsnip mdl module
@@ -74,6 +83,8 @@ Arpeggioibufs tru True
 Arpeggioibufs fal False
 Arpeggioibufk cns const<Space>
 Arpeggioibufsnip crb describe
+Arpeggioibufk gfi getField<Space>@""<Left>
+Arpeggioibufk gid getId<Space>
 
 Arpeggioibufsnipcr lng language
 

@@ -1,0 +1,44 @@
+{
+  "suggest.keepCompleteopt": true,
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
+  "suggest.removeDuplicateItems": true,
+  "suggest.minTriggerInputLength": 1,
+  "suggest.highPrioritySourceLimit": 10,
+  "suggest.lowPrioritySourceLimit": 5,
+
+  "coc.source.around.firstMatch": false,
+  "coc.source.buffer.firstMatch": false,
+  "coc.source.dictionary.firstMatch": true,
+
+  "coc.source.syntax.priority": 1,
+  "coc.source.dictionary.enable": true,
+  "coc.source.dictionary.priority": 7,
+  "coc.source.buffer.priority": 8,
+  "coc.source.around.priority": 10,
+
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "typescript",
+    "markdown",
+    "purescript"
+  ],
+  "eslint.autoFixOnSave": true,
+  "eslint.run": "onSave",
+
+  "languageserver": {
+    "purescript": {
+      "command": "purescript-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["purescript"],
+      "trace.server": "off",
+      "rootPatterns": ["bower.json", "psc-package.json", "spago.dhall"],
+      "settings": {
+        "purescript": {
+          "addSpagoSources": true,
+          "addNpmPath": true
+        }
+      }
+    }
+  }
+}

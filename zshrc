@@ -96,3 +96,6 @@ bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
+
+# Hook direnv
+eval "$(direnv hook zsh)"

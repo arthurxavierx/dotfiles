@@ -10,16 +10,5 @@ augroup END
 
 let g:symbols_user_completion = 0
 
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.debug = v:true
-let g:compe.min_length = 2
-let g:compe.documentation = v:false
-let g:compe.source = {
-  \ 'path': v:true,
-  \ 'buffer': v:true,
-  \ 'calc': v:true,
-  \ 'ultisnips': v:true,
-  \ 'tmux': v:true,
-  \ 'nvim_lsp': v:false,
-  \ }
+" Close preview window after completion is done
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif

@@ -21,19 +21,19 @@ nnoremap <C-c> <nop>
 nnoremap <C-q> <nop>
 
 " . repeat in visual mode
-vnoremap <silent> .   :norm.<CR>
+vnoremap <silent> . :norm.<CR>
 
 " Clear highlighting on escape in normal mode
 nnoremap <silent> <esc> :noh<CR><esc>
 
-" map <C-g> :call lib#EchoHighlightGroup()<CR>
+map <C-g> :call lib#EchoHighlightGroup()<CR>
 
 " Make arrow keys work inside tmux
 " map ^[B <Down>
 
-" TODO: documentation
-nnoremap cg*              #*cgn
-nnoremap cg#              *#cgN
+" Change next occurrence of the word under the cursor. Repeatable with .
+nnoremap cg* *Ncgn
+nnoremap cg# #ncgN
 
 " Alt-backspace deletes words
 inoremap <M-BS> <C-w>
@@ -43,7 +43,7 @@ cnoremap <M-b> <S-Left>
 inoremap <M-f> <S-Right>
 cnoremap <M-f> <S-Right>
 
-" TODO: documentation
+" Add undo marks on <C-U> and <C-W> in insert mode
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
@@ -53,7 +53,7 @@ nmap <leader>vt       :e $DOTFILES/tmux.conf<CR>
 nmap <leader>vs       :UltiSnipsEdit<CR>
 nmap <leader>vy       :e $DOTFILES/vim/symbols<CR>
 nmap <leader>vf       :call lib#FtPluginEdit('$DOTFILES/vim')<CR>
-nmap <leader>vd       :exe 'e '.dict#Dict(&ft)<CR>
+nmap <leader>vd       :exe 'split '.dict#Dict(&ft)<CR>G
 nmap <leader>vR       :so $MYVIMRC<CR>
 " }}}
 
@@ -124,43 +124,15 @@ nnoremap MF           :ALEFix<CR>
 
 " Completion [[plugin/completion.vim]] {{{
 
-" " Cancel completion with <BS>
-" inoremap <expr> <BS> pumvisible() ? "\<C-e>" : "\<BS>"
-" " Close completion popup with <CR>
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-inoremap <expr> <Tab> compe#complete()
-inoremap <expr> <CR> compe#confirm('<CR>')
-inoremap <expr> <BS> compe#close('<BS>')
-
-" imap <expr> <Left> mucomplete#extend_bwd("\<Left>")
-" imap <expr> <Right> mucomplete#extend_fwd("\<Right>")
-
-" function! TryUltiSnips() abort
-"   if !pumvisible() " With the pop-up menu open, let Tab move down
-"     call UltiSnips#ExpandSnippet()
-"   endif
-"   return ''
-" endfunction
-
-" fun! TryMUcomplete()
-"   return exists('g:ulti_expand_res') && g:ulti_expand_res ? "" : "\<Plug>(MUcompleteFwd)"
-" endf
-
-" inoremap <Plug>(TryUltiSnips) <C-r>=TryUltiSnips()<CR>
-" imap <expr> <silent> <Plug>(TryMUcomplete) TryMUcomplete()
-
-" au BufEnter * exe 'imap <expr> <silent> ' . g:UltiSnipsExpandTrigger . ' "\<Plug>(TryUltiSnips)\<Plug>(TryMUcomplete)"'
-" au BufEnter * exe 'inoremap <expr> <silent> ' . g:UltiSnipsJumpForwardTrigger . ' pumvisible() ? "\<C-n>" : "\<C-r>=UltiSnips#JumpForwards()<CR>"'
-" au BufEnter * exe 'inoremap <expr> <silent> ' . g:UltiSnipsJumpBackwardTrigger . ' pumvisible() ? "\<C-p>" : "\<C-r>=UltiSnips#JumpBackwards()<CR>"'
-
-" function! IsBehindDir()
-"   return strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
-" endfunction
-
-" imap <expr> / pumvisible() && IsBehindDir()
-"       \ ? "\<c-y>\<plug>(MUcompleteFwd)"
-"       \ : '/'
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<Tab>" : coc#refresh()
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent> <cr> <C-g>u<CR><c-r>=coc#on_enter()<CR>
 
 " }}}
 
@@ -190,3 +162,18 @@ endif
 " }}}
 
 command! ClearRegisters for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+
+" Sneak {{{
+
+let g:sneak#prompt = ';'
+
+nmap ç <Plug>Sneak_s
+nmap Ç <Plug>Sneak_S
+
+xmap ç <Plug>Sneak_s
+xmap Ç <Plug>Sneak_S
+
+omap ç <Plug>Sneak_s
+omap Ç <Plug>Sneak_S
+
+" }}}

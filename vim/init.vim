@@ -53,7 +53,8 @@ set ignorecase
 set shortmess+=c
 set belloff+=ctrlg
 set pumheight=10
-set completeopt=menu,menuone,noinsert
+" set completeopt=menu,menuone,noinsert
+set completeopt=menu,menuone,noselect
 set omnifunc=syntaxcomplete#Complete
 " }}}
 

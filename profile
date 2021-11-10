@@ -16,6 +16,8 @@ export PATH="$PATH:$HOME/.bin"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 # Postgresapp
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+# CitizenNet
+export PATH="$PATH:$HOME/Workspace/citizennet/devops/bin"
 # }}}
 
 # Android SDK {{{

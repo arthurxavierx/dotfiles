@@ -1,0 +1,70 @@
+# vim:noexpandtab:fdm=marker:fdl=0:
+priority 1
+
+snippet lam "Lambda" w
+(${1:_}) => ${0:_}
+endsnippet
+
+snippet fun "Function" w
+function ${1:_}($2) {
+	$0
+}
+endsnippet
+
+snippet ctor "Constructor" w
+constructor($1) {
+	$0
+}
+endsnippet
+
+snippet import "Import statement" w
+import ${1:*} from "${2:_}";
+endsnippet
+
+snippet switch "Switch statement" w
+switch(${1:_}) {
+	case ${2:_}:
+		$0
+}
+endsnippet
+
+snippet case "Case statement" w
+case ${1:_}:
+	$0
+endsnippet
+
+snippet ifthen "if-then block" w
+if (${1:_}) {
+	$0
+}
+endsnippet
+
+snippet elseif "else-if block" w
+else if (${1:_}) {
+	$0
+}
+endsnippet
+
+snippet else "else block" w
+else {
+	$0
+}
+endsnippet
+
+snippet try "try block" w
+try {
+	$0
+}
+endsnippet
+
+snippet catch "catch block" w
+catch (${1:_}) {
+	$0
+}
+endsnippet
+
+snippet finally "finally block" w
+finally {
+	$0
+}
+endsnippet
