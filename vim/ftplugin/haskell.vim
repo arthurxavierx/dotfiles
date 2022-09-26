@@ -18,6 +18,8 @@ endif
 setlocal omnifunc=necoghc#omnifunc
 setlocal formatprg=stylish-haskell
 
+setlocal iskeyword+='
+
 nmap <buffer> <localleader>s :call ApplyOneSuggestion()<CR>
 nmap <buffer> <localleader>p :Hoogle<space>
 

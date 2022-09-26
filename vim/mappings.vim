@@ -24,9 +24,11 @@ nnoremap <C-q> <nop>
 vnoremap <silent> . :norm.<CR>
 
 " Clear highlighting on escape in normal mode
-nnoremap <silent> <esc> :noh<CR><esc>
+nnoremap <silent> <Esc> :noh<CR>:pclo<CR><Esc>
 
 map <C-g> :call lib#EchoHighlightGroup()<CR>
+
+nnoremap <buffer><silent> K :call CocActionAsync('doHover')<cr>
 
 " Make arrow keys work inside tmux
 " map ^[B <Down>
@@ -47,6 +49,9 @@ cnoremap <M-f> <S-Right>
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
+" Paste in visual-mode without yanking the deleted lines
+vnoremap p "_dP
+
 " Configs {{{
 nmap <leader>ve       :e $MYVIMRC<CR>
 nmap <leader>vt       :e $DOTFILES/tmux.conf<CR>
@@ -63,10 +68,19 @@ nnoremap M<space>     :wa<bar>make!<space>--<space>
 " }}}
 
 " Buffers {{{
-noremap <C-q>          :Q<CR>
-noremap <leader>w      :w<CR>
-noremap <leader>r      :Buffers<CR>
-nnoremap <BS><BS>      :b#<CR>
+noremap <silent> <C-q>          :Q<CR>
+noremap <silent> <leader>w      :w<CR>
+noremap <silent> <leader>r      :Buffers<CR>
+
+nnoremap <silent> <BS><BS>      :PreviousBuffer<CR>
+command! PreviousBuffer call s:PreviousBuffer()
+function! s:PreviousBuffer()
+  if &previewwindow
+    exe "pclose"
+  else
+    exe "b#"
+  endif
+endfunction
 " }}}
 
 " Files {{{

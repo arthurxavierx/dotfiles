@@ -85,6 +85,11 @@ if [ -f '/Users/luis/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then sour
 # }
 # # }}}
 
+# K8S {{{
+export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+export KUBECONFIG=$KUBECONFIG:$HOME/.kube/omsdev/config.yaml
+# }}}
+
 # colorfgbg
 [[ ! -n "$TMUX" ]] && tmux
 

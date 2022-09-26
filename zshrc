@@ -29,7 +29,8 @@ ZSH_THEME="xavier"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
+unsetopt correct_all
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -83,7 +84,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias zshconfig="$EDITOR ~/.zshrc"
-alias zshtheme="$EDITOR ~/.oh-my-zsh/themes/xavier.zsh-theme"
+alias zshtheme="$EDITOR ~/Workspace/dotfiles/oh-my-zsh/custom/themes/xavier.zsh-theme"
 alias zshreload=". ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 

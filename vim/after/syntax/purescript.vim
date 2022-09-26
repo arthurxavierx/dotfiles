@@ -6,3 +6,5 @@ syn match purescriptTodo "TODO\|XXX\|FIXME" contained containedin=purescriptLine
 
 hi! link purescriptAdo Keyword
 hi! link purescriptTodo Todo
+
+setlocal commentstring=--\ %s

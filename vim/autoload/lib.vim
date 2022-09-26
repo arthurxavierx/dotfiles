@@ -77,6 +77,16 @@ function! lib#Space(...)
 endfunction
 
 " TODO: documentation
+function! lib#AfterSpace(...)
+  let regex = get(a:, 1, '\k')
+  if col(".") == col("$") || getline(".")[col(".") - 1] =~ regex
+    return " "
+  else
+    return ""
+  endif
+endfunction
+
+" TODO: documentation
 function! lib#Newline()
   " if col(".") == 1 || getline(".")[0:col(".") - 2] =~ '^\s*$'
   if col(".") == 1 || getline(".") =~ '^\s*$'
@@ -84,4 +94,30 @@ function! lib#Newline()
   else
     return "\<CR>"
   endif
+endfunction
+
+" Restore cursor position, window position, and last search after running a
+" command.
+function! lib#Preserve(command)
+  " Save the last search.
+  let search = @/
+  " Save the current cursor position.
+  let cursor_position = getpos('.')
+  " Save the current window position.
+  normal! H
+  let window_position = getpos('.')
+  call setpos('.', cursor_position)
+  " Execute the command.
+  execute a:command
+  " Restore the last search.
+  let @/ = search
+  " Restore the previous window position.
+  call setpos('.', window_position)
+  normal! zt
+  " Restore the previous cursor position.
+  call setpos('.', cursor_position)
+endfunction
+
+function! lib#Format()
+  call lib#Preserve('normal gggqG')
 endfunction

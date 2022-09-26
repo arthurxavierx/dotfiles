@@ -42,8 +42,10 @@ Plug 'justinmk/vim-sneak'
 Plug 'kana/vim-arpeggio'
 
 " Completion [[plugin/completion.vim]] {{{
-" Plug 'lifepillar/vim-mucomplete'        " [[plugin/mucomplete.vim]]
 " Plug 'arthurxavierx/vim-symbols'
+
+" Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" Plug 'neovim/nvim-lspconfig'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
@@ -51,7 +53,9 @@ let g:coc_global_extensions = [
   \ 'coc-dictionary',
   \ 'coc-syntax',
   \ 'coc-ultisnips',
-  \ 'coc-tsserver'
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier'
   \ ]
 
 " }}}
@@ -61,9 +65,7 @@ Plug 'SirVer/ultisnips'                 " [[plugin/snippets.vim]]
 " }}}
 
 " Syntax and linting [[plugin/linting.vim]] {{{
-" Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-" Plug 'vmchale/dhall-vim'
 " }}}
 
 " FZF [[plugin/fzf.vim]] {{{
@@ -71,23 +73,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " }}}
 
-" PureScript [[ftplugin/purescript.vim]] {{{
-Plug 'danieljharvey/psc-ide-vim', { 'for': 'purescript', 'commit': 'd71ead6' }
-Plug 'scrooloose/syntastic', { 'for': 'purescript' }  " [[plugin/syntastic.vim]]
-" }}}
-
-" Idris [[ftplugin/idris.vim]] {{{
-" Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
-" }}}
-
 " Writing {{{
 " Plug 'reedes/vim-pencil', { 'for': writing }
 " Plug 'junegunn/limelight.vim'           " [[plugin/limelight.vim]]
 " }}}
-
-" Plug 'ssteinbach/vim-pico8-syntax'
-" Plug 'OmniSharp/omnisharp-vim'
-" Plug 'vim-scripts/ShaderHighLight'
 
 unlet writing
 

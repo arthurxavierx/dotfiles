@@ -47,6 +47,15 @@ autocmd QuickFixCmdPost *grep* cwindow
 " Reformat on file save.
 autocmd BufWrite *.hs :Autoformat
 
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 " Completion [[plugin/completion.vim]] {{{
 set complete=.,b,u,k,kspell,s
 set ignorecase
@@ -141,7 +150,7 @@ endif
 
 set background=light
 colorscheme notebook
-set nocursorcolumn nocursorline colorcolumn=0
+set cursorcolumn nocursorline colorcolumn=0
 
 set fillchars+=vert:│
 " }}}
@@ -150,3 +159,5 @@ augroup Mkdir
   autocmd!
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
+
+au FileType purescript let &l:commentstring='-- %s'

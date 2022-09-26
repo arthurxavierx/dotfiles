@@ -1,4 +1,4 @@
-let g:arpeggio_timeoutlen = 60
+let g:arpeggio_timeoutlen = 70
 
 function! s:Arpeggiois(chord, mapping)
   exe 'Arpeggio inoremap <silent> ' . a:chord . ' <C-r>=lib#Space("\\S")<CR>' . a:mapping

@@ -9,22 +9,23 @@
 
   "coc.source.around.firstMatch": false,
   "coc.source.buffer.firstMatch": false,
-  "coc.source.dictionary.firstMatch": true,
 
   "coc.source.syntax.priority": 1,
   "coc.source.dictionary.enable": true,
   "coc.source.dictionary.priority": 7,
   "coc.source.buffer.priority": 8,
   "coc.source.around.priority": 10,
+  "hover.target": "echo",
 
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "typescript",
-    "markdown",
     "purescript"
   ],
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
+
+  "diagnostic.checkCurrentLine": false,
 
   "languageserver": {
     "purescript": {

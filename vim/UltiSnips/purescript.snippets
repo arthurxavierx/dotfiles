@@ -2,15 +2,15 @@
 priority 1
 
 snippet module "Module header" b
-module ${1:`!v substitute(substitute(fnamemodify(expand("%:r"), ":~:."), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')`} where
-
-import ${2:Prelude}
+module ${1:`!v substitute(substitute(fnamemodify(expand("%:r"), ":~:."), '[/\\]','.','g'),'^\%(\l*\.\)*','','')`}
+	(
+	) where
 
 ${0}
 endsnippet
 
 snippet importq "Qualified import" b
-import ${1:Module} as ${2:Q}
+import ${1:Module} as ${2:$1}
 endsnippet
 
 snippet instance "Define a typeclass instance" b
@@ -35,23 +35,28 @@ snippet lam "Lambda" w
 \\${1:_} -> ${0}
 endsnippet
 
+snippet tyrec "Define a type synonym for a record" b
+type ${1:Type}
+	= { ${0}
+		}
+endsnippet
+
 snippet def "Define an equality with a type signature" b
-${1:name} :: ${2:Type}
+${1:name} :: ${2:?$1}
 $1 = ${0:`!p snip.rv = '?' + t[1].split(' ')[0]`}
 endsnippet
 
 snippet fun "Define a function with a type signature" b
-${1:function} :: ${2:Type}
+${1:function} :: ${2:?$1}
 $1 ${3:args} = ${0:`!p snip.rv = '?' + t[1].split(' ')[0]`}
 endsnippet
 
-snippet caseof "case ... of" b
-case ${1:?a} of
-	${2:_} ->
-		${0:?x}
+snippet caseof "case ... of"
+case ${1:_} of
+	${2:_} -> ${0:?x}
 endsnippet
 
-snippet ifthen "if ... then ... else" b
+snippet ifthen "if ... then ... else"
 if ${1:?cond} then
 	${2:?true}
 else
